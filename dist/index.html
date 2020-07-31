@@ -6,13 +6,63 @@
 
   <title>ToDo List</title>
 
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+  <link rel="stylesheet" href="css/styles.css?v=1.0"> 
   <link rel="icon" type="image/png"  href="favicon1.png">
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">		
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <div id="page-container">
+    <div id="content">
+      <div id="menu">
+        <div class="menu-item">
+          <div class="header">
+            <h2>Shortcuts</h2>
+            <span class='arrow' id="shortcuts"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul>
+            <li id="today">Today</li>
+            <li id="sevenDays">Next 7 days</li>
+            <li id="allTasks">All tasks</li>
+          </ul>
+        </div>
+        <div class="menu-item">
+          <div class="header">
+            <h2>Lists</h2>
+            <span class='arrow' id="lists"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul id="listsList">
+            <!-- <li id="personal">Personal</li>
+            <li id="work">Work</li>
+            <li id="grocery Store">Grocery Store</li> -->
+          </ul>
+        </div>
+        <div class="menu-item">
+          <div class="header">
+            <h2>Filters</h2>
+            <span class='arrow' id="filters"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          <ul>
+            
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <footer>
+        <div>
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script>&nbsp;&nbsp;Created by Stefan Karaferovic
+            | <i class="fab fa-github"></i> <a href="https://github.com/stefank-29" target="_blank">stefank-29</a>
+        </div>
+    </footer>
+  </div>
+
   <script src="main.js"></script>
 </body>
 </html>
