@@ -9,11 +9,11 @@
 import {ToDoItem} from './todoObjects';
 import {List} from './lists';
 import {todo} from './todoManipulation';
-import {todoDOM} from './todoDOM';
+import {todoMenuDOM} from './todoDOM';
 
 function callRenderFunctions(){
-    todoDOM.renderLists();
-    todoDOM.renderShortcuts();
+    todoMenuDOM.renderLists();
+    todoMenuDOM.renderShortcuts();
 }
 
 window.onload = callRenderFunctions();

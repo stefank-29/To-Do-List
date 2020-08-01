@@ -33,6 +33,11 @@ const todo = (() => {
     const addList = (list) => {
         lists.push(list);
     }
+    const getList = (listName) =>{
+        return lists.find(list => {
+            list.getName.toLowerCase === listName;
+        })
+    }
     const removeList = (listName) =>{
         const index = lists.findIndex(item => {
             return item.getName().toLowerCase() === listName.toLowerCase();
@@ -41,7 +46,7 @@ const todo = (() => {
         // sacuvati u local storage-u
     }
     return {
-        getLists, addList, removeList,
+        getLists, addList, removeList, getList,
     }
 })();
 

@@ -1,6 +1,7 @@
 import {todo} from './todoManipulation'
+import {todoTaskDOM} from './todoTaskDOM';
 
-const todoDOM = (() => {
+const todoMenuDOM = (() => {
     const renderLists = () => {
         const ul = document.querySelector('#listsList');
         let lists = todo.getLists(); // citati iz localStorage-a
@@ -10,6 +11,7 @@ const todoDOM = (() => {
             li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
             li.textContent = list.getName();
             ul.appendChild(li);
+            li.addEventListener('click', todoTaskDOM.renderListTasks);
            // console.log(list.getItems(), list.getName());
         })
 
@@ -40,4 +42,4 @@ const todoDOM = (() => {
 
 })();
 
-export {todoDOM};
+export {todoMenuDOM};
