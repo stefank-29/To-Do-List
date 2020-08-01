@@ -1,4 +1,5 @@
 import {todo} from './todoManipulation';
+import {taskModal} from './taskModal';
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -24,6 +25,7 @@ const todoTaskDOM = (() => {
         listHeader.appendChild(h2);
         const span = document.createElement('span');
         span.classList.add('add');
+        span.addEventListener('click', taskModal.showModal);
         span.innerHTML = `<i class="fas fa-plus-circle"></i>`;
         listHeader.appendChild(span);
         list.appendChild(listHeader);
