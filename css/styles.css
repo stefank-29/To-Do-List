@@ -152,7 +152,7 @@ body{
     margin-right: 1rem;
     padding: 0 2rem;
 }
-.taskItem #taskHeader{
+.taskItem .taskHeader{
     display: flex;
     align-items: center;
     font-size: 2.2rem;
@@ -163,7 +163,7 @@ body{
     width: 90%;
     border-bottom: 1px solid blue;
 }
-#taskHeader h2{
+.taskHeader h2{
     margin: 1rem 1rem 1rem 0rem;
 }
 
