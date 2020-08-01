@@ -7,7 +7,7 @@ const List = (listName) => {
     const addItem = (item) => {items.push(item)};
     const removeItem = (itemName) =>{
         const index = items.findIndex(item => {
-            return item.getName().toLowerCase === itemName.toLowerCase;
+            return item.getName().toLowerCase === itemName.toLowerCase; 
         })
     }
     return{

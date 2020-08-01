@@ -26,6 +26,10 @@ const todo = (() => {
     personal.addItem(item1);
     personal.addItem(item2);
     work.addItem(item3);
+    work.addItem(item2);
+    groceryStore.addItem(item2);
+    groceryStore.addItem(item1);
+
 
      
     let lists = [personal, work, groceryStore];
@@ -33,9 +37,9 @@ const todo = (() => {
     const addList = (list) => {
         lists.push(list);
     }
-    const getList = (listName) =>{
+    const getList = (listName) => {
         return lists.find(list => {
-            list.getName.toLowerCase === listName;
+            return list.getName().toLowerCase() === listName.toLowerCase();
         })
     }
     const removeList = (listName) =>{
