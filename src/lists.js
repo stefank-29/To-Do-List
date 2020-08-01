@@ -5,11 +5,13 @@ const List = (listName) => {
     const editName = (newName) => {name = newName};
     const getItems = () => items;
     const addItem = (item) => {items.push(item)};
-    const removerItem = (item) =>{
-        // logic to find item and delete
+    const removeItem = (itemName) =>{
+        const index = items.findIndex(item => {
+            return item.getName().toLowerCase === itemName.toLowerCase;
+        })
     }
     return{
-        getName, editName, getItems, addItem,
+        getName, editName, getItems, addItem, removeItem,
     }
 }
 
