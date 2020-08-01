@@ -1,7 +1,10 @@
 //? logika
+//TODO drag and drop
 //TODO printanje liste
 
+
 //? izgled
+//todo top shadow za button
 //todo check box custom
 //todo promena pozadine
 //todo padajuci meni na klik na strelicu
