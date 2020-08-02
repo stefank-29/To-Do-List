@@ -1,5 +1,5 @@
 import {todo} from './todoManipulation';
-import {taskModal} from './taskModal';
+import {taskModalDOM} from './taskModalDOM';
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -10,12 +10,11 @@ const todoTaskDOM = (() => {
             child = tasks.lastChild;
         }
     }
-    let currentList;
+    let currentList; // trenutna lista
     const renderListTasks = () => {
         _deleteListView();
-        //console.log(event.target);
         const listName = event.target.textContent;
-        //console.log(listName);
+        // header
         const list = document.createElement('div');
         list.classList.add('taskItem');
         const listHeader = document.createElement('div');
@@ -25,20 +24,27 @@ const todoTaskDOM = (() => {
         listHeader.appendChild(h2);
         const span = document.createElement('span');
         span.classList.add('add');
-        span.addEventListener('click', taskModal.showModal);
-        span.innerHTML = `<i class="fas fa-plus-circle"></i>`;
+        span.addEventListener('click', taskModalDOM.showModal);
+        const plus = document.createElement('i');
+        plus.classList.add('fas');
+        plus.classList.add('fa-plus-circle');
+        span.appendChild(plus);
         listHeader.appendChild(span);
         list.appendChild(listHeader);
 
         //insert tasks
-        //console.log(listName, todo.getList(listName).getItems());
         const tasks = todo.getList(listName).getItems();
         tasks.forEach(task => {
             const taskDiv = document.createElement('div');
             taskDiv.classList.add('taskDiv');
-            taskDiv.innerHTML = `<input type="checkbox" class="checkbox" id="${task.getTitle()}" value="${task.getTitle()}">`
+            const checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.setAttribute('id', task.getTitle());
+            checkbox.setAttribute('value', task.getTitle());
+            checkbox.classList.add('checkbox');
             const p = document.createElement('p');
             p.innerText = task.getTitle();
+            taskDiv.append(checkbox);
             taskDiv.appendChild(p);
             list.appendChild(taskDiv);
         });

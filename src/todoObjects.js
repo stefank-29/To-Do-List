@@ -6,6 +6,7 @@ const ToDoItem = (data) => {
     let dueDate = data.dueDate;
     let priority = data.priority;
     let note = data.note;
+    let finished = false;
     const getTitle = () => {return title};
     const getDescription = () => {return description};
     const getDueDate = () => {return dueDate};
@@ -16,10 +17,12 @@ const ToDoItem = (data) => {
     const editDueDate = (newDueDate) => {dueDate = newDueDate};
     const editPriority = (newPriority) => {priority = newPriority};
     const editNote = (newNote) => {note = newNote};
+    const toggleFinished = () => {finished = !finished;}
 
     return {
         getTitle, getDescription, getDueDate, getPriority, getNote,
-        editTitle, editDescription, editDueDate, editPriority, editNote,
+        editTitle, editDescription, editDueDate, editPriority, editNote, 
+        toggleFinished,
         
     }
 }

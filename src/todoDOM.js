@@ -7,16 +7,13 @@ const todoMenuDOM = (() => {
         let lists = todo.getLists(); // citati iz localStorage-a
         lists.forEach(list => {
             const li = document.createElement('li');
-            //console.log(list.getName().replace(" ", "").toLowerCase());
             li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
             li.textContent = list.getName();
             ul.appendChild(li);
             li.addEventListener('click', todoTaskDOM.renderListTasks);
-           // console.log(list.getItems(), list.getName());
         })
 
-    }
-
+    }   
     const renderShortcuts = () => {
         const li1 = document.createElement('li');
         li1.textContent = 'Today';
