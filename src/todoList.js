@@ -4,7 +4,8 @@ const List = (listName) => {
     const getName = () => name;
     const editName = (newName) => {name = newName};
     const getItems = () => items;
-    const addItem = (item) => {items.push(item)};
+    const getItemsNumber = () => items.length;
+    const addItem = (item) => {items.unshift(item)};
     const removeItem = (itemName) =>{
         const index = items.findIndex(item => {
             return item.getName().toLowerCase() === itemName.toLowerCase(); 
@@ -12,7 +13,7 @@ const List = (listName) => {
         items.splice(index, 1);
     }
     return{
-        getName, editName, getItems, addItem, removeItem,
+        getName, editName, getItems, getItemsNumber, addItem, removeItem,
     }
 }
 

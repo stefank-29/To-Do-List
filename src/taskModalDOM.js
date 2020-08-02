@@ -5,16 +5,21 @@ const taskModalDOM = (() => {
     const taskDiv = document.querySelector('.taskItem');
     let modalBg;
 
-    function _exitModal() {
-        //console.log(event.target, this);
+    function _exitModal(event) {
         if(event.target !== this){
             return;
         }
+        modalBg.style.transform = `translateX(-${event.pageX/3+30}px) translateY(-${event.pageY-50}px) scale(0.1)`;
         modalBg.parentNode.removeChild(modalBg);
+    }
+    function exitModalOnButton() {
+        modalBg.parentNode.removeChild(modalBg);
+
     }
     function _btnAddStyle(e) {
         const title = document.querySelector('#title');
         const button = document.querySelector('#addTask');
+        title.style = ``;
         if(title.value !== ''){
             button.classList.add('enabled');
         }else{
@@ -35,6 +40,7 @@ const taskModalDOM = (() => {
         inputTitle.addEventListener('change', _btnAddStyle);
         inputTitle.addEventListener('keyup', _btnAddStyle);
         inputTitle.addEventListener('keydown', _btnAddStyle);
+        //inputTitle.addEventListener('click', _btnAddStyle);
         inputTitle.setAttribute('type', 'text');
         inputTitle.setAttribute('id', 'title');
         inputTitle.setAttribute('size', '20');
@@ -99,7 +105,7 @@ const taskModalDOM = (() => {
     };
 
     return{
-        showModal, 
+        showModal, exitModalOnButton,
     }
 })();
 

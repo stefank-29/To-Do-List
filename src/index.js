@@ -1,4 +1,6 @@
 //? logika
+//todo brzi task
+//todo podeliti css
 //TODO drag and drop
 //TODO printanje liste
 

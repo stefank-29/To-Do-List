@@ -1,7 +1,8 @@
 import {ToDoItem} from './todoObjects';
+import {todoTaskDOM } from './todoTaskDOM';
+import {taskModalDOM} from './taskModalDOM';
 const addTaskFromModal = (() => {
-    
-    
+
     const addTask = (e) => {
         e.preventDefault();
         const title = document.querySelector('#title');
@@ -10,7 +11,7 @@ const addTaskFromModal = (() => {
         const priority = document.querySelector('#priority');
         const note = document.querySelector('#note');
         const btnAddTask = document.querySelector('#addTask');
-        
+
         const data = {
             title: title.value,
             description: description.value,
@@ -18,9 +19,18 @@ const addTaskFromModal = (() => {
             priotity: priority.value,
             note: note.value,
         }
-        console.log(data);
-        const task = ToDoItem(data);
-        console.log(task);
+        if(btnAddTask.classList.contains('enabled')){
+            const task = ToDoItem(data);
+            const currList = todoTaskDOM.getCurrentList();
+            currList.addItem(task);
+            todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
+            taskModalDOM.exitModalOnButton(); // iskljuciti prozor
+            // sacuvati u loacal storage-u
+        }else{
+            title.style.backgroundColor = 'rgba(156, 54, 54, 0.5)';
+        }
+        
+        
         
     }
 
