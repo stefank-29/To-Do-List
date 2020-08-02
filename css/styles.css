@@ -170,7 +170,7 @@ body{
 
 .taskDiv{
     display: flex;
-    width: 90%;
+    width: 87%;
     align-items: center;
     justify-content: start;
     padding: 1rem;
@@ -191,7 +191,7 @@ body{
     text-decoration: line-through;
     
 }
-.checkbox:checked ~ .checkbox{
+.checkbox:checked ~ .checkbox{ /*promena boje cb-a kad se cekira*/
     color: red;
 }
 
