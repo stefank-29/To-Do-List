@@ -1,5 +1,5 @@
 import {ToDoItem} from './todoObjects';
-import {List} from './lists';
+import {List} from './todoList';
 //za testiranje
 let data = {
     title : 'Zvezda',

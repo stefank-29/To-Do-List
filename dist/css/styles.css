@@ -235,7 +235,7 @@ body{
 #modalTask input[type="text"], input[type="date"], select, textarea{
     padding: 1rem;
     margin: 1rem 2rem;
-    width: 70%;
+    width: 75%;
     font-size: 2rem;
     background-color: rgba(197, 219, 253, 0.4);
     /* border: 1.5px solid rgb(54, 54, 167); */
@@ -243,7 +243,10 @@ body{
     outline: none;
     border: none;
     font-family: 'Mulish', sans-serif;
-
+    color: rgb(10, 37, 128);
+}
+#modalTask input[type="text"]::placeholder, textarea::placeholder{
+    color: rgb(10, 37, 128);
 }
 textarea{
     resize: none;
@@ -257,24 +260,28 @@ textarea{
     left: 0;
     width: 100%;
     padding: 1.5rem;
-    color: rgb(28, 64, 184);
+    /* color: rgb(10, 37, 128); */
+    color: rgba(0, 0, 0, 0.4);
     font-family: Helvetica, sans-serif;
     font-size: 2rem;
     background-color: whitesmoke;
     border: none;
     outline: none;
     box-shadow: 0 -3px 7px -3px rgba(41, 35, 35, 0.3);
-    cursor: pointer;
+    /* cursor: pointer; */
+    cursor: default;
     border-radius: 0px 0px 10px 10px;
 }
-#addTask:hover{
+
+#addTask.enabled{
+    cursor: pointer;
+    color: rgb(10, 37, 128);
+}
+#addTask:hover.enabled{
     background-color: #d8d1d1a8;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
-#modalTask input[type="text"]::placeholder{
-    color: #3a3131;
-}
 
 @keyframes popup{
     0%{

@@ -10,7 +10,7 @@
 //todo sakrivanje menija
 
 import {ToDoItem} from './todoObjects';
-import {List} from './lists';
+import {List} from './todoList';
 import {todo} from './todoManipulation';
 import {todoMenuDOM} from './todoDOM';
 

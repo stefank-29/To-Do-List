@@ -12,6 +12,15 @@ const taskModalDOM = (() => {
         }
         modalBg.parentNode.removeChild(modalBg);
     }
+    function _btnAddStyle(e) {
+        const title = document.querySelector('#title');
+        const button = document.querySelector('#addTask');
+        if(title.value !== ''){
+            button.classList.add('enabled');
+        }else{
+            button.classList.remove('enabled');
+        }
+    }
 
     function showModal(e){
         modalBg = document.createElement('div');
@@ -23,6 +32,9 @@ const taskModalDOM = (() => {
         const form = document.createElement('form');
         form.setAttribute('autocomplete', 'off');
         const inputTitle = document.createElement('input');
+        inputTitle.addEventListener('change', _btnAddStyle);
+        inputTitle.addEventListener('keyup', _btnAddStyle);
+        inputTitle.addEventListener('keydown', _btnAddStyle);
         inputTitle.setAttribute('type', 'text');
         inputTitle.setAttribute('id', 'title');
         inputTitle.setAttribute('size', '20');
@@ -38,9 +50,13 @@ const taskModalDOM = (() => {
         inputDate.setAttribute('name', 'dueDate');
         const select = document.createElement('select');
         select.setAttribute('id', 'priority');
+        const placeHolder = document.createElement('option');
+        placeHolder.setAttribute('selected', 'selected');
+        placeHolder.setAttribute('hidden', 'hidden');
+        placeHolder.setAttribute('disabled', 'disabled');
+        placeHolder.textContent = 'Priority';
         const option1 = document.createElement('option');
         option1.setAttribute('value', 'low');
-        option1.setAttribute('selected', 'selected');
         option1.textContent = 'Low';
         const option2 = document.createElement('option');
         option2.setAttribute('value', 'medium');
@@ -49,8 +65,9 @@ const taskModalDOM = (() => {
         option3.setAttribute('value', 'high');
         option3.textContent = 'High';
         const option4 = document.createElement('option');
-        option4.setAttribute('value', 'Urgent');
+        option4.setAttribute('value', 'urgent');
         option4.textContent = 'Urgent';
+        select.appendChild(placeHolder);
         select.appendChild(option1);
         select.appendChild(option2);
         select.appendChild(option3);

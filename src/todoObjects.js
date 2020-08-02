@@ -18,11 +18,11 @@ const ToDoItem = (data) => {
     const editPriority = (newPriority) => {priority = newPriority};
     const editNote = (newNote) => {note = newNote};
     const toggleFinished = () => {finished = !finished;}
-
+    const isFinished = () => finished;
     return {
         getTitle, getDescription, getDueDate, getPriority, getNote,
         editTitle, editDescription, editDueDate, editPriority, editNote, 
-        toggleFinished,
+        toggleFinished, isFinished,
         
     }
 }
