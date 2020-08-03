@@ -1,22 +1,27 @@
 import {todo} from './todoInitialLists'
 import {todoTaskDOM} from './todoTaskDOM';
+import { List } from './todoList';
+let JSONfn = require('json-fn');
 
 const todoMenuDOM = (() => {
     const renderLists = () => {
         const ul = document.querySelector('#listsList');
-        let retrivedData = localStorage.getItem("lists");
-        let liste = JSON.parse(retrivedData);
-        console.log(liste);
         let lists = todo.getLists(); // citati iz localStorage-a
+        let listsFromStorage = [];
         lists.forEach(list => {
-            const li = document.createElement('li');
-            li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
-            li.textContent = list.getName();
-            ul.appendChild(li);
-            li.addEventListener('click', todoTaskDOM.renderListTasks);
+            listsFromStorage.push(List(list.name, list.items)); //ubacujem liste iz ls
         })
+        //console.log(listsFromStorage);
+        
+         listsFromStorage.forEach(list => {
+              const li = document.createElement('li');
+              li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
+              li.textContent = list.getName();
+              ul.appendChild(li);
+              li.addEventListener('click', todoTaskDOM.renderListTasks);
+          })
 
-    }   
+    }
     const renderShortcuts = () => {
         const li1 = document.createElement('li');
         li1.textContent = 'Today';
@@ -31,14 +36,14 @@ const todoMenuDOM = (() => {
         ul.appendChild(li1);
         ul.appendChild(li2);
         ul.appendChild(li3);
-        
+
     }
 
     return {
         renderLists,  renderShortcuts,
     }
 
-   
+
 
 })();
 

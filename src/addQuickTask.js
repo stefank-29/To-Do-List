@@ -1,5 +1,6 @@
 import {ToDoItem} from './todoItem';
 import {todoTaskDOM} from './todoTaskDOM';
+import { todo } from './todoInitialLists';
 const addQuickTask = (() => {
     
     function addTask() {
@@ -14,9 +15,10 @@ const addQuickTask = (() => {
         if(this.classList.contains('enabled')){
             const task = ToDoItem(data);
             const list = todoTaskDOM.getCurrentList();
-            list.addItem(task); //todo mozda najbolje ovde
+            list.addItem(task);// cuvam u local storage
+            localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoTaskDOM.renderListTasks(undefined, list.getName());
-            //todo sacuvati u local storage
+        
         }
     }
 

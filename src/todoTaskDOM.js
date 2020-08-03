@@ -1,6 +1,8 @@
 import {todo} from './todoInitialLists';
 import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
+let JSONfn = require('json-fn');
+
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -57,7 +59,10 @@ const todoTaskDOM = (() => {
         listHeader.appendChild(span);
         list.appendChild(listHeader);
 
-        //insert tasks
+        //insert task
+        // let retrivedData = localStorage.getItem('lists');
+        // const liste  = JSON.parse(retrivedData);
+        // console.log(liste);
         const tasks = todo.getList(listName).getItems(); //iz local storage-a
         const listTasks = document.createElement('div');
         listTasks.classList.add('listTasks');
@@ -66,11 +71,11 @@ const todoTaskDOM = (() => {
             taskDiv.classList.add('taskDiv');
             const checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
-            checkbox.setAttribute('id', task.getTitle());
-            checkbox.setAttribute('value', task.getTitle());
+            checkbox.setAttribute('id', task.title);
+            checkbox.setAttribute('value', task.title);
             checkbox.classList.add('checkbox');
             const p = document.createElement('p');
-            p.innerText = task.getTitle();
+            p.innerText = task.title;
             taskDiv.append(checkbox);
             taskDiv.appendChild(p);
             listTasks.appendChild(taskDiv);

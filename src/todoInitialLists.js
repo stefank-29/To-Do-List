@@ -1,5 +1,6 @@
 import {ToDoItem} from './todoItem';
 import {List} from './todoList';
+//let JSONfn = require('json-fn');
 //za testiranje
 let data = {
     title : 'Zvezda',
@@ -47,15 +48,31 @@ const todo = (() => {
     function setListsToStorage() {
         //localStorage.clear();
         localStorage.setItem('lists', JSON.stringify(lists));
-        
+        let listsFromStorage = getLists();
+        lists.length = 0;
+        listsFromStorage.forEach(l => {
+            lists.push(List(l.name, l.items));
+        })
+        return lists;
     }
-
-    const getLists = () => lists;
+    const getLists = () => {
+        let retrivedData = localStorage.getItem("lists");
+        return JSON.parse(retrivedData);
+    };
+    
     const addList = (list) => {
+        lists = getLists();
         lists.push(list);
-        //localStorage.setItem('lists', JSON.stringify(lists));
+        //console.log(lists);
+        localStorage.setItem('lists', JSON.stringify(lists));
     }
-    const getList = (listName) => {
+    function getList (listName) {
+        let listsFromStorage = getLists();
+        lists.length = 0;
+        listsFromStorage.forEach(l => {
+            lists.push(List(l.name, l.items));
+        })
+        //console.log(lists);
         return lists.find(list => {
             return list.getName().toLowerCase() === listName.toLowerCase();
         })

@@ -1,5 +1,6 @@
 //? logika
 //TODO local storage
+//todo ako je prazan ls napuniti ga na pocetku
 
 //kasnije
 //TODO drag and drop
