@@ -1,6 +1,7 @@
 import {ToDoItem} from './todoItem';
 import {todoTaskDOM } from './todoTaskDOM';
 import {taskModalDOM} from './taskModalDOM';
+import {todo} from './todoInitialLists'
 const addTaskFromModal = (() => {
 
     const addTask = (e) => {
@@ -23,6 +24,7 @@ const addTaskFromModal = (() => {
             const task = ToDoItem(data);
             const currList = todoTaskDOM.getCurrentList();
             currList.addItem(task);
+            localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
             taskModalDOM.exitModalOnButton(); // iskljuciti prozor
             //todo sacuvati u loacal storage-u

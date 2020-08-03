@@ -47,31 +47,32 @@ const todo = (() => {
 
     function setListsToStorage() {
         //localStorage.clear();
+        lists = getLists();
         localStorage.setItem('lists', JSON.stringify(lists));
-        let listsFromStorage = getLists();
+       
+    }
+    const getLists = () => {
+        let retrivedData = localStorage.getItem("lists");
+        let listsFromStorage = JSON.parse(retrivedData);
         lists.length = 0;
         listsFromStorage.forEach(l => {
             lists.push(List(l.name, l.items));
         })
         return lists;
-    }
-    const getLists = () => {
-        let retrivedData = localStorage.getItem("lists");
-        return JSON.parse(retrivedData);
     };
     
     const addList = (list) => {
         lists = getLists();
         lists.push(list);
-        //console.log(lists);
         localStorage.setItem('lists', JSON.stringify(lists));
     }
     function getList (listName) {
-        let listsFromStorage = getLists();
-        lists.length = 0;
-        listsFromStorage.forEach(l => {
-            lists.push(List(l.name, l.items));
-        })
+        // let listsFromStorage = getLists();
+        // lists.length = 0;
+        // listsFromStorage.forEach(l => {
+        //     lists.push(List(l.name, l.items));
+        // })
+        lists = getLists();
         //console.log(lists);
         return lists.find(list => {
             return list.getName().toLowerCase() === listName.toLowerCase();
