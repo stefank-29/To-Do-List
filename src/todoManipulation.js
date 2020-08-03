@@ -1,4 +1,4 @@
-import {ToDoItem} from './todoObjects';
+import {ToDoItem} from './todoItem';
 import {List} from './todoList';
 //za testiranje
 let data = {

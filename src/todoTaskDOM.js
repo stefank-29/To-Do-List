@@ -1,5 +1,6 @@
 import {todo} from './todoManipulation';
 import {taskModalDOM} from './taskModalDOM';
+import {addQuickTask} from './addQuickTask';
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -13,13 +14,29 @@ const todoTaskDOM = (() => {
         }
     }
 
+    function _upButtonStyle(e) {
+        const input = this;
+        const button = this.parentNode.querySelector('.up');   
+        if(input.value !== ''){
+            button.classList.add('enabled');
+            input.classList.add('enabled'); 
+            if(e.key === 'Enter'){
+                addQuickTask.addTaskOnEnter(input);
+            }
+        }else{
+            button.classList.remove('enabled');
+            input.classList.remove('enabled');
+        }
+        
+    }
+
     const renderListTasks = (event, listTitle) => {
         _deleteListView();
         let listName;
         if(event !== undefined){ // ako sam kliknuo u meniju
             listName = event.target.textContent;
         }else{
-            listName = listTitle;
+            listName = listTitle;  // nakon dodavanja
         }
         
         // header
@@ -60,17 +77,23 @@ const todoTaskDOM = (() => {
         });
         list.appendChild(listTasks);
 
+        //quick task
         const quickTask = document.createElement('div');
         quickTask.classList.add('quickTask');
         const input = document.createElement('input');
+        input.classList.add('quickTaskInput');
         input.setAttribute('type', 'text');
         input.setAttribute('placeholder', 'Click to quickly add task');
+        input.addEventListener('change', _upButtonStyle);
+        input.addEventListener('keydown', _upButtonStyle);
+        input.addEventListener('keyup', _upButtonStyle);
         const span2 = document.createElement('span');
         const arrowUp = document.createElement('i');
         arrowUp.classList.add('fas');
         arrowUp.classList.add('fa-arrow-circle-up');
         span2.appendChild(arrowUp);
         span2.classList.add('up');
+        span2.addEventListener('click', addQuickTask.addTask);
         quickTask.appendChild(input);
         quickTask.appendChild(span2);
         list.appendChild(quickTask);
@@ -80,6 +103,7 @@ const todoTaskDOM = (() => {
     }
 
     const getCurrentList = () => currentList;
+
     return{
         renderListTasks, getCurrentList,
     }

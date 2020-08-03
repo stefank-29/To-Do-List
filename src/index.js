@@ -1,20 +1,25 @@
 //? logika
-//todo brzi task
-//todo podeliti css
+//TODO local storage
+
+//kasnije
 //TODO drag and drop
 //TODO printanje liste
 
 
 //? izgled
-//todo check box custom
-//todo promena pozadine
+//meni
 //todo padajuci meni na klik na strelicu
 //todo sakrivanje menija
+//todo broj taskova u listi za meni 
+//check box
+//todo check box custom
+//pozadina
+//todo promena pozadine
 
-import {ToDoItem} from './todoObjects';
+import {ToDoItem} from './todoItem';
 import {List} from './todoList';
 import {todo} from './todoManipulation';
-import {todoMenuDOM} from './todoDOM';
+import {todoMenuDOM} from './todoMenuDOM';
 
 function callRenderFunctions(){
     todoMenuDOM.renderLists();

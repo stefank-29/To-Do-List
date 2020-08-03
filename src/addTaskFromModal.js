@@ -1,4 +1,4 @@
-import {ToDoItem} from './todoObjects';
+import {ToDoItem} from './todoItem';
 import {todoTaskDOM } from './todoTaskDOM';
 import {taskModalDOM} from './taskModalDOM';
 const addTaskFromModal = (() => {
@@ -25,13 +25,10 @@ const addTaskFromModal = (() => {
             currList.addItem(task);
             todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
             taskModalDOM.exitModalOnButton(); // iskljuciti prozor
-            // sacuvati u loacal storage-u
+            //todo sacuvati u loacal storage-u
         }else{
             title.style.backgroundColor = 'rgba(156, 54, 54, 0.5)';
-        }
-        
-        
-        
+        }        
     }
 
     return{

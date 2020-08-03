@@ -1,5 +1,3 @@
-
-
 const ToDoItem = (data) => {
     let title = data.title;
     let description = data.description;
