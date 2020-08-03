@@ -14,8 +14,9 @@ const addQuickTask = (() => {
         if(this.classList.contains('enabled')){
             const task = ToDoItem(data);
             const list = todoTaskDOM.getCurrentList();
-            list.addItem(task);
+            list.addItem(task); //todo mozda najbolje ovde
             todoTaskDOM.renderListTasks(undefined, list.getName());
+            //todo sacuvati u local storage
         }
     }
 

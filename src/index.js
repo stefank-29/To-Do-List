@@ -18,12 +18,14 @@
 
 import {ToDoItem} from './todoItem';
 import {List} from './todoList';
-import {todo} from './todoManipulation';
+import {todo} from './todoInitialLists';
 import {todoMenuDOM} from './todoMenuDOM';
 
 function callRenderFunctions(){
+    todo.setListsToStorage();
     todoMenuDOM.renderLists();
     todoMenuDOM.renderShortcuts();
+    
 }
 
 window.onload = callRenderFunctions();

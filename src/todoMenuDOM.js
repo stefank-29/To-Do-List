@@ -1,9 +1,12 @@
-import {todo} from './todoManipulation'
+import {todo} from './todoInitialLists'
 import {todoTaskDOM} from './todoTaskDOM';
 
 const todoMenuDOM = (() => {
     const renderLists = () => {
         const ul = document.querySelector('#listsList');
+        let retrivedData = localStorage.getItem("lists");
+        let liste = JSON.parse(retrivedData);
+        console.log(liste);
         let lists = todo.getLists(); // citati iz localStorage-a
         lists.forEach(list => {
             const li = document.createElement('li');

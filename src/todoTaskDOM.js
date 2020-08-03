@@ -1,4 +1,4 @@
-import {todo} from './todoManipulation';
+import {todo} from './todoInitialLists';
 import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
 
@@ -58,7 +58,7 @@ const todoTaskDOM = (() => {
         list.appendChild(listHeader);
 
         //insert tasks
-        const tasks = todo.getList(listName).getItems();
+        const tasks = todo.getList(listName).getItems(); //iz local storage-a
         const listTasks = document.createElement('div');
         listTasks.classList.add('listTasks');
         tasks.forEach(task => {

@@ -20,7 +20,7 @@ const ToDoItem = (data) => {
     return {
         getTitle, getDescription, getDueDate, getPriority, getNote,
         editTitle, editDescription, editDueDate, editPriority, editNote, 
-        toggleFinished, isFinished,
+        toggleFinished, isFinished, title, description, dueDate, priority, note, finished
         
     }
 }

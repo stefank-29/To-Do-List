@@ -16,6 +16,18 @@ let data2 = {
          note: 'daaaa',
 }
 
+/*
+/upisivanje u ls
+localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
+
+/citanje iz ls-a
+let retrivedData = localStorage.getItem("MyLibrary");
+myLibrary = JSON.parse(retrivedData);
+
+
+
+*/
+
 const todo = (() => {
     let personal = List('Personal');
     let work = List('Work');
@@ -30,12 +42,18 @@ const todo = (() => {
     groceryStore.addItem(item2);
     groceryStore.addItem(item1);
 
-
-     
     let lists = [personal, work, groceryStore];
+
+    function setListsToStorage() {
+        //localStorage.clear();
+        localStorage.setItem('lists', JSON.stringify(lists));
+        
+    }
+
     const getLists = () => lists;
     const addList = (list) => {
         lists.push(list);
+        //localStorage.setItem('lists', JSON.stringify(lists));
     }
     const getList = (listName) => {
         return lists.find(list => {
@@ -47,10 +65,10 @@ const todo = (() => {
             return item.getName().toLowerCase() === listName.toLowerCase();
         })
         lists.splice(index, 1);
-        // sacuvati u local storage-u
+        //localStorage.setItem('lists', JSON.stringify(lists));
     }
     return {
-        getLists, addList, removeList, getList,
+        getLists, addList, removeList, getList, setListsToStorage, lists,
     }
 })();
 
