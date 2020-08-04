@@ -1,6 +1,7 @@
 import {todo} from './todoInitialLists'
 import {todoTaskDOM} from './todoTaskDOM';
 import { List } from './todoList';
+import { taskModalDOM } from './taskModalDOM';
 //let JSONfn = require('json-fn');
 
 const todoMenuDOM = (() => {
@@ -65,9 +66,13 @@ const todoMenuDOM = (() => {
 
     }
 
+
     document.querySelectorAll('.arrow').forEach(arrow => {
         arrow.addEventListener('click', _toggleMenu);
-    })
+    })  
+
+    document.querySelector('#menuAddTask').addEventListener('click', taskModalDOM.showModal);
+
 
 
     return {

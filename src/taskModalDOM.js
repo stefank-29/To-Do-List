@@ -33,7 +33,7 @@ const taskModalDOM = (() => {
         //task modal
         const modal = document.createElement('div');
         modal.setAttribute('id', 'modalTask');
-        modal.style.transform = `translateX(-${e.pageX/3+30}px) translateY(-${e.pageY-50}px) scale(0.1)`;
+        modal.style.transform = `translateX(-${e.pageX/3+30}px) translateY(-${e.pageY-150}px) scale(0.1)`;
         const form = document.createElement('form');
         form.setAttribute('autocomplete', 'off');
         const inputTitle = document.createElement('input');

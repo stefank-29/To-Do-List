@@ -53,6 +53,27 @@ body{
     cursor: default;
 
 }
+#menuAddTask{
+    width: 80%;
+    padding: 1.1rem;
+    font-size: 1.5rem;
+    font-family: Helvetica, sans-serif;
+    font-weight: 700;
+    color: whitesmoke;
+    background-color: rgb(47, 150, 253);
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+}
+#menuAddTask i{
+    margin-right: 0.5rem;
+}
+#menuAddTask:hover{
+    color: white;
+    background-color: rgba(47, 150, 253, 0.85);
+}
 .menu-item{
     display: flex;
     flex-direction: column;
