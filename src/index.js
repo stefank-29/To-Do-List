@@ -7,7 +7,7 @@
 //todo efekti za taskove
 
 //meni
-//todo button za dodavanje taska    
+//todo add task na dugme iz menija 
 //todo sakrivanje menija
 
 

@@ -1,5 +1,5 @@
 import {addTaskFromModal} from './addTaskFromModal';
-
+import {todo} from './todoInitialLists';
 const taskModalDOM = (() => {
     const container = document.querySelector('#tasksContainer');
     const taskDiv = document.querySelector('.taskItem');
@@ -28,24 +28,51 @@ const taskModalDOM = (() => {
     }
 
     function showModal(e){
+        //console.log(this.getAttribute('id') == 'menuAddTask');
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
         //task modal
         const modal = document.createElement('div');
         modal.setAttribute('id', 'modalTask');
-        modal.style.transform = `translateX(-${e.pageX/3+30}px) translateY(-${e.pageY-150}px) scale(0.1)`;
+        modal.style.transform = `translateX(-50%) translateY(-50%) scale(0.1)`;
         const form = document.createElement('form');
         form.setAttribute('autocomplete', 'off');
         const inputTitle = document.createElement('input');
         inputTitle.addEventListener('change', _btnAddStyle);
         inputTitle.addEventListener('keyup', _btnAddStyle);
         inputTitle.addEventListener('keydown', _btnAddStyle);
+        setTimeout(function(){inputTitle.focus();}, 500); 
         //inputTitle.addEventListener('click', _btnAddStyle);
         inputTitle.setAttribute('type', 'text');
         inputTitle.setAttribute('id', 'title');
         inputTitle.setAttribute('size', '20');
         inputTitle.setAttribute('placeholder', 'Task name');
-        inputTitle.setAttribute('maxlength', '50')
+        inputTitle.setAttribute('maxlength', '50');
+        //if add task from menu
+        let selectList;
+        if(this.getAttribute('id') === 'menuAddTask'){
+            selectList = document.createElement('select');
+            selectList.setAttribute('id', 'listSelect');
+            const pHolder = document.createElement('option');
+            pHolder.setAttribute('selected', 'selected');
+            pHolder.setAttribute('hidden', 'hidden');
+            pHolder.setAttribute('disabled', 'disabled');
+            pHolder.setAttribute('value', '');
+            pHolder.textContent = 'Choose list:';
+            selectList.appendChild(pHolder);
+            const liste = todo.getLists();
+            liste.forEach(lista => {
+                const option = document.createElement('option');
+                option.setAttribute('value', lista.getName());
+                option.textContent = lista.getName();
+                selectList.appendChild(option);
+            })
+            modal.style.height = '60rem';
+        }
+        selectList.addEventListener('click', function(){selectList.style = ''; console.log('aaa');})
+        selectList.addEventListener('mousedown', function(){selectList.style = ''; console.log('aaa');})
+
+        /***********************************/
         const inputDescription = document.createElement('input');
         inputDescription.setAttribute('type', 'text');
         inputDescription.setAttribute('id', 'description');
@@ -61,6 +88,7 @@ const taskModalDOM = (() => {
         placeHolder.setAttribute('selected', 'selected');
         placeHolder.setAttribute('hidden', 'hidden');
         placeHolder.setAttribute('disabled', 'disabled');
+        placeHolder.setAttribute('value', '');
         placeHolder.textContent = 'Priority';
         const option1 = document.createElement('option');
         option1.setAttribute('value', 'low');
@@ -89,6 +117,9 @@ const taskModalDOM = (() => {
         btnAddTask.textContent = 'Add task';
         btnAddTask.addEventListener('click', addTaskFromModal.addTask);
         form.appendChild(inputTitle);
+        if(this.getAttribute('id') === 'menuAddTask'){
+            form.appendChild(selectList);
+        }
         form.appendChild(inputDescription);
         form.appendChild(inputDate);
         form.appendChild(select);

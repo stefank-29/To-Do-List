@@ -46,8 +46,8 @@ const todo = (() => {
     let lists = [personal, work, groceryStore];
 
     function setListsToStorage() {
-        localStorage.clear();
-        //lists = getLists();  //ovo ne treba kad je prazno
+        //localStorage.clear();
+        lists = getLists();  //ovo ne treba kad je prazno
         localStorage.setItem('lists', JSON.stringify(lists));
        
     }
