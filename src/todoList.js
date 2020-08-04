@@ -25,10 +25,6 @@ const List = (listName, listItems) => {
     const addItem = (item) => {
         items.unshift(item);
         // loaclstg
-       
-         //let lists = _getLists();
-         
-        // console.log(todoTaskDOM.getCurrentList());
         // localStorage.setItem('lists', JSON.stringify(lists));
 
     };

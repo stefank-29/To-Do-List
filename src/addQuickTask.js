@@ -34,6 +34,7 @@ const addQuickTask = (() => {
         const task = ToDoItem(data);
         const list = todoTaskDOM.getCurrentList();
         list.addItem(task);
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
         todoTaskDOM.renderListTasks(undefined, list.getName());
     }
 

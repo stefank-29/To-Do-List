@@ -53,10 +53,10 @@ const todo = (() => {
     }
     const getLists = () => {
         let retrivedData = localStorage.getItem("lists");
-        let listsFromStorage = JSON.parse(retrivedData);
+        let listsFromStorage = JSON.parse(retrivedData); //lista samo sa podacima
         lists.length = 0;
         listsFromStorage.forEach(l => {
-            lists.push(List(l.name, l.items));
+            lists.push(List(l.name, l.items)); // svaki pu pravim novu listu
         })
         return lists;
     };
@@ -66,14 +66,8 @@ const todo = (() => {
         lists.push(list);
         localStorage.setItem('lists', JSON.stringify(lists));
     }
-    function getList (listName) {
-        // let listsFromStorage = getLists();
-        // lists.length = 0;
-        // listsFromStorage.forEach(l => {
-        //     lists.push(List(l.name, l.items));
-        // })
+    function getList (listName) {  
         lists = getLists();
-        //console.log(lists);
         return lists.find(list => {
             return list.getName().toLowerCase() === listName.toLowerCase();
         })
@@ -83,7 +77,7 @@ const todo = (() => {
             return item.getName().toLowerCase() === listName.toLowerCase();
         })
         lists.splice(index, 1);
-        //localStorage.setItem('lists', JSON.stringify(lists));
+        localStorage.setItem('lists', JSON.stringify(lists));
     }
     return {
         getLists, addList, removeList, getList, setListsToStorage, lists,

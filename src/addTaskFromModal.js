@@ -27,7 +27,7 @@ const addTaskFromModal = (() => {
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
             taskModalDOM.exitModalOnButton(); // iskljuciti prozor
-            //todo sacuvati u loacal storage-u
+            
         }else{
             title.style.backgroundColor = 'rgba(156, 54, 54, 0.5)';
         }        

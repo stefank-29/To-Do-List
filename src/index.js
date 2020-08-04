@@ -1,17 +1,25 @@
 //? logika
-//TODO local storage
-//todo ako je prazan ls napuniti ga na pocetku
+//todo new list
+//todo delete/edit list  
+//todo task info
+//todo edit taska
+//todo brisanje taska
+//todo efekti za taskove
+
+//meni
+//todo button za dodavanje taska    
+//todo sakrivanje menija
+//todo broj taskova u listi za meni 
+
+
+
+
 
 //kasnije
+//todo ako je prazan ls napuniti ga na pocetku
 //TODO drag and drop
 //TODO printanje liste
 
-
-//? izgled
-//meni
-//todo padajuci meni na klik na strelicu
-//todo sakrivanje menija
-//todo broj taskova u listi za meni 
 //check box
 //todo check box custom
 //pozadina

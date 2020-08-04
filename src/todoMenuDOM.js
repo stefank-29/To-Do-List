@@ -1,25 +1,42 @@
 import {todo} from './todoInitialLists'
 import {todoTaskDOM} from './todoTaskDOM';
 import { List } from './todoList';
-let JSONfn = require('json-fn');
+//let JSONfn = require('json-fn');
 
 const todoMenuDOM = (() => {
+
+    function _toggleMenu() {
+        const lists = document.querySelector('#listsList');
+        const shortcuts = document.querySelector('#shortcutsList');
+        //const filters = document.querySelector('#listsList');
+
+        if(this.getAttribute('id') == 'lists'){
+            lists.classList.toggle('hide');
+        }else if(this.getAttribute('id') == 'shortcuts'){
+            shortcuts.classList.toggle('hide');
+        }
+
+        this.firstChild.classList.toggle('fa-chevron-down');
+        this.firstChild.classList.toggle('fa-chevron-up');
+
+    }
+
+
     const renderLists = () => {
         const ul = document.querySelector('#listsList');
         let lists = todo.getLists(); // citati iz localStorage-a
-        let listsFromStorage = [];
         lists.forEach(list => {
-            listsFromStorage.push(List(list.name, list.items)); //ubacujem liste iz ls
-        })
-        //console.log(listsFromStorage);
-        
-         listsFromStorage.forEach(list => {
               const li = document.createElement('li');
               li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
               li.textContent = list.getName();
+            //   const span = document.createElement('span');
+            //   span.classList.add('taskNumber');
+            //   //console.log(list.getItems().length);
+            //   span.textContent = `${list.getItems().length}`
+            //   li.appendChild(span);
               ul.appendChild(li);
               li.addEventListener('click', todoTaskDOM.renderListTasks);
-          })
+        })
 
     }
     const renderShortcuts = () => {
@@ -38,6 +55,11 @@ const todoMenuDOM = (() => {
         ul.appendChild(li3);
 
     }
+
+    document.querySelectorAll('.arrow').forEach(arrow => {
+        arrow.addEventListener('click', _toggleMenu);
+    })
+
 
     return {
         renderLists,  renderShortcuts,

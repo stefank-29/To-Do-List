@@ -10,7 +10,7 @@ body{
     margin: 0;
     padding: 0;
     height: 100%;
-    background-image: url('../images/cover1.jpg');
+    background-image: url('../images/cover7.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -59,14 +59,21 @@ body{
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
+    margin-bottom: 2rem;
 }
 #menu ul{
     list-style: none;
     padding-left: 0;
-    width: 100%;
+    width: 80%;
     /* height: 0; */
 }
+#menu ul.hide{
+    display: none;
+}
 #menu li{
+    display: flex;
+    align-items: center;
+    justify-content: start;
     padding: 1rem 0.3rem;
     font-size: 1.7rem;
     font-weight: 400 !important;
@@ -74,9 +81,29 @@ body{
     cursor: pointer;
     /* display: none; */
 }
-#menu li:hover{
+#menu li.active{
+    color: rgb(10, 37, 128);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     background-color: rgba(99, 153, 167, 0.2);
 }
+#menu li.active:hover{
+    background-color: rgba(99, 153, 167, 0.2);
+}
+#menu li.hide{
+    display: none;
+}
+#menu li:hover{
+    background-color: rgba(99, 153, 167, 0.1);
+}
+li .taskNumber{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border-radius: 50%;
+}
+
 #menu h2{
     font-size: 2.2rem;
     font-weight: 700;

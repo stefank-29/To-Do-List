@@ -1,8 +1,6 @@
 import {todo} from './todoInitialLists';
 import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
-let JSONfn = require('json-fn');
-
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -31,10 +29,22 @@ const todoTaskDOM = (() => {
         }
         
     }
+    function _deactiveAllLists(ul) {
+        const lists = ul.querySelectorAll('li');
+        lists.forEach(list => {
+            list.classList.remove('active');
+        })
+    }
 
-    const renderListTasks = (event, listTitle) => {
+    function renderListTasks(event, listTitle) {
         _deleteListView();
         let listName;
+        //console.log(this.tagName === "LI");
+        if(this.tagName === "LI"){ //ako sam kliknuo na meni
+            _deactiveAllLists(this.parentNode);
+            this.classList.add('active');
+        }
+
         if(event !== undefined){ // ako sam kliknuo u meniju
             listName = event.target.textContent;
         }else{
