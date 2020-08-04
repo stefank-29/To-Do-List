@@ -46,10 +46,11 @@ const todoTaskDOM = (() => {
         }
 
         if(event !== undefined){ // ako sam kliknuo u meniju
-            listName = event.target.textContent;
+            listName = this.firstChild.textContent;
         }else{
             listName = listTitle;  // nakon dodavanja
         }
+        
         
         // header
         const list = document.createElement('div');

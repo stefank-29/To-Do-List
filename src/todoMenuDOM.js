@@ -29,11 +29,11 @@ const todoMenuDOM = (() => {
               const li = document.createElement('li');
               li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
               li.textContent = list.getName();
-            //   const span = document.createElement('span');
-            //   span.classList.add('taskNumber');
-            //   //console.log(list.getItems().length);
-            //   span.textContent = `${list.getItems().length}`
-            //   li.appendChild(span);
+              const span = document.createElement('span');
+              span.classList.add('taskNumber');
+              //console.log(list.getItems().length);
+              span.textContent = `${list.getItems().length}`
+              li.appendChild(span);
               ul.appendChild(li);
               li.addEventListener('click', todoTaskDOM.renderListTasks);
         })
