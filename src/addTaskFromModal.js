@@ -1,6 +1,7 @@
 import {ToDoItem} from './todoItem';
 import {todoTaskDOM } from './todoTaskDOM';
 import {taskModalDOM} from './taskModalDOM';
+import {todoMenuDOM} from './todoMenuDOM';
 import {todo} from './todoInitialLists'
 const addTaskFromModal = (() => {
 
@@ -27,7 +28,8 @@ const addTaskFromModal = (() => {
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
             taskModalDOM.exitModalOnButton(); // iskljuciti prozor
-            
+            todoMenuDOM.renderLists();
+            todoMenuDOM.renderShortcuts();
         }else{
             title.style.backgroundColor = 'rgba(156, 54, 54, 0.5)';
         }        

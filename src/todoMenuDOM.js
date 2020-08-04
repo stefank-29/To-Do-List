@@ -21,17 +21,25 @@ const todoMenuDOM = (() => {
 
     }
 
+    function _deleteMenu(menuUl) {
+        const items = menuUl.querySelectorAll('li');
+        items.forEach(item => {
+            item.parentNode.removeChild(item);
+        })
+        
+    }
+
 
     const renderLists = () => {
         const ul = document.querySelector('#listsList');
         let lists = todo.getLists(); // citati iz localStorage-a
+        _deleteMenu(ul);
         lists.forEach(list => {
               const li = document.createElement('li');
               li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
               li.textContent = list.getName();
               const span = document.createElement('span');
               span.classList.add('taskNumber');
-              //console.log(list.getItems().length);
               span.textContent = `${list.getItems().length}`
               li.appendChild(span);
               ul.appendChild(li);
@@ -50,6 +58,7 @@ const todoMenuDOM = (() => {
         li3.textContent = 'All tasks';
         li3.setAttribute('id', 'allTasks');
         const ul = document.querySelector('#shortcutsList');
+        _deleteMenu(ul);
         ul.appendChild(li1);
         ul.appendChild(li2);
         ul.appendChild(li3);

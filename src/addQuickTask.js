@@ -1,5 +1,6 @@
 import {ToDoItem} from './todoItem';
 import {todoTaskDOM} from './todoTaskDOM';
+import {todoMenuDOM} from './todoMenuDOM';
 import { todo } from './todoInitialLists';
 const addQuickTask = (() => {
     
@@ -18,6 +19,8 @@ const addQuickTask = (() => {
             list.addItem(task);// cuvam u local storage
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoTaskDOM.renderListTasks(undefined, list.getName());
+            todoMenuDOM.renderLists();
+            todoMenuDOM.renderShortcuts();
         
         }
     }
@@ -36,6 +39,8 @@ const addQuickTask = (() => {
         list.addItem(task);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         todoTaskDOM.renderListTasks(undefined, list.getName());
+        todoMenuDOM.renderLists();
+        todoMenuDOM.renderShortcuts();
     }
 
     return {
