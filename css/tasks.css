@@ -16,7 +16,7 @@
 #info{
     height: 10%;
     width: 100%;
-    background-color: rgba(145, 122, 122, 0.5);
+    /* background-color: rgba(145, 122, 122, 0.5); */
 }
 #tasks{
     box-sizing: border-box;
