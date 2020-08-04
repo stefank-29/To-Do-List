@@ -45,6 +45,7 @@ const taskModalDOM = (() => {
         inputTitle.setAttribute('id', 'title');
         inputTitle.setAttribute('size', '20');
         inputTitle.setAttribute('placeholder', 'Task name');
+        inputTitle.setAttribute('maxlength', '24')
         const inputDescription = document.createElement('input');
         inputDescription.setAttribute('type', 'text');
         inputDescription.setAttribute('id', 'description');

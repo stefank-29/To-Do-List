@@ -26,10 +26,12 @@ const addTaskFromModal = (() => {
             const currList = todoTaskDOM.getCurrentList();
             currList.addItem(task);
             localStorage.setItem('lists', JSON.stringify(todo.lists));
-            todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
-            taskModalDOM.exitModalOnButton(); // iskljuciti prozor
             todoMenuDOM.renderLists();
             todoMenuDOM.renderShortcuts();
+            taskModalDOM.exitModalOnButton(); // iskljuciti prozor
+             //render liste
+            todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
+
         }else{
             title.style.backgroundColor = 'rgba(156, 54, 54, 0.5)';
         }        

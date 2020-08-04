@@ -9,7 +9,6 @@
 //meni
 //todo button za dodavanje taska    
 //todo sakrivanje menija
-//todo broj taskova u listi za meni 
 
 
 

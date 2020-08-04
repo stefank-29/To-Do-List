@@ -99,6 +99,7 @@ const todoTaskDOM = (() => {
         const input = document.createElement('input');
         input.classList.add('quickTaskInput');
         input.setAttribute('type', 'text');
+        input.setAttribute('maxlength', '24');
         input.setAttribute('placeholder', 'Click to quickly add task');
         input.addEventListener('change', _upButtonStyle);
         input.addEventListener('keydown', _upButtonStyle);
