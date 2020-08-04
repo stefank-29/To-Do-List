@@ -43,7 +43,7 @@ const addTaskFromModal = (() => {
                 todoMenuDOM.renderShortcuts();
                 taskModalDOM.exitModalOnButton(); // iskljuciti prozor
                 //render liste
-                //todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
+                todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
         
             }else{
                 selectList.style.backgroundColor = 'rgba(156, 54, 54, 0.4)';
