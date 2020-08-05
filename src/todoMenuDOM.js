@@ -16,7 +16,7 @@ const todoMenuDOM = (() => {
         if(this.getAttribute('id') == 'lists'){
             lists.classList.toggle('hide');
             if(lists.classList.contains('hide')){
-                setTimeout(function(){lists.style.display = 'none'}, 400);
+                setTimeout(function(){lists.style.display = 'none'}, 500);
             }else{
                 lists.style.display = 'block'
             }
@@ -24,7 +24,7 @@ const todoMenuDOM = (() => {
         }else if(this.getAttribute('id') == 'shortcuts'){
             shortcuts.classList.toggle('hide');
             if(shortcuts.classList.contains('hide')){
-                setTimeout(function(){shortcuts.style.display = 'none'}, 400);
+                setTimeout(function(){shortcuts.style.display = 'none'}, 500);
             }else{
                 shortcuts.style.display = 'block';
             }
