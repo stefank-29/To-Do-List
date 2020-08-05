@@ -1,7 +1,3 @@
-//import { todoMenuDOM } from "./todoMenuDOM";
-
-//import { todoTaskDOM } from "./todoTaskDOM";
-
 const List = (listName, listItems) => {
     let name = listName;
     let items;

@@ -53,7 +53,7 @@ const todoTaskDOM = (() => {
         
         
         // header
-    const list = document.createElement('div');
+        const list = document.createElement('div');
         list.classList.add('listItem');
         const listHeader = document.createElement('div');
         listHeader.classList.add('listHeader');
