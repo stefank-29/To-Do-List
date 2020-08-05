@@ -18,7 +18,8 @@ const todoMenuDOM = (() => {
             if(lists.classList.contains('hide')){
                 setTimeout(function(){lists.style.display = 'none'}, 500);
             }else{
-                lists.style.display = 'block'
+               lists.style.display = 'block';
+              
             }
             editIcons.classList.toggle('hide');
         }else if(this.getAttribute('id') == 'shortcuts'){
@@ -59,6 +60,39 @@ const todoMenuDOM = (() => {
                 
             }
           
+        });
+    }
+
+    function _editableLists() {
+        const list = document.querySelector('#listsList');
+        const listItems = list.querySelectorAll('li');
+        listItems.forEach(item => {
+            item.classList.toggle('editable');
+            if(item.classList.contains('editable')){
+                item.removeChild(item.lastChild);
+
+                // <i class="fas fa-grip-vertical"></i>
+                const dragIcon = document.createElement('i');
+                dragIcon.classList.add('fas');
+                dragIcon.classList.add('fa-ellipsis-v');
+                dragIcon.setAttribute('id', 'dragIcon');
+                item.insertBefore(dragIcon, item.firstChild);
+                const editIcon = document.createElement('img');
+                editIcon.setAttribute('src', './images/edit.svg');
+                editIcon.classList.add('editIcon');
+                item.appendChild(editIcon);
+                item.removeEventListener('click', todoTaskDOM.renderListTasks);
+
+            }else{
+                item.removeChild(item.firstChild);
+                item.removeChild(item.lastChild);
+                const span = document.createElement('span');
+                span.classList.add('taskNumber');
+                span.textContent = `${todo.getList(item.textContent).items.length}`
+                item.appendChild(span);
+                item.addEventListener('click', todoTaskDOM.renderListTasks);
+               
+            }
         });
     }
 
@@ -106,8 +140,8 @@ const todoMenuDOM = (() => {
     document.querySelector('#menuBars').addEventListener('click', _hideMenu);
     
     document.querySelector('#addList').addEventListener('click', listModalDOM.showModal);
-    //document.querySelector('edit', nesto);
-
+    document.querySelector('#edit').addEventListener('click', _editableLists);
+    
     
     return {
         renderLists,  renderShortcuts,

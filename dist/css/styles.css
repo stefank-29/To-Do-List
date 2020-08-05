@@ -4,6 +4,9 @@
 html{
     font-size: 10px;  
     height: 100%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
 }
 body{
     position: relative;
@@ -52,6 +55,7 @@ body{
     font-family: 'Roboto', sans-serif;
     cursor: default;
     transition: all 0.3s;
+    overflow: auto;
 }
 #menu.hide{
     min-width: 1rem;
@@ -187,7 +191,7 @@ li .taskNumber{
 }
 #icons{
     margin-left: auto;
-    justify-self: flex-end;
+    /* justify-self: flex-end; */
     transition: all 0.5s;
 }
 #icons span{

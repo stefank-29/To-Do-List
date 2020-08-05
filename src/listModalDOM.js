@@ -31,7 +31,7 @@ const listModalDOM = (()=>{
     }
 
     function showModal() {
-
+        
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
         modalBg.addEventListener('click', _exitModal);
@@ -42,7 +42,8 @@ const listModalDOM = (()=>{
         modal.style.height = '15rem';
         const form = document.createElement('form');
         form.setAttribute('autocomplete', 'off');
-        form.style.width = '95%'
+        form.style.width = '95%';
+        form.setAttribute('onkeydown', `return event.key != 'Enter';`);
 
         const listTitle = document.createElement('input');
         listTitle.addEventListener('change', _createListStyle);

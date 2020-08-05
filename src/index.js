@@ -1,6 +1,6 @@
 //? logika
 //!1
-//todo new list
+//todo srediti drag tackice
 //todo delete/edit list  
 //!2
 //todo task info
