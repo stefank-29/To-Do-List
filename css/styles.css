@@ -96,9 +96,12 @@ body{
     padding-left: 0;
     width: 80%;
     /* height: 0; */
+    animation: collapseDown .5s ease-in-out 1 forwards;;
 }
+
 #menu ul.hide{
-    display: none;
+    /* display: none; */
+    animation: collapseUp .5s ease-in-out 1 forwards;
 }
 #menu li{
     display: flex;
@@ -237,6 +240,29 @@ li .taskNumber{
     border-radius: 5px;
     background: linear-gradient(to bottom, transparent, #0d4e68);
 } 
+
+
+@keyframes collapseDown{
+    0%{
+        height: 0rem;
+        opacity: 0;
+    }
+    100%{
+        height: 10rem;
+        opacity: 1;
+    }
+}
+
+@keyframes collapseUp{
+    0%{
+        height: 10rem;
+        opacity: 1;
+    }
+    100%{
+        height: 0;
+        opacity: 0;
+    }
+}
 
 /***********footer*****************/
 footer div {
