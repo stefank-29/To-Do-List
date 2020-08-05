@@ -69,8 +69,8 @@ const taskModalDOM = (() => {
             })
             modal.style.height = '60rem';
         }
-        selectList.addEventListener('click', function(){selectList.style = ''; console.log('aaa');})
-        selectList.addEventListener('mousedown', function(){selectList.style = ''; console.log('aaa');})
+        selectList.addEventListener('click', function(){selectList.style = '';});
+        selectList.addEventListener('mousedown', function(){selectList.style = '';});
 
         /***********************************/
         const inputDescription = document.createElement('input');

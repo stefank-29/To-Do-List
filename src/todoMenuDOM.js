@@ -30,6 +30,25 @@ const todoMenuDOM = (() => {
         
     }
 
+    function _hideMenu() {
+        const menu = document.querySelector('#menu');
+        menu.classList.toggle('hide');
+        menu.querySelectorAll('.menu-item').forEach(item => {
+            if(!item.classList.contains('notHide')){
+                item.classList.toggle('hide');
+            }else{
+                item.classList.toggle('minimize');
+            }
+            if(item.getAttribute('id') == 'add' && item.classList.contains('minimize')){
+               item.querySelector('button').innerHTML = `<i class="fas fa-plus"></i>`;
+            }else if(item.getAttribute('id') == 'add' && !item.classList.contains('minimize')){
+               item.querySelector('button').innerHTML = ` <i class="fas fa-plus"></i> Create a task`;
+                
+            }
+          
+        });
+    }
+
 
     const renderLists = () => {
         const ul = document.querySelector('#listsList');
@@ -66,15 +85,15 @@ const todoMenuDOM = (() => {
 
     }
 
-
     document.querySelectorAll('.arrow').forEach(arrow => {
         arrow.addEventListener('click', _toggleMenu);
     })  
 
     document.querySelector('#menuAddTask').addEventListener('click', taskModalDOM.showModal);
 
-
-
+    document.querySelector('#menuBars').addEventListener('click', _hideMenu);
+    
+    
     return {
         renderLists,  renderShortcuts,
     }
