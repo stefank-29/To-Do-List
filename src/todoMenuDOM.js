@@ -2,6 +2,7 @@ import {todo} from './todoInitialLists'
 import {todoTaskDOM} from './todoTaskDOM';
 import { List } from './todoList';
 import { taskModalDOM } from './taskModalDOM';
+import {listModalDOM} from './listModalDOM';
 //let JSONfn = require('json-fn');
 
 const todoMenuDOM = (() => {
@@ -9,6 +10,7 @@ const todoMenuDOM = (() => {
     function _toggleMenu() {
         const lists = document.querySelector('#listsList');
         const shortcuts = document.querySelector('#shortcutsList');
+        const editIcons = document.querySelector('#icons');
         //const filters = document.querySelector('#listsList');
 
         if(this.getAttribute('id') == 'lists'){
@@ -18,6 +20,7 @@ const todoMenuDOM = (() => {
             }else{
                 lists.style.display = 'block'
             }
+            editIcons.classList.toggle('hide');
         }else if(this.getAttribute('id') == 'shortcuts'){
             shortcuts.classList.toggle('hide');
             if(shortcuts.classList.contains('hide')){
@@ -100,9 +103,11 @@ const todoMenuDOM = (() => {
     })  
 
     document.querySelector('#menuAddTask').addEventListener('click', taskModalDOM.showModal);
-
     document.querySelector('#menuBars').addEventListener('click', _hideMenu);
     
+    document.querySelector('#addList').addEventListener('click', listModalDOM.showModal);
+    //document.querySelector('edit', nesto);
+
     
     return {
         renderLists,  renderShortcuts,

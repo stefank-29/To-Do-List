@@ -9,7 +9,7 @@ const taskModalDOM = (() => {
         if(event.target !== this){
             return;
         }
-        modalBg.style.transform = `translateX(-${event.pageX/3+30}px) translateY(-${event.pageY-50}px) scale(0.1)`;
+       // modalBg.style.transform = `translateX(-${event.pageX/3+30}px) translateY(-${event.pageY-50}px) scale(0.1)`;
         modalBg.parentNode.removeChild(modalBg);
     }
     function exitModalOnButton() {
@@ -68,9 +68,11 @@ const taskModalDOM = (() => {
                 selectList.appendChild(option);
             })
             modal.style.height = '60rem';
+            selectList.addEventListener('click', function(){selectList.style = '';});
+            selectList.addEventListener('mousedown', function(){selectList.style = '';});
         }
-        selectList.addEventListener('click', function(){selectList.style = '';});
-        selectList.addEventListener('mousedown', function(){selectList.style = '';});
+
+       
 
         /***********************************/
         const inputDescription = document.createElement('input');

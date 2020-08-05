@@ -1,10 +1,13 @@
 //? logika
+//!1
 //todo new list
 //todo delete/edit list  
+//!2
 //todo task info
 //todo edit taska
 //todo brisanje taska
-//todo efekti za taskove (prioritet)
+//!3
+//todo efekti za taskove (prioritet i kad se doda)
 
 //meni
 

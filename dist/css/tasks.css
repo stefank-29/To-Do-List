@@ -66,6 +66,7 @@
 .add{
     color: rgb(49, 116, 218);
     cursor: pointer;   
+    font-size: 2.2rem;
 }
 .add:hover{
     transform: scale(1.1);
