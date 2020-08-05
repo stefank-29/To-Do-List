@@ -51,6 +51,12 @@ body{
     padding: 3rem;
     font-family: 'Roboto', sans-serif;
     cursor: default;
+    transition: all 0.3s;
+}
+#menu.hide{
+    min-width: 1rem;
+    width: 7rem;
+    padding: 3rem 1rem;
 
 }
 #menuAddTask{
@@ -81,6 +87,9 @@ body{
     justify-content: flex-start;
     width: 100%;
     margin-bottom: 2rem;
+}
+.menu-item.hide{
+    display: none;
 }
 #menu ul{
     list-style: none;
@@ -170,19 +179,48 @@ li .taskNumber{
 #menuBars{
     font-size: 2rem;
     cursor: pointer;
-    margin: 0 1rem 0 0;
+    margin: 0 2rem 0 0.2rem;
+}
+#menuBars:hover{
+    text-shadow: 0 0 2px rgba(47, 150, 253, 0.5);
 }
 #menuTop{
-    border-bottom: 3px solid rgb(31, 143, 218)  ;
+    border-bottom: 2px solid rgb(31, 143, 218);
     display: flex;
     align-items: center;
     font-size: 2rem;
 }
 #menuTop h2{
     font-family: 'Comfortaa', cursive;
-
+    margin-bottom: 0.5rem;  
+    text-shadow: 0 0 2px rgba(47, 150, 253, 0.75);
 }
 
+
+/**********minimize menu*******/
+.notHide.minimize.menu-item{
+    align-items: center;
+    justify-content: center;
+}
+.notHide.minimize .header{
+    border: none !important;
+    display: flex;
+    justify-content: center;
+   
+}
+.notHide.minimize i{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.notHide.minimize button{
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    
+}
+.notHide.minimize h2{
+    display: none;
+}
 /************scrollbar************/
 
 ::-webkit-scrollbar{
