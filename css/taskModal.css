@@ -52,12 +52,11 @@ textarea{
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     bottom: 0;
     left: 0;
     width: 100%;
     padding: 1.5rem;
-    /* color: rgb(10, 37, 128); */
     color: rgba(0, 0, 0, 0.4);
     font-family: Helvetica, sans-serif;
     font-size: 2rem;
@@ -65,7 +64,6 @@ textarea{
     border: none;
     outline: none;
     box-shadow: 0 -3px 7px -3px rgba(41, 35, 35, 0.3);
-    /* cursor: pointer; */
     cursor: default;
     border-radius: 0px 0px 10px 10px;
 }
@@ -95,7 +93,5 @@ select{
     }
 }
 
-
-/*****list modal*********/
 
 
