@@ -73,6 +73,7 @@ const todo = (() => {
         })
     }
     const removeList = (listName) =>{
+        lists = getLists(); 
         const index = lists.findIndex(item => {
             return item.getName().toLowerCase() === listName.toLowerCase();
         })

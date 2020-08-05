@@ -7,8 +7,7 @@
 //todo efekti za taskove (prioritet)
 
 //meni
-//todo sakrivanje menija
-// 1018683152020
+
 
 //kasnije
 //todo ako je prazan ls napuniti ga na pocetku

@@ -13,10 +13,20 @@ const todoMenuDOM = (() => {
 
         if(this.getAttribute('id') == 'lists'){
             lists.classList.toggle('hide');
+            if(lists.classList.contains('hide')){
+                setTimeout(function(){lists.style.display = 'none'}, 400);
+            }else{
+                lists.style.display = 'block'
+            }
         }else if(this.getAttribute('id') == 'shortcuts'){
             shortcuts.classList.toggle('hide');
+            if(shortcuts.classList.contains('hide')){
+                setTimeout(function(){shortcuts.style.display = 'none'}, 400);
+            }else{
+                shortcuts.style.display = 'block';
+            }
         }
-
+        
         this.firstChild.classList.toggle('fa-chevron-down');
         this.firstChild.classList.toggle('fa-chevron-up');
 
@@ -42,7 +52,7 @@ const todoMenuDOM = (() => {
             if(item.getAttribute('id') == 'add' && item.classList.contains('minimize')){
                item.querySelector('button').innerHTML = `<i class="fas fa-plus"></i>`;
             }else if(item.getAttribute('id') == 'add' && !item.classList.contains('minimize')){
-               item.querySelector('button').innerHTML = ` <i class="fas fa-plus"></i> Create a task`;
+               item.querySelector('button').innerHTML = `<i class="fas fa-plus"></i> Create a task`;
                 
             }
           
