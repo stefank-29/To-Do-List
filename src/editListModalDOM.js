@@ -4,6 +4,7 @@ const editListModalDOM = (()=>{
     const container = document.querySelector('#tasksContainer');
     let modalBg;
     let oldlistName;
+    let li;
 
     function _createListStyle() {
         const input = this;
@@ -12,7 +13,7 @@ const editListModalDOM = (()=>{
         if(input.value !== ''){
             button.classList.add('enabled');
             if(event.key === 'Enter'){
-                editList.saveList(oldlistName, input.value);
+                editList.saveList(li, oldlistName, input.value);
             }
         }else{
             button.classList.remove('enabled');
@@ -31,6 +32,7 @@ const editListModalDOM = (()=>{
     }
 
     function showModal() {
+        li = this.parentNode;
         oldlistName = this.parentNode.textContent;
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
@@ -71,7 +73,7 @@ const editListModalDOM = (()=>{
         const saveList = document.createElement('button');
         saveList.textContent = 'Save';
         saveList.setAttribute('id', 'saveList');
-        saveList.addEventListener('click',function(){ editList.saveList(oldlistName, listTitle.value)});
+        saveList.addEventListener('click',function(){ editList.saveList(li, oldlistName, listTitle.value)});
         //saveList.addEventListener('click', function(){addListFromModal.addList(listTitle)})
 
 

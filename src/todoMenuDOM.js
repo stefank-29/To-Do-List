@@ -91,12 +91,13 @@ const todoMenuDOM = (() => {
             cross.classList.add('editIcon', 'editHeader');
             cross.setAttribute('id', 'cross');
             cross.addEventListener('click', _editableLists);
+            cross.addEventListener('click', editList.cancelEdit);
             const check = document.createElement('i');
             check.classList.add('fas', 'fa-check');
             check.classList.add('editIcon','editHeader');
             check.setAttribute('id', 'check');
             check.addEventListener('click', _editableLists);
-            check.addEventListener('click', editList.saveListsEdit);
+            check.addEventListener('click', editList.saveEdit);
 
             icons.appendChild(cross);
             icons.appendChild(check);

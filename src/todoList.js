@@ -15,7 +15,7 @@ const List = (listName, listItems) => {
         return JSON.parse(retrivedData);
     };
 
-    function editName(newName) {return name = newName};
+    function editName(newName) { name = newName};
     const getItems = () => items;
     const getItemsNumber = () => items.length;
     const addItem = (item) => {
