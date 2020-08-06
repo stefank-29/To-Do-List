@@ -18,7 +18,7 @@ const todoMenuDOM = (() => {
             if(lists.classList.contains('hide')){
                 setTimeout(function(){lists.style.display = 'none'}, 500);
             }else{
-               lists.style.display = 'block';
+                lists.style.display = 'block';
               
             }
             editIcons.classList.toggle('hide');
@@ -74,10 +74,46 @@ const todoMenuDOM = (() => {
     function _editableLists() {
         const list = document.querySelector('#listsList');
         const listItems = list.querySelectorAll('li');
+        const header = document.querySelector('#listsHeader');
         _toggleOverlay();
-        listItems.forEach(item => {
+         // x i stikla u hederu
+        header.classList.toggle('editable');
+        if(header.classList.contains('editable')){
+            header.lastElementChild.classList.add('hide');
+            header.removeChild(header.querySelector('.arrow'));// brisem strelicu
+
+            const icons = document.createElement('div');
+            icons.setAttribute('id', 'editIcons');
+            const cross = document.createElement('i');
+            cross.classList.add('fas', 'fa-times');
+            cross.classList.add('editIcon', 'editHeader');
+            cross.setAttribute('id', 'cross');
+            cross.addEventListener('click', _editableLists);
+            const check = document.createElement('i');
+            check.classList.add('fas', 'fa-check');
+            check.classList.add('editIcon','editHeader');
+            check.setAttribute('id', 'check');
+
+            icons.appendChild(cross);
+            icons.appendChild(check);
+            header.appendChild(icons);
+        }else{
+            header.removeChild(header.lastElementChild); // brisem x i /
+            header.lastElementChild.classList.remove('hide');// prikazem edit i plus       
+            const span = document.createElement('span');
+            span.classList.add('arrow');
+            span.setAttribute('id', 'lists');
+            span.addEventListener('click', _toggleMenu);
+            const arrow = document.createElement('i');
+            arrow.classList.add('fas', 'fa-chevron-up');
+            span.appendChild(arrow);
+            header.insertBefore(span, header.lastElementChild);
+        }
+
+        listItems.forEach(item => { //prolazim kroz sve li
             item.classList.toggle('editable');
             if(item.classList.contains('editable')){
+                //dodavanje drag i edit ikonice
                 item.removeChild(item.lastChild);
                 const dragIcon = document.createElement('i');
                 dragIcon.classList.add('fas');
@@ -89,8 +125,7 @@ const todoMenuDOM = (() => {
                 editIcon.classList.add('editIcon');
                 item.appendChild(editIcon);
                 item.removeEventListener('click', todoTaskDOM.renderListTasks);
-
-            }else{
+            }else{// vracanje broja taskova
                 item.removeChild(item.firstChild);
                 item.removeChild(item.lastChild);
                 const span = document.createElement('span');
@@ -149,7 +184,7 @@ const todoMenuDOM = (() => {
     document.querySelector('#addList').addEventListener('click', listModalDOM.showModal);
     document.querySelector('#edit').addEventListener('click', _editableLists);
     
-    
+
     return {
         renderLists,  renderShortcuts,
     }
