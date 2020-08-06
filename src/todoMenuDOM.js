@@ -152,10 +152,13 @@ const todoMenuDOM = (() => {
         lists.forEach(list => {
               const li = document.createElement('li');
               li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
-              li.textContent = list.getName();
+              const p = document.createElement('p');
+              p.textContent = list.getName();
+              //li.textContent = list.getName();
               const span = document.createElement('span');
               span.classList.add('taskNumber');
               span.textContent = `${list.getItems().length}`
+              li.appendChild(p);
               li.appendChild(span);
               ul.appendChild(li);
               li.addEventListener('click', todoTaskDOM.renderListTasks);

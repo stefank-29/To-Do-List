@@ -128,6 +128,14 @@ body{
     text-overflow: ellipsis; */
     /* display: none; */
 }
+#menu li p{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;    
+    text-overflow: ellipsis;
+
+}
 #menu li.active{
     color: rgb(10, 37, 128);
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
