@@ -32,16 +32,16 @@
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 
 }
-#modalButtons #cancel{
+#modalButtons #cancel, #modalButtons #deleteList{
     color: rgb(0, 0, 0);
     cursor: pointer;
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0 0 0 10px;
 }
-#modalButtons #createList{
+#modalButtons #createList, #modalButtons #saveList{
     border-radius: 0 0 10px 0;
 }
-#modalButtons #createList.enabled{
+#modalButtons #createList.enabled, #modalButtons #saveList.enabled{
     color: rgb(10, 37, 128);
     cursor: pointer;
 }
