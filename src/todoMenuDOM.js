@@ -114,34 +114,35 @@ const todoMenuDOM = (() => {
             span.appendChild(arrow);
             header.insertBefore(span, header.lastElementChild);
         }
-
-        listItems.forEach(item => { //prolazim kroz sve li
-            item.classList.toggle('editable');
-            if(item.classList.contains('editable')){
-                //dodavanje drag i edit ikonice
-                item.removeChild(item.lastChild);
-                const dragIcon = document.createElement('i');
-                dragIcon.classList.add('fas');
-                dragIcon.classList.add('fa-bars');
-                dragIcon.classList.add('dragIcon');
-                item.insertBefore(dragIcon, item.firstChild);
-                const editIcon = document.createElement('img');
-                editIcon.setAttribute('src', './images/edit.svg');
-                editIcon.classList.add('editIcon');
-                editIcon.addEventListener('click', editListModalDOM.showModal);
-                item.appendChild(editIcon);
-                item.removeEventListener('click', todoTaskDOM.renderListTasks);
-            }else{// vracanje broja taskova
-                item.removeChild(item.firstChild);
-                item.removeChild(item.lastChild);
-                const span = document.createElement('span');
-                span.classList.add('taskNumber');
-                span.textContent = `${todo.getList(item.textContent).items.length}`
-                item.appendChild(span);
-                item.addEventListener('click', todoTaskDOM.renderListTasks);
-               
-            }
-        });
+        if(this.getAttribute('id') === 'edit'){
+            listItems.forEach(item => { //prolazim kroz sve li
+                item.classList.toggle('editable');
+                if(item.classList.contains('editable')){
+                    //dodavanje drag i edit ikonice
+                    item.removeChild(item.lastChild);
+                    const dragIcon = document.createElement('i');
+                    dragIcon.classList.add('fas');
+                    dragIcon.classList.add('fa-bars');
+                    dragIcon.classList.add('dragIcon');
+                    item.insertBefore(dragIcon, item.firstChild);
+                    const editIcon = document.createElement('img');
+                    editIcon.setAttribute('src', './images/edit.svg');
+                    editIcon.classList.add('editIcon');
+                    editIcon.addEventListener('click', editListModalDOM.showModal);
+                    item.appendChild(editIcon);
+                    item.removeEventListener('click', todoTaskDOM.renderListTasks);
+                }else{// vracanje broja taskova
+                    item.removeChild(item.firstChild);
+                    item.removeChild(item.lastChild);
+                    const span = document.createElement('span');
+                    span.classList.add('taskNumber');
+                    span.textContent = `${todo.getList(item.textContent).items.length}`
+                    item.appendChild(span);
+                    item.addEventListener('click', todoTaskDOM.renderListTasks);
+                
+                }
+            });
+    }
     }
 
 

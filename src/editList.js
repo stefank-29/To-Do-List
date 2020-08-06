@@ -1,6 +1,7 @@
 import {todo} from './todoInitialLists';
 import {List} from './todoList';
 import {editListModalDOM} from './editListModalDOM';
+import {todoMenuDOM} from './todoMenuDOM';
 const editList = (() => {
 
 
@@ -25,11 +26,12 @@ const editList = (() => {
     }
 
     function saveEdit() {
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
 
     }
 
     function cancelEdit() {
-
+        todoMenuDOM.renderLists();
     }
 
     return{
