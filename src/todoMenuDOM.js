@@ -62,20 +62,27 @@ const todoMenuDOM = (() => {
           
         });
     }
+    function _toggleOverlay() {
+        const menu = document.querySelector('#menu');
+        menu.querySelectorAll('.menu-item').forEach(item => {
+            if(!item.classList.contains('notOverlay')){
+                item.classList.toggle('overlayed');
+            }
+        });
+    }
 
     function _editableLists() {
         const list = document.querySelector('#listsList');
         const listItems = list.querySelectorAll('li');
+        _toggleOverlay();
         listItems.forEach(item => {
             item.classList.toggle('editable');
             if(item.classList.contains('editable')){
                 item.removeChild(item.lastChild);
-
-                // <i class="fas fa-grip-vertical"></i>
                 const dragIcon = document.createElement('i');
                 dragIcon.classList.add('fas');
-                dragIcon.classList.add('fa-ellipsis-v');
-                dragIcon.setAttribute('id', 'dragIcon');
+                dragIcon.classList.add('fa-bars');
+                dragIcon.classList.add('dragIcon');
                 item.insertBefore(dragIcon, item.firstChild);
                 const editIcon = document.createElement('img');
                 editIcon.setAttribute('src', './images/edit.svg');

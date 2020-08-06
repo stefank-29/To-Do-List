@@ -1,6 +1,6 @@
 //? logika
 //!1
-//todo srediti drag tackice
+//todo zabeleti ostatak menija i stiklu dodati
 //todo delete/edit list  
 //!2
 //todo task info
@@ -35,29 +35,3 @@ function callRenderFunctions(){
 }
 
 window.onload = callRenderFunctions();
-
-
-
-// testiranje
-// let data = {
-//     title : 'Zvezda',
-//     description : 'asdas',   
-//     dueDate : 'dsadsa',
-//     priority: 'dsad',
-//     note: 'dasdas',
-// }
-// let data2 = {
-//     title : 'Stefan',
-//     description : 'Nesto',
-//     dueDate : '123a',
-//     priority: 'dsa61161d',
-//     note: 'daaaa',
-// }
-
-// let item1 = ToDoItem(data);
-// let item2 = ToDoItem(data2);
-// let list = List('Default list');
-// list.addItem(item1);
-// list.addItem(item2);
-// const items = list.getItems();
-//window.print();

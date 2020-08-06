@@ -95,6 +95,13 @@ body{
 .menu-item.hide{
     display: none;
 }
+.menu-item.overlayed{
+    color: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+}
+.menu-item.overlayed .header{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
 #menu ul{
     list-style: none;
     padding-left: 0;
