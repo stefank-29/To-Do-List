@@ -123,6 +123,9 @@ body{
     font-weight: 400 !important;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
+    /* overflow: hidden;
+    white-space: nowrap;    
+    text-overflow: ellipsis; */
     /* display: none; */
 }
 #menu li.active{
