@@ -1,0 +1,71 @@
+/*********editable list*********/
+.editIcon{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-left: auto;
+    cursor: pointer;
+    animation: fadeInRight 0.2s ease-in 1 forwards;
+}
+.editIcon:hover{
+    transform: scale(1.2);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.dragIcon{
+    font-size: 1.5rem;
+    margin-right: 1.2rem;
+    color: rgba(0, 0, 0, 0.7);
+    animation: fadeinLeft 0.2s ease-in 1 forwards;
+}
+
+
+#editIcons{
+    margin-left: auto;
+}
+
+#editIcons .editHeader{
+    font-size: 1.8rem;
+    margin-left: 1.5rem;
+
+}
+#editIcons .editHeader:hover{
+    transform: scale(1.1);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#cross{
+    color: rgb(212, 54, 54);
+}
+#check{
+    color: rgb(33, 194, 18);
+}
+
+
+/**********animacije***********/
+@keyframes fadeInRight{
+    0%{
+        opacity: 0.3;
+        transform: translateX(2rem);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeinLeft{
+    0%{
+        transform: translateX(-2rem);
+        opacity: 0.3;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
