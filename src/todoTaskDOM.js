@@ -122,7 +122,7 @@ const todoTaskDOM = (() => {
     const getCurrentList = () => currentList;
 
     return{
-        renderListTasks, getCurrentList,
+        renderListTasks, getCurrentList, _deactiveAllLists,
     }
 
 })();

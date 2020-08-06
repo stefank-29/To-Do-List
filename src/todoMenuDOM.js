@@ -3,6 +3,8 @@ import {todoTaskDOM} from './todoTaskDOM';
 import { List } from './todoList';
 import { taskModalDOM } from './taskModalDOM';
 import {listModalDOM} from './listModalDOM';
+import {editList} from './editList';
+import { editListModalDOM } from './editListModalDOM';
 //let JSONfn = require('json-fn');
 
 const todoMenuDOM = (() => {
@@ -93,6 +95,8 @@ const todoMenuDOM = (() => {
             check.classList.add('fas', 'fa-check');
             check.classList.add('editIcon','editHeader');
             check.setAttribute('id', 'check');
+            check.addEventListener('click', _editableLists);
+            check.addEventListener('click', editList.saveListsEdit);
 
             icons.appendChild(cross);
             icons.appendChild(check);
@@ -123,6 +127,7 @@ const todoMenuDOM = (() => {
                 const editIcon = document.createElement('img');
                 editIcon.setAttribute('src', './images/edit.svg');
                 editIcon.classList.add('editIcon');
+                editIcon.addEventListener('click', editListModalDOM.showModal);
                 item.appendChild(editIcon);
                 item.removeEventListener('click', todoTaskDOM.renderListTasks);
             }else{// vracanje broja taskova

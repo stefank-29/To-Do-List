@@ -1,7 +1,7 @@
 /*********editable list*********/
 .editIcon{
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
     margin-left: auto;
     cursor: pointer;
     animation: fadeInRight 0.2s ease-in 1 forwards;
