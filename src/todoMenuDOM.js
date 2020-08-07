@@ -155,6 +155,7 @@ const todoMenuDOM = (() => {
         const ul = document.querySelector('#listsList');
         let lists = todo.getLists(); // citati iz localStorage-a
         _deleteMenu(ul);
+        let i = 0;
         lists.forEach(list => {
               const li = document.createElement('li');
               li.setAttribute('id', list.getName().replace(" ", "").toLowerCase());
@@ -163,7 +164,8 @@ const todoMenuDOM = (() => {
               //li.textContent = list.getName();
               const span = document.createElement('span');
               span.classList.add('taskNumber');
-              span.textContent = `${list.getItems().length}`
+              span.textContent = `${list.getItems().length}`;
+              li.setAttribute('data-index', i++);
               li.appendChild(p);
               li.appendChild(span);
               ul.appendChild(li);

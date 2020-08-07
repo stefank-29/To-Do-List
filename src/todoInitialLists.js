@@ -72,6 +72,11 @@ const todo = (() => {
             return list.getName().toLowerCase() === listName.toLowerCase();
         })
     }
+    function getListIndex (listName) {  
+        return lists.findIndex(list => {
+            return list.getName().toLowerCase() === listName.toLowerCase();
+        })
+    }
     const removeList = (listName) =>{
         lists = getLists(); 
         const index = lists.findIndex(item => {
@@ -81,7 +86,7 @@ const todo = (() => {
         localStorage.setItem('lists', JSON.stringify(lists));
     }
     return {
-        getLists, addList, removeList, getList, setListsToStorage, lists,
+        getLists, addList, removeList, getList, setListsToStorage, getListIndex, lists,
     }
 })();
 

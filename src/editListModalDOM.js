@@ -69,7 +69,7 @@ const editListModalDOM = (()=>{
         const deleteList = document.createElement('button');
         deleteList.textContent = 'Delete';
         deleteList.setAttribute('id', 'deleteList');
-        deleteList.addEventListener('click', editList.deleteList);
+        deleteList.addEventListener('click', function(){editList.deleteList(li)});
         //deleteList.addEventListener('click', exitModalOnButton);
         const saveList = document.createElement('button');
         saveList.textContent = 'Save';

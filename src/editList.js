@@ -8,7 +8,8 @@ const editList = (() => {
 
 
     function saveList(listMenu, oldName, newName) {
-        const list = todo.getList(oldName); //! citati iz trenutnih lista
+        const index = listMenu.dataset.index;
+        const list = todo.lists[index]; 
 
         list.name = newName;
         //samo da promenim ime u listi
@@ -20,8 +21,8 @@ const editList = (() => {
         
     }
 
-    function deleteList(listName){
-
+    function deleteList(list){
+        console.log(list);
 
         editListModalDOM.exitModalOnButton();
 
