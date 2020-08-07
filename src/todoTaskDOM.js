@@ -127,7 +127,6 @@ const todoTaskDOM = (() => {
 
         lists.appendChild(list);
         currentList = todo.getList(listName);
-        console.log('currentList', currentList);
     }
 
     const getCurrentList = () => currentList;

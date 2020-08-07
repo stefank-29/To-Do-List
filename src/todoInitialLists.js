@@ -3,14 +3,14 @@ import {List} from './todoList';
 //let JSONfn = require('json-fn');
 //za testiranje
 let data = {
-    title : 'Zvezda',
+    title : 'Task',
     description : 'opis',   
     dueDate : 'datum',
     priority: 'hitno',
     note: 'nesto',
 }
 let data2 = {
-         title : 'Stefan',
+         title : 'Zadatak',
          description : 'Nesto',
          dueDate : 'datum',
          priority: 'dsa61161d',
