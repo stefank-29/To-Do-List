@@ -31,7 +31,7 @@ const editList = (() => {
     function saveEdit() {
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         const activeListName = todoMenuDOM.getActiveListName();
-        console.log('a');
+        //console.log(activeListName);
         
         if(activeListName !== undefined){ // ako je aktivna lista
             localStorage.setItem('lists', JSON.stringify(todo.lists));
