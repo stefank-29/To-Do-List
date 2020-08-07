@@ -5,15 +5,15 @@ import {List} from './todoList';
 let data = {
     title : 'Task',
     description : 'opis',   
-    dueDate : 'datum',
-    priority: 'hitno',
+    dueDate : '2020-09-17',
+    priority: 'medium',
     note: 'nesto',
 }
 let data2 = {
          title : 'Zadatak',
          description : 'Nesto',
-         dueDate : 'datum',
-         priority: 'dsa61161d',
+         dueDate : '2020-10-21',
+         priority: 'high',
          note: 'daaaa',
 }
 
@@ -46,7 +46,7 @@ const todo = (() => {
     let lists = [personal, work, groceryStore];
 
     function setListsToStorage() {
-        //localStorage.clear();
+        //localStorage.clear(); // ovde samo jednom ucitati na pocetku (ako je prazno)
         lists = getLists();  //ovo ne treba kad je prazno
         localStorage.setItem('lists', JSON.stringify(lists));
        

@@ -86,10 +86,12 @@ const todoTaskDOM = (() => {
         const tasks = todo.getList(listName).getItems(); //iz local storage-a
         const listTasks = document.createElement('div');
         listTasks.classList.add('listTasks');
+        let i = 0;
         tasks.forEach(task => {
             const taskDiv = document.createElement('div');
             taskDiv.classList.add('taskDiv');
             taskDiv.addEventListener('click', taskInfoDOM.showInfo);
+            taskDiv.setAttribute('data-index', i++);
             const checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.setAttribute('id', task.title);

@@ -10,7 +10,7 @@ const addQuickTask = (() => {
             title: input.value,
             description: '',
             dueDate: '',
-            priotity: '',
+            priority: '',
             note: '',
         }
         if(this.classList.contains('enabled')){
@@ -31,7 +31,7 @@ const addQuickTask = (() => {
             title: input.value,
             description: '',
             dueDate: '',
-            priotity: '',
+            priority: '',
             note: '',
         }
         const task = ToDoItem(data);

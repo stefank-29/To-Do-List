@@ -4,6 +4,7 @@
 //todo edit taska
 //todo brisanje taska
 //!3
+//todo selektovati vise taskova sa shft + click
 //todo efekti za taskove (prioritet i kad se doda fadeInBottom)
 
 //meni

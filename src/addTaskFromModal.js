@@ -20,7 +20,7 @@ const addTaskFromModal = (() => {
             title: title.value,
             description: description.value,
             dueDate: dueDate.value,
-            priotity: priority.value,
+            priority: priority.value,
             note: note.value,
         }
         if(btnAddTask.classList.contains('enabled') && selectList == null){
