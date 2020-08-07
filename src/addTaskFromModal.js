@@ -24,10 +24,15 @@ const addTaskFromModal = (() => {
             note: note.value,
         }
         if(btnAddTask.classList.contains('enabled') && selectList == null){
+
             const task = ToDoItem(data);
+            console.log(task);
             const currList = todoTaskDOM.getCurrentList();
+            console.log(currList);
             currList.addItem(task);
+            //console.log(currList.items);
             localStorage.setItem('lists', JSON.stringify(todo.lists));
+            //console.log(todo.lists);
             todoMenuDOM.renderLists();
             todoMenuDOM.renderShortcuts();
             taskModalDOM.exitModalOnButton(); // iskljuciti prozor

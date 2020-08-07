@@ -37,9 +37,10 @@ const todoTaskDOM = (() => {
     }
 
     function renderListTasks(event, listTitle) {
+        
         _deleteListView();
         let listName;
-        //console.log(this.tagName === "LI");
+        
         if(this.tagName === "LI"){ //ako sam kliknuo na meni
             _deactiveAllLists(this.parentNode);
             this.classList.add('active');
@@ -117,12 +118,13 @@ const todoTaskDOM = (() => {
 
         lists.appendChild(list);
         currentList = todo.getList(listName);
+        console.log('currentList', currentList);
     }
 
     const getCurrentList = () => currentList;
 
     return{
-        renderListTasks, getCurrentList, _deactiveAllLists,
+        renderListTasks, getCurrentList, _deactiveAllLists, currentList,
     }
 
 })();

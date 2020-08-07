@@ -1,7 +1,7 @@
 //? logika
 //!1
-//todo zabeleti ostatak menija i stiklu dodati
-//todo delete/edit list  
+//todo dva puta promena
+//todo delete
 //!2
 //todo task info
 //todo edit taska
@@ -14,7 +14,7 @@
 
 //kasnije
 //todo ako je prazan ls napuniti ga na pocetku
-//TODO drag and drop
+//TODO drag and drop (za liste proci kroz sve li i dodati u novi niz)
 //TODO printanje liste
 
 //check box

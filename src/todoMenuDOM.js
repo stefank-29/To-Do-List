@@ -72,15 +72,20 @@ const todoMenuDOM = (() => {
             }
         });
     }
+    function headerEditIcons(){
+
+    }
+
 
     function _editableLists() {
+        //console.log(this.getAttribute('id'));
         const list = document.querySelector('#listsList');
         const listItems = list.querySelectorAll('li');
         const header = document.querySelector('#listsHeader');
         _toggleOverlay();
          // x i stikla u hederu
         header.classList.toggle('editable');
-        if(header.classList.contains('editable')){
+        if(header.classList.contains('editable')){// izgled hedera
             header.lastElementChild.classList.add('hide');
             header.removeChild(header.querySelector('.arrow'));// brisem strelicu
 
@@ -90,14 +95,14 @@ const todoMenuDOM = (() => {
             cross.classList.add('fas', 'fa-times');
             cross.classList.add('editIcon', 'editHeader');
             cross.setAttribute('id', 'cross');
-            cross.addEventListener('click', _editableLists);
             cross.addEventListener('click', editList.cancelEdit);
+            cross.addEventListener('click', _editableLists);
             const check = document.createElement('i');
             check.classList.add('fas', 'fa-check');
             check.classList.add('editIcon','editHeader');
             check.setAttribute('id', 'check');
-            check.addEventListener('click', _editableLists);
             check.addEventListener('click', editList.saveEdit);
+            check.addEventListener('click', _editableLists);
 
             icons.appendChild(cross);
             icons.appendChild(check);
@@ -142,7 +147,7 @@ const todoMenuDOM = (() => {
                 
                 }
             });
-    }
+        }
     }
 
 
@@ -184,6 +189,19 @@ const todoMenuDOM = (() => {
 
     }
 
+    function getActiveListName() {
+        const ul = document.querySelector('#listsList');
+        let listName;
+        ul.querySelectorAll('li').forEach(list => {
+            if(list.classList.contains('active')){
+                listName = list.querySelector('p').textContent;
+                todoTaskDOM.currentList = list;
+            }
+        });
+        return listName;
+
+    }
+
     document.querySelectorAll('.arrow').forEach(arrow => {
         arrow.addEventListener('click', _toggleMenu);
     })  
@@ -196,7 +214,7 @@ const todoMenuDOM = (() => {
     
 
     return {
-        renderLists,  renderShortcuts,
+        renderLists,  renderShortcuts, getActiveListName, _editableLists
     }
 
 

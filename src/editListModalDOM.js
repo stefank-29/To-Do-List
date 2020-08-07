@@ -33,7 +33,7 @@ const editListModalDOM = (()=>{
 
     function showModal() {
         li = this.parentNode;
-        console.log(this.parentNode, this.parentNode.textContent);
+        //console.log(this.parentNode, this.parentNode.textContent);
         oldlistName = this.parentNode.textContent;
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
