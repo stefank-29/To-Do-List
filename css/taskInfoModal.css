@@ -4,7 +4,7 @@
     height: 70rem;
     width: 50rem;
     padding: 3rem;
-    padding-top: 7rem;
+    padding-top: 8rem;
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.3);
@@ -34,6 +34,15 @@
     font-size: 2.2rem;
     font-family: 'Montserrat', sans-serif;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+#taskInfo p{
+    margin: 0;
+    padding: 0;
+    margin-left: 2.3rem;
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 /********form************/
@@ -92,6 +101,7 @@
     font-size: 2rem;
     padding: 1.8rem;
 }
+
 #taskButtons button:hover{
     background-color: #d8d1d1a8;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);

@@ -109,6 +109,9 @@
 
 
 /*******checkbox*******/
+.checkbox{
+    z-index: 1;
+}
 .checkbox:checked ~ p{
     color: #575050b7;
     text-decoration: line-through;
