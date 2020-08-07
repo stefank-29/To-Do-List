@@ -67,7 +67,7 @@ const todo = (() => {
         localStorage.setItem('lists', JSON.stringify(lists));
     }
     function getList (listName) {  
-        lists = getLists();
+        //lists = getLists();
         return lists.find(list => {
             return list.getName().toLowerCase() === listName.toLowerCase();
         })
