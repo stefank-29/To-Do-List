@@ -9,7 +9,6 @@ const taskInfoDOM = (() => {
         if(event.target !== this){
             return;
         }
-       // modalBg.style.transform = `translateX(-${event.pageX/3+30}px) translateY(-${event.pageY-50}px) scale(0.1)`;
         modalBg.parentNode.removeChild(modalBg);
     }
     function exitModalOnButton() {
@@ -50,7 +49,7 @@ const taskInfoDOM = (() => {
         const deleteTask = document.createElement('button');
         deleteTask.textContent = 'Delete';
         deleteTask.setAttribute('id', 'deleteTask');
-        deleteTask.addEventListener('click', editTask.deleteTask);
+        deleteTask.addEventListener('click', function() {editTask.deleteTask(index)});
         const saveTask = document.createElement('button');
         saveTask.textContent = 'Save';
         saveTask.setAttribute('id', 'saveTask');

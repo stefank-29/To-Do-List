@@ -26,13 +26,17 @@ const List = (listName, listItems) => {
     };
     const removeItem = (itemName) =>{
         const index = items.findIndex(item => {
-            return item.getName().toLowerCase() === itemName.toLowerCase(); 
+            return item.title === itemName; 
         })
         items.splice(index, 1);
         //local storage
     }
+    function removeItemByIndex(index) {
+        items.splice(index, 1);
+    }
     return {
-        getName ,editName, getItems, getItemsNumber, addItem, removeItem, name, items
+        getName ,editName, getItems, getItemsNumber, 
+        addItem, removeItem, removeItemByIndex, name, items
         
     }
 }
