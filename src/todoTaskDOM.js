@@ -81,9 +81,6 @@ const todoTaskDOM = (() => {
         list.appendChild(listHeader);
 
         //insert task
-        // let retrivedData = localStorage.getItem('lists');
-        // const liste  = JSON.parse(retrivedData);
-        // console.log(liste);
         const tasks = todo.getList(listName).getItems(); //iz local storage-a
         const listTasks = document.createElement('div');
         listTasks.classList.add('listTasks');

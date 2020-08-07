@@ -22,8 +22,11 @@ const editList = (() => {
     }
 
     function deleteList(list){
-        console.log(list);
-
+        //console.log(list);
+        const index = list.dataset.index;
+        list.parentNode.removeChild(list); // uklanjam iz menija
+        todoMenuDOM.changeDataIndices(); // menjam data-indexe
+        todo.removeListByIndex(index); 
         editListModalDOM.exitModalOnButton();
 
     }

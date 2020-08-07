@@ -72,8 +72,12 @@ const todoMenuDOM = (() => {
             }
         });
     }
-    function headerEditIcons(){
-
+    function changeDataIndices(){
+        const lists = document.querySelector('#listsList');
+        let i = 0;
+        lists.querySelectorAll('li').forEach(list => {
+            list.dataset.index = i++;
+        });
     }
 
 
@@ -216,7 +220,8 @@ const todoMenuDOM = (() => {
     
 
     return {
-        renderLists,  renderShortcuts, getActiveListName, _editableLists
+        renderLists,  renderShortcuts, getActiveListName, 
+        _editableLists, changeDataIndices,
     }
 
 

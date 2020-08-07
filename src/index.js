@@ -1,7 +1,5 @@
 //? logika
-//!1
-//todo dva puta promena (cuvanje preko indeksa)
-//todo delete
+
 //!2
 //todo task info
 //todo edit taska

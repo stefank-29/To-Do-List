@@ -77,16 +77,20 @@ const todo = (() => {
             return list.getName().toLowerCase() === listName.toLowerCase();
         })
     }
-    const removeList = (listName) =>{
-        lists = getLists(); 
+    const removeListByName = (listName) =>{
+        //lists = getLists(); 
         const index = lists.findIndex(item => {
             return item.getName().toLowerCase() === listName.toLowerCase();
         })
         lists.splice(index, 1);
-        localStorage.setItem('lists', JSON.stringify(lists));
+        //localStorage.setItem('lists', JSON.stringify(lists));
+    }
+    function removeListByIndex(index) {
+        lists.splice(index, 1);
     }
     return {
-        getLists, addList, removeList, getList, setListsToStorage, getListIndex, lists,
+        getLists, addList, removeListByName, getList, 
+        setListsToStorage, getListIndex, removeListByIndex, lists,
     }
 })();
 
