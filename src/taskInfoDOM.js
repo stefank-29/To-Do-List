@@ -22,19 +22,43 @@ const taskInfoDOM = (() => {
         modal.setAttribute('id', 'taskInfo');
         modal.style.transform = `translateX(-50%) translateY(-50%) scale(0.1)`;
         const form = document.createElement('form');
-
+        // header
         const header = document.createElement('div');   
         header.setAttribute('id', 'header');
         const h2 = document.createElement('h2');
         h2.textContent = 'TASK DETAILS';
         header.appendChild(h2);
+        modal.appendChild(header);
+
+
+
+        //buttons
+        const buttons = document.createElement('div');
+        buttons.setAttribute('id', 'taskButtons');
+        //buttons.classList.add('#modalButtons');
+        const deleteTask = document.createElement('button');
+        deleteTask.textContent = 'Delete';
+        deleteTask.setAttribute('id', 'deleteTask');
+        //deleteTask.addEventListener('click', exitModalOnButton);
+        const saveTask = document.createElement('button');
+        saveTask.textContent = 'Save';
+        saveTask.setAttribute('id', 'saveTask');
+        //saveTask.addEventListener('click', function(){addListFromModal.addList(listTitle)})
+
+
+        buttons.appendChild(deleteTask);
+        buttons.appendChild(saveTask);
+
         form.setAttribute('autocomplete', 'off');
 
 
 
 
-        modal.appendChild(header);
         modal.appendChild(form);
+        modal.appendChild(buttons);
+
+
+
         modalBg.addEventListener('click', _exitModal);
         modalBg.appendChild(modal);
 
