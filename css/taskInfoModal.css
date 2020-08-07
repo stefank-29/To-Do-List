@@ -4,6 +4,7 @@
     height: 70rem;
     width: 50rem;
     padding: 3rem;
+    padding-top: 7rem;
     background-color: whitesmoke;
     border-radius: 10px;
     box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.3);
@@ -35,6 +36,31 @@
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
 
+/********form************/
+#taskInfo form{
+    width: 90%;
+}
+#taskInfo input[type="text"], #taskInfo input[type="date"], #taskInfo select, #taskInfo textarea{
+    padding: 1rem;
+    margin: 1rem 2rem;
+    width: 90%;
+    font-size: 2rem;
+    background-color: rgba(197, 219, 253, 0.4);
+    /* border: 1.5px solid rgb(54, 54, 167); */
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-family: 'Mulish', sans-serif;
+    color: rgb(10, 37, 128);
+}
+#taskInfo input[type="text"]::placeholder, textarea::placeholder{
+    color: rgb(10, 37, 128);
+
+}
+
+
+
+
 /********buttons**********/
 
 #taskButtons{
@@ -64,7 +90,7 @@
     font-family: Helvetica, sans-serif;
     font-weight: 400;
     font-size: 2rem;
-    padding: 2rem;
+    padding: 1.8rem;
 }
 #taskButtons button:hover{
     background-color: #d8d1d1a8;
