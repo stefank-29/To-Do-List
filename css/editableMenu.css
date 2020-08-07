@@ -17,7 +17,10 @@
     color: rgba(0, 0, 0, 0.7);
     animation: fadeinLeft 0.2s ease-in 1 forwards;
 }
-
+#menu li.editable p{
+    transition: all 0.2s;
+    animation: fadeInLeft 0.2s ease-in 1 forwards;
+}
 
 #editIcons{
     margin-left: auto;
