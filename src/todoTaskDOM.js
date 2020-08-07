@@ -29,6 +29,14 @@ const todoTaskDOM = (() => {
         }
         
     }
+    function _activeList(activeListName) {
+        const lists = document.querySelector('#listsList');
+        lists.querySelectorAll('li').forEach(list => {
+            if(list.querySelector('p').textContent === activeListName){
+                list.classList.add('active');
+            }
+        });
+    }
     function _deactiveAllLists(ul) {
         const lists = ul.querySelectorAll('li');
         lists.forEach(list => {
@@ -50,6 +58,7 @@ const todoTaskDOM = (() => {
             listName = this.firstChild.textContent;
         }else{
             listName = listTitle;  // nakon dodavanja
+            _activeList(listName);
         }
         
         
