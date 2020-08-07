@@ -1,0 +1,36 @@
+#taskInfo{
+    position: absolute;
+    z-index: 10;
+    height: 70rem;
+    width: 50rem;
+    padding: 3rem;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 2px rgba(0, 0, 0, 0.3);
+    animation: popup 0.4s linear 1 forwards; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#taskInfo #header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.4);
+
+}
+
+#taskInfo #header h2{
+    margin: 0;
+    padding: 1rem 1rem 0.5rem;
+    font-size: 2.2rem;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}

@@ -1,6 +1,8 @@
 import {todo} from './todoInitialLists';
 import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
+import {taskInfoDOM} from './taskInfoDOM';
+
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -87,6 +89,7 @@ const todoTaskDOM = (() => {
         tasks.forEach(task => {
             const taskDiv = document.createElement('div');
             taskDiv.classList.add('taskDiv');
+            taskDiv.addEventListener('click', taskInfoDOM.showInfo);
             const checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.setAttribute('id', task.title);
