@@ -17,8 +17,6 @@ const listModalDOM = (()=>{
         }else{
             button.classList.remove('enabled');
         }
-
-
     }
     function _exitModal(event) {
         if(event.target !== this){

@@ -10,13 +10,16 @@ const editTask = (() => {
 
         todoMenuDOM.renderLists();
         todoMenuDOM.renderShortcuts();
-        todoTaskDOM.renderListTasks(undefined, currList.name);
+        todoTaskDOM.renderListTasks(undefined, currList.name); // renderujem istu listu
         taskInfoDOM.exitModalOnButton();
 
     }
 
     function saveTask() {
         
+
+        taskInfoDOM.exitModalOnButton();
+
     }
 
     return{

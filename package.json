@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "json-fn": "^1.1.1"
+    "json-fn": "^1.1.1",
+    "sortablejs": "^1.10.2"
   }
 }

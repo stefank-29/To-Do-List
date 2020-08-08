@@ -1,14 +1,11 @@
 //? logika
 //!2
-//todo task info (pop up)
 //todo edit taska
-//todo brisanje taska
 //!3
-//todo selektovati vise taskova sa shft + click
+//todo checkiranje i razlicita boja za prioritete
+//todo selektovati vise taskova sa shift + click
 //todo efekti za taskove (prioritet i kad se doda fadeInBottom)
-
-//meni
-
+//todo kad se brise task prebacim na kraj
 
 
 //kasnije
@@ -21,6 +18,7 @@
 //todo check box custom
 //pozadina
 //todo promena pozadine
+//todo favicon
 
 import {ToDoItem} from './todoItem';
 import {List} from './todoList';

@@ -16,9 +16,23 @@ const taskInfoDOM = (() => {
 
     }
 
+    function _saveListStyle(e) {
+        const input = this;
+        const button = document.querySelector('#saveTask');
+        input.style.backgroundColor = '';
+        if(input.value !== ''){
+            button.classList.add('enabled');
+            if(e.key === 'Enter'){
+                addListFromModal.addList(input);
+            }
+        }else{
+            button.classList.remove('enabled');
+        }
+    }
+
     function showInfo(e) {
         //console.log(this);
-        if(e.target.tagName === 'INPUT'){
+        if(e.target.tagName === 'INPUT'){ // ako kliknem na checkbox
             return;
         }
         const taskTitle = this.querySelector('p').textContent;
@@ -65,6 +79,10 @@ const taskInfoDOM = (() => {
         inputTitle.setAttribute('size', '20');
         inputTitle.setAttribute('placeholder', 'Task name');
         inputTitle.setAttribute('maxlength', '50');
+        inputTitle.addEventListener('change', _saveListStyle);
+        inputTitle.addEventListener('keydown', _saveListStyle);
+        inputTitle.addEventListener('keyup', _saveListStyle);
+
         inputTitle.value = `${taskTitle}`;
         setTimeout(function(){inputTitle.focus();}, 500); // fokus
         //description
