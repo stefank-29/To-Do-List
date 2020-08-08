@@ -15,10 +15,24 @@ const editTask = (() => {
 
     }
 
-    function saveTask() {
-        
+    function saveTask(task, data) {
+        const inputTitle = document.querySelector('#title');
+        const button = document.querySelector('#saveTask')
+        const currList = todoTaskDOM.getCurrentList();
 
-        taskInfoDOM.exitModalOnButton();
+        if(button.classList.contains('enabled')){// ako je aktivno dugme
+            task.title = data.title;
+            task.description = data.description;
+            task.dueDate = data.dueDate;
+            task.priority = data.priority;
+            task.note = data.note;
+
+            localStorage.setItem('lists', JSON.stringify(todo.lists));
+            todoTaskDOM.renderListTasks(undefined, currList.name); // renderujem istu listu
+            taskInfoDOM.exitModalOnButton();
+        }else{
+            inputTitle.style.backgroundColor = 'rgba(156, 54, 54, 0.4)';
+        }
 
     }
 

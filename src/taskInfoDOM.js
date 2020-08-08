@@ -22,9 +22,6 @@ const taskInfoDOM = (() => {
         input.style.backgroundColor = '';
         if(input.value !== ''){
             button.classList.add('enabled');
-            if(e.key === 'Enter'){
-                addListFromModal.addList(input);
-            }
         }else{
             button.classList.remove('enabled');
         }
@@ -67,7 +64,8 @@ const taskInfoDOM = (() => {
         const saveTask = document.createElement('button');
         saveTask.textContent = 'Save';
         saveTask.setAttribute('id', 'saveTask');
-        //saveTask.addEventListener('click', function(){addListFromModal.addList(listTitle)})
+        saveTask.classList.add('enabled');
+        //saveTask.addEventListener('click', function(){editTask.saveTask(task, inputData)})
         buttons.appendChild(deleteTask);
         buttons.appendChild(saveTask);
 
@@ -156,17 +154,23 @@ const taskInfoDOM = (() => {
         form.appendChild(textarea);
 
 
-
         modal.appendChild(form);
         modal.appendChild(buttons);
-
-
 
         modalBg.addEventListener('click', _exitModal);
         modalBg.appendChild(modal);
 
         container.appendChild(modalBg);
 
+        saveTask.addEventListener('click', function(){
+            let inputData = {
+                title: inputTitle.value,
+                description: inputDescription.value,
+                dueDate: inputDate.value,
+                priority: select.value,
+                note: textarea.value,
+            };
+            editTask.saveTask(task, inputData)});
     }
 
     return {
