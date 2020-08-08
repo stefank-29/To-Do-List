@@ -97,22 +97,34 @@
     cursor: pointer;
     color: rgb(0, 0, 0);
     font-family: Helvetica, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 2rem;
     padding: 1.8rem;
 }
 
-#taskButtons button:hover{
+#taskButtons #deleteTask{
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 0 10px;
+    cursor: pointer;
+}
+#taskButtons #deleteTask:hover{
     background-color: #d8d1d1a8;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 
 }
-#taskButtons #deleteTask{
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 0 10px;
-}
 #taskButtons #saveTask{
-    color: rgb(10, 37, 128);
+    color: rgba(0, 0, 0, 0.5);
     border-radius: 0 0 10px 0;
+    cursor: default;
+}
+
+#taskButtons #saveTask.enabled{
+    color: rgb(10, 37, 128);
+    cursor: pointer;
+   
+}
+#taskButtons #saveTask.enabled:hover{
+    background-color: #d8d1d1a8;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 }
 
