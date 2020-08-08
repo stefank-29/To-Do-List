@@ -1,7 +1,4 @@
 //? logika
-//!2
-//todo edit taska
-//!3
 //todo checkiranje i razlicita boja za prioritete
 //todo selektovati vise taskova sa shift + click
 //todo efekti za taskove (prioritet i kad se doda fadeInBottom)

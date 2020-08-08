@@ -2,6 +2,7 @@ import {taskInfoDOM} from './taskInfoDOM';
 import {todoMenuDOM} from './todoMenuDOM';
 import {todoTaskDOM} from './todoTaskDOM';
 import {todo} from './todoInitialLists';
+
 const editTask = (() => {
     function deleteTask(taskIndex) {
         const currList = todoTaskDOM.getCurrentList();
@@ -36,8 +37,17 @@ const editTask = (() => {
 
     }
 
+    function toggleFinishedFlag() {
+        const currList = todoTaskDOM.getCurrentList();
+        const taskIndex = this.parentNode.dataset.index;
+        currList.items[taskIndex].finshed = !currList.items[taskIndex].finshed;
+        
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
+        console.log(currList.items[taskIndex].finshed);
+    }
+
     return{
-        deleteTask, saveTask, 
+        deleteTask, saveTask, toggleFinishedFlag, 
     }
 })();
 

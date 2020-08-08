@@ -2,7 +2,7 @@ import {todo} from './todoInitialLists';
 import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
 import {taskInfoDOM} from './taskInfoDOM';
-
+import {editTask} from './editTask';
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -97,6 +97,7 @@ const todoTaskDOM = (() => {
             checkbox.setAttribute('id', task.title);
             checkbox.setAttribute('value', task.title);
             checkbox.classList.add('checkbox');
+            checkbox.addEventListener('click', editTask.toggleFinishedFlag);
             const p = document.createElement('p');
             p.innerText = task.title;
             taskDiv.append(checkbox);
