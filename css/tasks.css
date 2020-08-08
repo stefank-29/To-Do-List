@@ -111,6 +111,7 @@
 /*******checkbox*******/
 .checkbox{
     z-index: 1;
+    cursor: pointer;
 }
 .checkbox:checked ~ p{
     color: #575050b7;
