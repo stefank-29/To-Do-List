@@ -77,6 +77,7 @@
 }
 
 .taskDiv{
+    position: relative;
     display: flex;
     width: 90%;
     align-items: center;
@@ -119,7 +120,7 @@
     text-decoration: line-through;
     
 }
-.checkbox:checked ~ .checkbox{ /*promena boje cb-a kad se cekira*/
+.checkbox:checked ~ .checkmark{ /*promena boje cb-a kad se cekira*/
     color: red;
 }
 
