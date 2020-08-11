@@ -47,8 +47,16 @@ const editTask = (() => {
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         todoTaskDOM.renderListTasks(undefined, list.name);
         
-
     }
+    function moveTaskToTop(taskDiv, list){
+        const index = taskDiv.dataset.index;
+        const task = list.getItems()[index];
+        list.getItems().splice(index, 1);
+        list.getItems().unshift(task);
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
+        todoTaskDOM.renderListTasks(undefined, list.name);
+    }
+
     function toggleFinishedFlag() {
         const currList = todoTaskDOM.getCurrentList();
         const taskIndex = this.parentNode.dataset.index;
@@ -57,6 +65,8 @@ const editTask = (() => {
 
         if(currList.items[taskIndex].finished == true){
             moveTaskToBottom(this.parentNode, currList);
+        }else{
+            moveTaskToTop(this.parentNode, currList);
         }
     }
 
