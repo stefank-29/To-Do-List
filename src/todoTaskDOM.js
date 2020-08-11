@@ -98,6 +98,13 @@ const todoTaskDOM = (() => {
             checkbox.setAttribute('value', task.title);
             checkbox.classList.add('checkbox');
             checkbox.addEventListener('click', editTask.toggleFinishedFlag);
+            console.log(task.finished); 
+            if(task.finished == true){
+                checkbox.checked = true;
+                
+            }else{
+                checkbox.checked = false;
+            }
             const p = document.createElement('p');
             p.innerText = task.title;
             taskDiv.append(checkbox);

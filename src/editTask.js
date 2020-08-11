@@ -40,10 +40,8 @@ const editTask = (() => {
     function toggleFinishedFlag() {
         const currList = todoTaskDOM.getCurrentList();
         const taskIndex = this.parentNode.dataset.index;
-        currList.items[taskIndex].finshed = !currList.items[taskIndex].finshed;
-        
+        currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
-        console.log(currList.items[taskIndex].finshed);
     }
 
     return{

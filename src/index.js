@@ -1,9 +1,11 @@
 //? logika
+
+//todo ne radi check kad se menja lista
 //todo checkiranje i razlicita boja za prioritete
 //todo selektovati vise taskova sa shift + click
 //todo efekti za taskove (prioritet i kad se doda fadeInBottom)
 //todo kad se brise task prebacim na kraj
-
+    
 
 //kasnije
 //TODO kad obrisem aktivnu listu prikazati sve liste
