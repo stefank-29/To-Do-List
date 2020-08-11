@@ -37,11 +37,27 @@ const editTask = (() => {
 
     }
 
+    function moveTaskToBottom(taskDiv, list) {
+        //console.log(task, list);
+        const index = taskDiv.dataset.index;
+        const task = list.getItems()[index];
+        
+        list.getItems().splice(index, 1);
+        list.getItems().push(task);  
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
+        todoTaskDOM.renderListTasks(undefined, list.name);
+        
+
+    }
     function toggleFinishedFlag() {
         const currList = todoTaskDOM.getCurrentList();
         const taskIndex = this.parentNode.dataset.index;
         currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
+
+        if(currList.items[taskIndex].finished == true){
+            moveTaskToBottom(this.parentNode, currList);
+        }
     }
 
     return{
