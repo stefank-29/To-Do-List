@@ -1,5 +1,4 @@
 //? logika  
-//todo efekti za taskove (prioritet)
 //todo dueDate pored imena taska
     
 //kasnije
@@ -14,6 +13,7 @@
 //pozadina
 //todo promena pozadine
 //todo favicon
+//todo README.md
 
 import {ToDoItem} from './todoItem';
 import {List} from './todoList';

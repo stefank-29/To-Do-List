@@ -3,6 +3,8 @@ import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
 import {taskInfoDOM} from './taskInfoDOM';
 import {editTask} from './editTask';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -47,7 +49,6 @@ const todoTaskDOM = (() => {
     }
 
     function renderListTasks(event, listTitle) {
-
         _deleteListView();
         let listName;
         
@@ -88,8 +89,10 @@ const todoTaskDOM = (() => {
         listTasks.classList.add('listTasks');
         let i = 0;
         tasks.forEach(task => {
+            // if(task.dueDate !== ''){
+            //     console.log(formatDistanceToNow(new Date(task.dueDate), { addSuffix: true }));
+            // }
             const taskDiv = document.createElement('div');
-            //taskDiv.classList.add('pretty', 'p-curve');
             taskDiv.classList.add('taskDiv');
             taskDiv.addEventListener('click', taskInfoDOM.showInfo);
             taskDiv.setAttribute('data-index', i++);
@@ -107,12 +110,21 @@ const todoTaskDOM = (() => {
             }else if(task.priority === 'medium'){
                 p.style.borderBottom = '3px solid rgb(71, 185, 25)';
             }else if(task.priority === 'high'){
-                p.style.borderBottom = '3px solid rgb(211, 153, 27)'
+                p.style.borderBottom = '3px solid rgb(211, 153, 27)';
             }else if(task.priority === 'urgent'){
-                p.style.borderBottom = '3px solid rgb(221, 53, 23)'
+                p.style.borderBottom = '3px solid rgb(221, 53, 23)';
             }
-            taskDiv.append(checkbox);
+           
+            taskDiv.appendChild(checkbox);
             taskDiv.appendChild(p);
+
+            if(task.dueDate !== ''){
+                const timeRemaining = document.createElement('div');
+                timeRemaining.classList.add('timeRemaining');
+                timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                taskDiv.appendChild(timeRemaining);
+            }
+
             if(task.finished == true){  // ubacim x ikonicu 
                 checkbox.checked = true;
                 taskDiv.classList.add('finished');

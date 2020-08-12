@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
+    "date-fns": "^2.15.0",
     "json-fn": "^1.1.1",
+    "moment": "^2.27.0",
     "pretty-checkbox": "^3.0.3",
     "sortablejs": "^1.10.2"
   }
