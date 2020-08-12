@@ -138,6 +138,19 @@
     margin-left: auto;
     cursor: pointer;
 }
+/*******time remaining***********/
+.timeRemaining{
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    margin-left: 1rem;
+    padding: 0.3rem;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    
+}
+
+
+
 
 /*******checkbox*******/
 .checkbox{
