@@ -102,12 +102,12 @@
     padding: 1.8rem;
 }
 
-#taskButtons #deleteTask{
+#taskButtons #deleteTask, #taskButtons #restoreTask{
     border-right: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0 0 0 10px;
     cursor: pointer;
 }
-#taskButtons #deleteTask:hover{
+#taskButtons #deleteTask:hover, #taskButtons #restoreTask:hover{
     background-color: #d8d1d1a8;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
 
