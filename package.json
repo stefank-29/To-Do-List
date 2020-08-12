@@ -8,6 +8,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "json-fn": "^1.1.1",
+    "pretty-checkbox": "^3.0.3",
     "sortablejs": "^1.10.2"
   }
 }

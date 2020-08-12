@@ -89,6 +89,7 @@ const todoTaskDOM = (() => {
         let i = 0;
         tasks.forEach(task => {
             const taskDiv = document.createElement('div');
+            //taskDiv.classList.add('pretty', 'p-curve');
             taskDiv.classList.add('taskDiv');
             taskDiv.addEventListener('click', taskInfoDOM.showInfo);
             taskDiv.setAttribute('data-index', i++);
@@ -99,17 +100,21 @@ const todoTaskDOM = (() => {
             checkbox.classList.add('checkbox');
             checkbox.addEventListener('click', editTask.toggleFinishedFlag);
             
+            // const stateDiv = document.createElement('div');
+            // stateDiv.classList.add('state');
             const p = document.createElement('p');
-            p.innerText = task.title;
+            p.textContent = task.title;
+            // stateDiv.appendChild(p);
             taskDiv.append(checkbox);
             taskDiv.appendChild(p);
-            if(task.finished == true){
+            if(task.finished == true){  // ubacim x ikonicu 
                 checkbox.checked = true;
                 taskDiv.classList.add('finished');
                 const span = document.createElement('span');
                 span.classList.add('crossIcon');
                 const cross = document.createElement('i');
                 cross.classList.add('fas', 'fa-times-circle');
+                span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index);});
                 span.appendChild(cross);
                 taskDiv.appendChild(span);
                 

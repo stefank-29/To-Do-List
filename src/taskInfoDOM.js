@@ -28,8 +28,8 @@ const taskInfoDOM = (() => {
     }
 
     function showInfo(e) {
-        //console.log(this);
-        if(e.target.tagName === 'INPUT'){ // ako kliknem na checkbox
+
+        if(e.target.tagName === 'INPUT' || e.target.tagName === 'I'){ // ako kliknem na checkbox
             return;
         }
         const taskTitle = this.querySelector('p').textContent;

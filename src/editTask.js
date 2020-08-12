@@ -16,6 +16,15 @@ const editTask = (() => {
         taskInfoDOM.exitModalOnButton();
 
     }
+    function deleteTaskOnCross(taskIndex) {
+        const currList = todoTaskDOM.getCurrentList();
+        currList.removeItemByIndex(taskIndex);
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
+
+        todoMenuDOM.renderLists();
+        todoMenuDOM.renderShortcuts();
+        todoTaskDOM.renderListTasks(undefined, currList.name); 
+    }
 
     function saveTask(task, data) {
         const inputTitle = document.querySelector('#title');
@@ -73,7 +82,7 @@ const editTask = (() => {
     }
 
     return{
-        deleteTask, saveTask, toggleFinishedFlag, 
+        deleteTask, saveTask, toggleFinishedFlag, deleteTaskOnCross,
     }
 })();
 
