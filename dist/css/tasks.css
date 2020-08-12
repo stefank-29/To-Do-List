@@ -92,12 +92,26 @@
     cursor: pointer;
     
 }
+.taskDiv.finished::after{
+    position: absolute;
+    left: 12%;
+    top: 52%;
+    height: 1px;
+    width: 77%;
+    display: block;
+    content: "";
+    background-color: rgba(0, 0, 0, 0.4);  
+
+}
 .taskDiv p{
     overflow: hidden;
     white-space: nowrap;    
     text-overflow: ellipsis;
     margin: 0;
     margin-left: 1rem;
+}
+.taskDiv.finished p{
+    color: rgba(0, 0, 0, 0.4);
 }
 .listTasks{
     overflow-y: auto;
@@ -116,15 +130,11 @@
     cursor: pointer;
     color: red;
 }
-.checkbox:checked ~ p{ 
+/* .checkbox:checked ~ p{ 
     color: #575050b7;
     text-decoration: line-through;
     
-}
-.checkbox:checked ~ .checkmark{ /*promena boje cb-a kad se cekira*/
-    color: red;
-}
-
+} */
 
 /******quick task*******/
 .quickTask{

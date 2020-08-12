@@ -4,6 +4,7 @@ import {todoTaskDOM} from './todoTaskDOM';
 import {todo} from './todoInitialLists';
 
 const editTask = (() => {
+
     function deleteTask(taskIndex) {
         const currList = todoTaskDOM.getCurrentList();
         currList.removeItemByIndex(taskIndex);
@@ -37,8 +38,7 @@ const editTask = (() => {
 
     }
 
-    function moveTaskToBottom(taskDiv, list) {
-        //console.log(task, list);
+    function _moveTaskToBottom(taskDiv, list) {
         const index = taskDiv.dataset.index;
         const task = list.getItems()[index];
         
@@ -48,9 +48,10 @@ const editTask = (() => {
         todoTaskDOM.renderListTasks(undefined, list.name);
         
     }
-    function moveTaskToTop(taskDiv, list){
+    function _moveTaskToTop(taskDiv, list){
         const index = taskDiv.dataset.index;
         const task = list.getItems()[index];
+
         list.getItems().splice(index, 1);
         list.getItems().unshift(task);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
@@ -62,11 +63,12 @@ const editTask = (() => {
         const taskIndex = this.parentNode.dataset.index;
         currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
+        //this.parentNode.classList.toggle('finished');
 
         if(currList.items[taskIndex].finished == true){
-            moveTaskToBottom(this.parentNode, currList);
+            _moveTaskToBottom(this.parentNode, currList);
         }else{
-            moveTaskToTop(this.parentNode, currList);
+            _moveTaskToTop(this.parentNode, currList);
         }
     }
 

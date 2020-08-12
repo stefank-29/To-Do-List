@@ -101,6 +101,7 @@ const todoTaskDOM = (() => {
             console.log(task.finished); 
             if(task.finished == true){
                 checkbox.checked = true;
+                taskDiv.classList.add('finished');
                 
             }else{
                 checkbox.checked = false;
