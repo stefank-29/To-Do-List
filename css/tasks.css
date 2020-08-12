@@ -66,6 +66,8 @@
     white-space: nowrap;    
     text-overflow: ellipsis;
     margin: 1rem 1rem 1rem 0rem;
+    color: rgba(0, 0, 0, 0.9);
+
 }
 .add{
     color: rgb(49, 116, 218);
@@ -75,6 +77,17 @@
 .add:hover{
     transform: scale(1.1);
 }
+
+.listTasks{
+    overflow-y: auto;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0.3rem 2rem;
+}
+
 
 .taskDiv{
     position: relative;
@@ -87,10 +100,13 @@
     font-size: 1.7rem;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    border: 1px solid rgba(49, 116, 218, 0.5);
+    border: 1px solid rgba(49, 116, 218, 0.8);
     border-radius: 5px;
     cursor: pointer;
     
+}
+.taskDiv.finished{
+    border: 1px solid rgba(0, 0, 0, 0.4);
 }
 .taskDiv.finished::after{
     position: absolute;
@@ -103,26 +119,24 @@
     background-color: rgba(0, 0, 0, 0.4);  
 
 }
+
 .taskDiv p{
     overflow: hidden;
     white-space: nowrap;    
     text-overflow: ellipsis;
     margin: 0;
     margin-left: 1rem;
+    color: rgba(0, 0, 0, 0.9);
 }
 .taskDiv.finished p{
     color: rgba(0, 0, 0, 0.4);
 }
-.listTasks{
-    overflow-y: auto;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 0.3rem 2rem;
-}
 
+.crossIcon{
+    color: rgba(0, 0, 0, 0.4);
+    margin-left: auto;
+    cursor: pointer;
+}
 
 /*******checkbox*******/
 .checkbox{
