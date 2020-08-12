@@ -98,18 +98,24 @@ const todoTaskDOM = (() => {
             checkbox.setAttribute('value', task.title);
             checkbox.classList.add('checkbox');
             checkbox.addEventListener('click', editTask.toggleFinishedFlag);
-            console.log(task.finished); 
-            if(task.finished == true){
-                checkbox.checked = true;
-                taskDiv.classList.add('finished');
-                
-            }else{
-                checkbox.checked = false;
-            }
+            
             const p = document.createElement('p');
             p.innerText = task.title;
             taskDiv.append(checkbox);
             taskDiv.appendChild(p);
+            if(task.finished == true){
+                checkbox.checked = true;
+                taskDiv.classList.add('finished');
+                const span = document.createElement('span');
+                span.classList.add('crossIcon');
+                const cross = document.createElement('i');
+                cross.classList.add('fas', 'fa-times-circle');
+                span.appendChild(cross);
+                taskDiv.appendChild(span);
+                
+            }else{
+                checkbox.checked = false;
+            }
             listTasks.appendChild(taskDiv);
         });
         list.appendChild(listTasks);
