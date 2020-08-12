@@ -1,11 +1,9 @@
 //? logika
-//todo kad checkiram da se pojavi x za brisanje
 //todo kad kliknem na checkirani imam opciju za restore u task info
 //todo selektovati vise taskova sa shift + click
-//todo efekti za taskove (prioritet i kad se doda fadeInBottom)
+//todo efekti za taskove (prioritet)
 
     
-
 //kasnije
 //TODO kad obrisem aktivnu listu prikazati sve liste
 //TODO drag and drop (za liste proci kroz sve li i dodati u novi niz)

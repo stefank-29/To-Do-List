@@ -72,7 +72,6 @@ const editTask = (() => {
         const taskIndex = this.parentNode.dataset.index;
         currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
-        //this.parentNode.classList.toggle('finished');
 
         if(currList.items[taskIndex].finished == true){
             _moveTaskToBottom(this.parentNode, currList);
@@ -81,8 +80,23 @@ const editTask = (() => {
         }
     }
 
+    function restoreTask(task, taskIndex) {
+        const currList = todoTaskDOM.getCurrentList();
+        currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
+        if(currList.items[taskIndex].finished == true){
+            _moveTaskToBottom(task, currList);
+        }else{
+            _moveTaskToTop(task, currList);
+        }
+        taskInfoDOM.exitModalOnButton();
+
+        
+    }
+
     return{
         deleteTask, saveTask, toggleFinishedFlag, deleteTaskOnCross,
+        restoreTask, 
     }
 })();
 

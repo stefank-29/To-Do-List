@@ -34,6 +34,7 @@ const taskInfoDOM = (() => {
         }
         const taskTitle = this.querySelector('p').textContent;
         const index = this.dataset.index;
+        const taskDiv = this;
         const task = todoTaskDOM.getCurrentList().items[index];
         
 
@@ -52,22 +53,32 @@ const taskInfoDOM = (() => {
         modal.appendChild(header);
 
 
-
-        //buttons
         const buttons = document.createElement('div');
         buttons.setAttribute('id', 'taskButtons');
-        //buttons.classList.add('#modalButtons');
         const deleteTask = document.createElement('button');
-        deleteTask.textContent = 'Delete';
-        deleteTask.setAttribute('id', 'deleteTask');
-        deleteTask.addEventListener('click', function() {editTask.deleteTask(index)});
         const saveTask = document.createElement('button');
-        saveTask.textContent = 'Save';
-        saveTask.setAttribute('id', 'saveTask');
-        saveTask.classList.add('enabled');
-        //saveTask.addEventListener('click', function(){editTask.saveTask(task, inputData)})
-        buttons.appendChild(deleteTask);
-        buttons.appendChild(saveTask);
+        const restoreTask = document.createElement('button');
+        //buttons
+        if(task.finished === false){
+            deleteTask.textContent = 'Delete';
+            deleteTask.setAttribute('id', 'deleteTask');
+            deleteTask.addEventListener('click', function() {editTask.deleteTask(index)});
+            saveTask.textContent = 'Save';
+            saveTask.setAttribute('id', 'saveTask');
+            saveTask.classList.add('enabled');
+            buttons.appendChild(deleteTask);
+            buttons.appendChild(saveTask);
+        }else{
+            restoreTask.setAttribute('id', 'restoreTask');
+            restoreTask.textContent = 'Restore';
+            restoreTask.addEventListener('click', function(){editTask.restoreTask(taskDiv, index);});
+            saveTask.textContent = 'Save';
+            saveTask.setAttribute('id', 'saveTask');
+            saveTask.classList.add('enabled');
+            buttons.appendChild(restoreTask);
+            buttons.appendChild(saveTask);
+
+        }
 
         //form
         //title
@@ -77,9 +88,11 @@ const taskInfoDOM = (() => {
         inputTitle.setAttribute('size', '20');
         inputTitle.setAttribute('placeholder', 'Task name');
         inputTitle.setAttribute('maxlength', '50');
-        inputTitle.addEventListener('change', _saveListStyle);
-        inputTitle.addEventListener('keydown', _saveListStyle);
-        inputTitle.addEventListener('keyup', _saveListStyle);
+        if(task.finished === false){
+            inputTitle.addEventListener('change', _saveListStyle);
+            inputTitle.addEventListener('keydown', _saveListStyle);
+            inputTitle.addEventListener('keyup', _saveListStyle);
+        }
 
         inputTitle.value = `${taskTitle}`;
         setTimeout(function(){inputTitle.focus();}, 500); // fokus
