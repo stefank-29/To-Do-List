@@ -48,8 +48,11 @@ const todoTaskDOM = (() => {
         })
     }
 
-    function renderListTasks(event, listTitle) {
-        _deleteListView();
+    function renderListTasks(event, listTitle, flag) {
+        if(flag !== true){
+            _deleteListView();
+        }
+        
         let listName;
         
         if(this.tagName === "LI"){ //ako sam kliknuo na meni

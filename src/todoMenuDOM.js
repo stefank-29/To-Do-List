@@ -5,7 +5,7 @@ import { taskModalDOM } from './taskModalDOM';
 import {listModalDOM} from './listModalDOM';
 import {editList} from './editList';
 import { editListModalDOM } from './editListModalDOM';
-//let JSONfn = require('json-fn');
+import {shortcuts} from './shortcuts';
 
 const todoMenuDOM = (() => {
 
@@ -187,6 +187,7 @@ const todoMenuDOM = (() => {
         const li3 = document.createElement('li');
         li3.textContent = 'All tasks';
         li3.setAttribute('id', 'allTasks');
+        li3.addEventListener('click', shortcuts.showAllTasks);
         const ul = document.querySelector('#shortcutsList');
         _deleteMenu(ul);
         ul.appendChild(li1);

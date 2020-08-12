@@ -1,18 +1,14 @@
 //? logika  
-//todo dueDate pored imena taska
-    
 //kasnije
-//TODO sortiranje taskova
+//TODO all tasks
+//TODO filters
 //TODO kad obrisem aktivnu listu prikazati sve liste
 //TODO drag and drop (za liste proci kroz sve li i dodati u novi niz)
 //todo ako je prazan ls napuniti ga na pocetku (da ne puca - default lista)
 //TODO printanje liste
 
-//check box
-//todo check box custom
 //pozadina
 //todo promena pozadine
-//todo favicon
 //todo README.md
 
 import {ToDoItem} from './todoItem';
