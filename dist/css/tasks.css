@@ -127,6 +127,7 @@
     margin: 0;
     margin-left: 1rem;
     color: rgba(0, 0, 0, 0.9);
+    padding: 0;
 }
 .taskDiv.finished p{
     color: rgba(0, 0, 0, 0.4);

@@ -47,7 +47,7 @@ const todoTaskDOM = (() => {
     }
 
     function renderListTasks(event, listTitle) {
-        
+
         _deleteListView();
         let listName;
         
@@ -100,11 +100,17 @@ const todoTaskDOM = (() => {
             checkbox.classList.add('checkbox');
             checkbox.addEventListener('click', editTask.toggleFinishedFlag);
             
-            // const stateDiv = document.createElement('div');
-            // stateDiv.classList.add('state');
             const p = document.createElement('p');
             p.textContent = task.title;
-            // stateDiv.appendChild(p);
+            if(task.priority === 'low'){
+                p.style.borderBottom = '3px solid rgb(22, 127, 197)';
+            }else if(task.priority === 'medium'){
+                p.style.borderBottom = '3px solid rgb(71, 185, 25)';
+            }else if(task.priority === 'high'){
+                p.style.borderBottom = '3px solid rgb(211, 153, 27)'
+            }else if(task.priority === 'urgent'){
+                p.style.borderBottom = '3px solid rgb(221, 53, 23)'
+            }
             taskDiv.append(checkbox);
             taskDiv.appendChild(p);
             if(task.finished == true){  // ubacim x ikonicu 
@@ -117,6 +123,7 @@ const todoTaskDOM = (() => {
                 span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index);});
                 span.appendChild(cross);
                 taskDiv.appendChild(span);
+                p.style.border = 'none';
                 
             }else{
                 checkbox.checked = false;
