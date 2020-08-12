@@ -118,7 +118,7 @@ const todoTaskDOM = (() => {
             taskDiv.appendChild(checkbox);
             taskDiv.appendChild(p);
 
-            if(task.dueDate !== ''){
+            if(task.dueDate !== '' && task.finished === false){
                 const timeRemaining = document.createElement('div');
                 timeRemaining.classList.add('timeRemaining');
                 timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
