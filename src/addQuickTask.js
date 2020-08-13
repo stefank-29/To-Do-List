@@ -34,6 +34,7 @@ const addQuickTask = (() => {
 
     function addTaskOnEnter(inp) {
         const input = inp;
+        const currListName = inp.parentNode.getAttribute('id');
         const data = {
             title: input.value,
             description: '',
@@ -42,7 +43,8 @@ const addQuickTask = (() => {
             note: '',
         }
         const task = ToDoItem(data);
-        const list = todoTaskDOM.getCurrentList();
+        const list = todo.getList(currListName);
+        //const list = todoTaskDOM.getCurrentList();
         list.addItem(task);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         todoMenuDOM.renderLists();
