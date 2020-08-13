@@ -53,7 +53,6 @@ const todoTaskDOM = (() => {
         if(flag !== true){
             _deleteListView();
             shortcuts.setAllTasks(false);
-            //console.log(shortcuts.getAllTasks());
         }
 
         let listName;
@@ -99,12 +98,13 @@ const todoTaskDOM = (() => {
             taskDiv.classList.add('taskDiv');
             taskDiv.addEventListener('click', taskInfoDOM.showInfo);
             taskDiv.setAttribute('data-index', i++);
+            taskDiv.setAttribute('data-list', listName);
             const checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.setAttribute('id', task.title);
             checkbox.setAttribute('value', task.title);
             checkbox.classList.add('checkbox');
-            checkbox.addEventListener('click', editTask.toggleFinishedFlag);
+            checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName)});
             
             const p = document.createElement('p');
             p.textContent = task.title;
@@ -135,7 +135,7 @@ const todoTaskDOM = (() => {
                 span.classList.add('crossIcon');
                 const cross = document.createElement('i');
                 cross.classList.add('fas', 'fa-times-circle');
-                span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index);});
+                span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName);});
                 span.appendChild(cross);
                 taskDiv.appendChild(span);
                 p.style.border = 'none';

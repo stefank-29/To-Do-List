@@ -213,7 +213,7 @@ const todoMenuDOM = (() => {
         arrow.addEventListener('click', _toggleMenu);
     })  
 
-    document.querySelector('#menuAddTask').addEventListener('click', taskModalDOM.showModal);
+    document.querySelector('#menuAddTask').addEventListener('click', function(){taskModalDOM.showModal(this, undefined)});
     document.querySelector('#menuBars').addEventListener('click', _hideMenu);
     
     document.querySelector('#addList').addEventListener('click', listModalDOM.showModal);

@@ -35,7 +35,10 @@ const taskInfoDOM = (() => {
         const taskTitle = this.querySelector('p').textContent;
         const index = this.dataset.index;
         const taskDiv = this;
-        const task = todoTaskDOM.getCurrentList().items[index];
+        const listName = taskDiv.dataset.list;
+       // const task = todoTaskDOM.getCurrentList().items[index];
+       const task = todo.getList(listName).items[index];
+
         
 
         modalBg = document.createElement('div');
@@ -62,7 +65,7 @@ const taskInfoDOM = (() => {
         if(task.finished === false){
             deleteTask.textContent = 'Delete';
             deleteTask.setAttribute('id', 'deleteTask');
-            deleteTask.addEventListener('click', function() {editTask.deleteTask(index)});
+            deleteTask.addEventListener('click', function() {editTask.deleteTask(index, listName)});
             saveTask.textContent = 'Save';
             saveTask.setAttribute('id', 'saveTask');
             saveTask.classList.add('enabled');
@@ -71,7 +74,7 @@ const taskInfoDOM = (() => {
         }else{
             restoreTask.setAttribute('id', 'restoreTask');
             restoreTask.textContent = 'Restore';
-            restoreTask.addEventListener('click', function(){editTask.restoreTask(taskDiv, index);});
+            restoreTask.addEventListener('click', function(){editTask.restoreTask(taskDiv, index, listName);});
             saveTask.textContent = 'Save';
             saveTask.setAttribute('id', 'saveTask');
             saveTask.classList.add('enabled');
@@ -183,7 +186,7 @@ const taskInfoDOM = (() => {
                 priority: select.value,
                 note: textarea.value,
             };
-            editTask.saveTask(task, inputData)});
+            editTask.saveTask(task, inputData, listName)});
     }
 
     return {
