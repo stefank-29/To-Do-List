@@ -103,6 +103,7 @@
     border: 1px solid rgba(49, 116, 218, 0.8);
     border-radius: 5px;
     cursor: pointer;
+    background-color: aliceblue;
     
 }
 .taskDiv.finished{
