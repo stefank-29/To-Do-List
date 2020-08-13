@@ -30,10 +30,26 @@ const editList = (() => {
 
     }
 
+    function _saveListsOrder() {
+        const listsList = document.querySelector('#listsList');
+        const listsLi = listsList.querySelectorAll('li');
+        let lists = [];
+        listsLi.forEach(list => {
+            lists.push(todo.lists[list.dataset.index]);
+        });
+        todo.lists.length = 0;
+
+        lists.forEach(list => {
+            todo.lists.push(list);
+        });
+
+    }
+
     function saveEdit() {
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         const activeListName = todoMenuDOM.getActiveListName();
-        
+
+        _saveListsOrder();
         if(activeListName !== undefined){ // ako je aktivna lista
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoMenuDOM.renderLists();
@@ -41,10 +57,11 @@ const editList = (() => {
             todoTaskDOM.renderListTasks(undefined, activeListName);
 
         }else{
+            localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoMenuDOM.renderLists();
             shortcuts.showAllTasks();
-
         }
+
         
     }
 

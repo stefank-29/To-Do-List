@@ -75,6 +75,7 @@ const todoTaskDOM = (() => {
         // header
         const list = document.createElement('div');
         list.classList.add('listItem');
+        list.setAttribute('id', listName);
         const listHeader = document.createElement('div');
         listHeader.classList.add('listHeader');
         const h2 = document.createElement('h2');
@@ -94,6 +95,7 @@ const todoTaskDOM = (() => {
         const tasks = todo.getList(listName).getItems(); //iz local storage-a
         const listTasks = document.createElement('div');
         listTasks.classList.add('listTasks');
+        listTasks.setAttribute('id', listName);
         let i = 0;
         tasks.forEach(task => {
             const taskDiv = document.createElement('div');
@@ -177,7 +179,7 @@ const todoTaskDOM = (() => {
 
 
         new Sortable(listTasks, {
-            animation: 150,
+            animation: 200,
             filter: '.finished',
             onUpdate: function (/**Event*/evt) {
                 _saveTasksOrder(listTasks, listName);
@@ -187,6 +189,7 @@ const todoTaskDOM = (() => {
 
     /***********************/
     function _saveTasksOrder(listTasks, listName) {
+        //console.log(listName);
         const list = todo.getList(listName);
         const tasks = listTasks.querySelectorAll('.taskDiv');
         let items = [];
@@ -202,6 +205,11 @@ const todoTaskDOM = (() => {
         
         localStorage.setItem('lists', JSON.stringify(todo.lists));
 
+        if(shortcuts.getAllTasks() === false){
+            todoTaskDOM.renderListTasks(undefined, listName); // renderujem istu listu
+        }else{
+            shortcuts.showAllTasks();
+        }
     }
 
     const getCurrentList = () => currentList;
