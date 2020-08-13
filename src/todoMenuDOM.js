@@ -158,8 +158,10 @@ const todoMenuDOM = (() => {
         //let sortable = Sortable.create(list);  
         new Sortable(list, {
             handle: '.dragIcon', // handle's class
-            animation: 200
+            animation: 200,
+            
         });
+        
     }
 
 

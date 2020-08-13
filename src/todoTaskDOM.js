@@ -51,6 +51,7 @@ const todoTaskDOM = (() => {
     }
 
     function renderListTasks(event, listTitle, flag) {
+
         if(flag !== true){
             _deleteListView();
             shortcuts.setAllTasks(false);
@@ -174,11 +175,31 @@ const todoTaskDOM = (() => {
         currentList = todo.getList(listName);
 
 
-        let sortable = Sortable.create(listTasks);  
-        // new Sortable(listTasks, {
-        //     animation: 150,
-        //     ghostClass: 'blue-background-class'
-        // });
+
+        new Sortable(listTasks, {
+            animation: 150,
+            onUpdate: function (/**Event*/evt) {
+                _saveTasksOrder(listTasks, listName);
+            },
+        });
+    }
+
+    /***********************/
+    function _saveTasksOrder(listTasks, listName) {
+        const list = todo.getList(listName);
+        const tasks = listTasks.querySelectorAll('.taskDiv');
+        let items = [];
+        
+        tasks.forEach(task => { // prolazim kroz taskove i ubacujem u niz
+            items.push(list.getItems()[task.dataset.index]); 
+        });
+
+        list.getItems().length = 0;
+        items.forEach(item => { // prolazim kroz niz i ubacujem u list taskove
+            list.items.push(item);
+        });
+        console.table(list.getItems(), items);
+        localStorage.setItem('lists', JSON.stringify(todo.lists));
 
     }
 

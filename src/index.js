@@ -1,11 +1,13 @@
 //? logika  
-//kasnije
-//TODO today
-//TODO next 7 days
-
 
 //TODO drag and drop (za liste proci kroz sve li i dodati u novi niz kad se izdropuje)
 //TODO drag and drop - taskovi
+//? da se zapamti redosled
+//? da mogu da prebacujem sa listu na listu
+
+//kasnije
+//TODO today
+//TODO next 7 days
 //todo ako je prazan ls napuniti ga na pocetku 
 //todo ucitati na pocetku allTasks  
 //TODO printanje liste 
