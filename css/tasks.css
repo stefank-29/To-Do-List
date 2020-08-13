@@ -104,11 +104,12 @@
     border-radius: 5px;
     cursor: pointer;
     background-color: aliceblue;
-    
 }
+
 .taskDiv.finished{
     border: 1px solid rgba(0, 0, 0, 0.4);
 }
+
 .taskDiv.finished::after{
     position: absolute;
     left: 12%;
@@ -118,7 +119,6 @@
     display: block;
     content: "";
     background-color: rgba(0, 0, 0, 0.4);  
-
 }
 
 .taskDiv p{
