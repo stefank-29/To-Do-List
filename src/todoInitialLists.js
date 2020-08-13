@@ -17,17 +17,6 @@ let data2 = {
          note: 'daaaa',
 }
 
-/*
-/upisivanje u ls
-localStorage.setItem("MyLibrary", JSON.stringify(myLibrary));
-
-/citanje iz ls-a
-let retrivedData = localStorage.getItem("MyLibrary");
-myLibrary = JSON.parse(retrivedData);
-
-
-
-*/
 
 const todo = (() => {
     let personal = List('Personal');

@@ -95,9 +95,6 @@ const todoTaskDOM = (() => {
         listTasks.classList.add('listTasks');
         let i = 0;
         tasks.forEach(task => {
-            // if(task.dueDate !== ''){
-            //     console.log(formatDistanceToNow(new Date(task.dueDate), { addSuffix: true }));
-            // }
             const taskDiv = document.createElement('div');
             taskDiv.classList.add('taskDiv');
             taskDiv.addEventListener('click', taskInfoDOM.showInfo);
@@ -153,6 +150,7 @@ const todoTaskDOM = (() => {
         //quick task
         const quickTask = document.createElement('div');
         quickTask.classList.add('quickTask');
+        quickTask.setAttribute('id', listName);
         const input = document.createElement('input');
         input.classList.add('quickTaskInput');
         input.setAttribute('type', 'text');
@@ -167,11 +165,10 @@ const todoTaskDOM = (() => {
         arrowUp.classList.add('fa-arrow-circle-up');
         span2.appendChild(arrowUp);
         span2.classList.add('up');
-        span2.addEventListener('click', addQuickTask.addTask);
+        span2.addEventListener('click', function(){addQuickTask.addTask(this)});
         quickTask.appendChild(input);
         quickTask.appendChild(span2);
-        list.appendChild(quickTask);
-
+        list.appendChild(quickTask);    
         lists.appendChild(list);
         currentList = todo.getList(listName);
     }

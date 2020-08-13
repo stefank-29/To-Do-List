@@ -5,8 +5,10 @@ import { todo } from './todoInitialLists';
 import {shortcuts} from './shortcuts';
 const addQuickTask = (() => {
     
-    function addTask() {
-        const input = this.parentNode.querySelector('.quickTaskInput');
+    function addTask(span){
+        
+        const input = span.parentNode.querySelector('.quickTaskInput');
+        const currListName = span.parentNode.getAttribute('id');
         const data = {
             title: input.value,
             description: '',
@@ -14,9 +16,10 @@ const addQuickTask = (() => {
             priority: '',
             note: '',
         }
-        if(this.classList.contains('enabled')){
+        if(span.classList.contains('enabled')){
             const task = ToDoItem(data);
-            const list = todoTaskDOM.getCurrentList();
+            //const list = todoTaskDOM.getCurrentList();
+            const list = todo.getList(currListName);
             list.addItem(task);// cuvam u local storage
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoMenuDOM.renderLists();
