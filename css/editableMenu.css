@@ -14,6 +14,7 @@
 .dragIcon{
     font-size: 1.5rem;
     margin-right: 1.2rem;
+    padding-left: 0.5rem;
     color: rgba(0, 0, 0, 0.7);
     animation: fadeinLeft 0.2s ease-in 1 forwards;
 }
