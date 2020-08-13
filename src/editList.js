@@ -3,7 +3,9 @@ import {List} from './todoList';
 import {editListModalDOM} from './editListModalDOM';
 import {todoMenuDOM} from './todoMenuDOM';
 import {todoTaskDOM} from './todoTaskDOM';
-import {addTaskFromModal} from './addTaskFromModal'
+import {addTaskFromModal} from './addTaskFromModal';
+import {shortcuts} from './shortcuts';
+
 const editList = (() => {
 
 
@@ -12,39 +14,36 @@ const editList = (() => {
         const list = todo.lists[index]; 
 
         list.name = newName;
-        //samo da promenim ime u listi
         listMenu.childNodes[1].textContent = newName;
-        //pamcenje tek kad kliknem na check
-        //localStorage.setItem('lists', JSON.stringify(todo.lists));
         editListModalDOM.exitModalOnButton();
 
         
     }
 
     function deleteList(list){
-        //console.log(list);
         const index = list.dataset.index;
         list.parentNode.removeChild(list); // uklanjam iz menija
         todoMenuDOM.changeDataIndices(); // menjam data-indexe
         todo.removeListByIndex(index); 
         editListModalDOM.exitModalOnButton();
 
+
     }
 
     function saveEdit() {
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         const activeListName = todoMenuDOM.getActiveListName();
-        //console.log(activeListName);
         
         if(activeListName !== undefined){ // ako je aktivna lista
             localStorage.setItem('lists', JSON.stringify(todo.lists));
-            //console.log(todo.lists);
             todoMenuDOM.renderLists();
             todoMenuDOM.renderShortcuts();
             todoTaskDOM.renderListTasks(undefined, activeListName);
 
         }else{
             todoMenuDOM.renderLists();
+            shortcuts.showAllTasks();
+
         }
         
     }

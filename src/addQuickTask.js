@@ -2,6 +2,7 @@ import {ToDoItem} from './todoItem';
 import {todoTaskDOM} from './todoTaskDOM';
 import {todoMenuDOM} from './todoMenuDOM';
 import { todo } from './todoInitialLists';
+import {shortcuts} from './shortcuts';
 const addQuickTask = (() => {
     
     function addTask() {
@@ -20,8 +21,11 @@ const addQuickTask = (() => {
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoMenuDOM.renderLists();
             todoMenuDOM.renderShortcuts();
-            todoTaskDOM.renderListTasks(undefined, list.getName());
-        
+            if(shortcuts.getAllTasks() === false){
+              todoTaskDOM.renderListTasks(undefined, list.getName());
+            }else{
+                shortcuts.showAllTasks();
+            }
         }
     }
 
@@ -40,7 +44,11 @@ const addQuickTask = (() => {
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         todoMenuDOM.renderLists();
         todoMenuDOM.renderShortcuts();
-        todoTaskDOM.renderListTasks(undefined, list.getName());
+        if(shortcuts.getAllTasks() === false){
+            todoTaskDOM.renderListTasks(undefined, list.getName());
+        }else{
+            shortcuts.showAllTasks();
+        }
 
     }
 

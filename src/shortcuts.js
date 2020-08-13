@@ -2,6 +2,8 @@ import {todo} from './todoInitialLists';
 import {todoTaskDOM} from './todoTaskDOM';
 
 const shortcuts = (() => {
+    let allTasks = false;
+
     function _deactiveAllLists() {
         const ul = document.querySelector('#listsList');
         const lists = ul.querySelectorAll('li');
@@ -20,16 +22,22 @@ const shortcuts = (() => {
     
     function showAllTasks() {
         const lists = todo.getLists();
+        allTasks = true;
         _deleteListView();
         lists.forEach(list => {
             todoTaskDOM.renderListTasks(undefined, list.getName(), true);
         });
         _deactiveAllLists();
     }
-
+    function getAllTasks() {
+        return allTasks;
+    }
+    function setAllTasks(bool){
+        allTasks = bool;
+    }
 
     return{
-        showAllTasks, 
+        showAllTasks, getAllTasks, setAllTasks, 
     }
 
 })();

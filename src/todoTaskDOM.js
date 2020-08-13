@@ -4,6 +4,7 @@ import {addQuickTask} from './addQuickTask';
 import {taskInfoDOM} from './taskInfoDOM';
 import {editTask} from './editTask';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import { shortcuts } from './shortcuts';
 
 
 const todoTaskDOM = (() => {
@@ -51,10 +52,12 @@ const todoTaskDOM = (() => {
     function renderListTasks(event, listTitle, flag) {
         if(flag !== true){
             _deleteListView();
+            shortcuts.setAllTasks(false);
+            //console.log(shortcuts.getAllTasks());
         }
-        
+
         let listName;
-        
+       
         if(this.tagName === "LI"){ //ako sam kliknuo na meni
             _deactiveAllLists(this.parentNode);
             this.classList.add('active');
