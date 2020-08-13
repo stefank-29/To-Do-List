@@ -189,9 +189,11 @@ const todoMenuDOM = (() => {
         const li1 = document.createElement('li');
         li1.textContent = 'Today';
         li1.setAttribute('id', 'today');
+        li1.addEventListener('click', shortcuts.todayTasks);
         const li2 = document.createElement('li');
         li2.textContent = 'Next 7 days';
         li2.setAttribute('id', 'sevenDays');
+        li2.addEventListener('click', shortcuts.next7DaysTasks);
         const li3 = document.createElement('li');
         li3.textContent = 'All tasks';
         li3.setAttribute('id', 'allTasks');

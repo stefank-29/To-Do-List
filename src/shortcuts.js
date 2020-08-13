@@ -20,15 +20,37 @@ const shortcuts = (() => {
         }
     }
     
-    function showAllTasks() {
+    function showAllTasks(type) {
         const lists = todo.getLists();
         allTasks = true;
         _deleteListView();
-        lists.forEach(list => {
-            todoTaskDOM.renderListTasks(undefined, list.getName(), true);
-        });
+        if(type === 'today'){
+            lists.forEach(list => {
+                todoTaskDOM.renderListTasks(undefined, list.getName(), true, 'today');
+            });
+        }else if(type === '7days'){
+            lists.forEach(list => {
+                todoTaskDOM.renderListTasks(undefined, list.getName(), true, '7days');
+            });
+        }else{
+            lists.forEach(list => {
+                todoTaskDOM.renderListTasks(undefined, list.getName(), true);
+            });
+        }   
         _deactiveAllLists();
     }
+
+    function todayTasks() {
+        showAllTasks('today');
+    }
+
+
+    function next7DaysTasks() {
+        showAllTasks('7days');
+    }
+
+
+
     function getAllTasks() {
         return allTasks;
     }
@@ -37,7 +59,7 @@ const shortcuts = (() => {
     }
 
     return{
-        showAllTasks, getAllTasks, setAllTasks, 
+        showAllTasks, getAllTasks, setAllTasks, todayTasks, next7DaysTasks,
     }
 
 })();

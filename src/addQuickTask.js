@@ -54,7 +54,7 @@ const addQuickTask = (() => {
         }else{
             shortcuts.showAllTasks();
         }
-
+       
     }
 
     return {
