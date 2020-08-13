@@ -1,6 +1,6 @@
 //? logika  
 //kasnije
-//TODO all tasks kad se doda novi task razlika
+//TODO all tasks - kad se selektuje
 //TODO today
 //TODO next 7 days
 

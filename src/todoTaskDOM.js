@@ -81,7 +81,7 @@ const todoTaskDOM = (() => {
         listHeader.appendChild(h2);
         const span = document.createElement('span');
         span.classList.add('add');
-        span.addEventListener('click', taskModalDOM.showModal);
+        span.addEventListener('click', function() {taskModalDOM.showModal(this, listName)});
         const plus = document.createElement('i');
         plus.classList.add('fas');
         plus.classList.add('fa-plus-circle');

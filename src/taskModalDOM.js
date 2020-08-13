@@ -27,7 +27,7 @@ const taskModalDOM = (() => {
         }
     }
 
-    function showModal(e){
+    function showModal(button, listName){
         //console.log(this.getAttribute('id') == 'menuAddTask');
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
@@ -50,7 +50,7 @@ const taskModalDOM = (() => {
         inputTitle.setAttribute('maxlength', '50');
         //if add task from menu
         let selectList;
-        if(this.getAttribute('id') === 'menuAddTask'){
+        if(button.getAttribute('id') === 'menuAddTask'){
             selectList = document.createElement('select');
             selectList.setAttribute('id', 'listSelect');
             const pHolder = document.createElement('option');
@@ -117,9 +117,9 @@ const taskModalDOM = (() => {
         const btnAddTask = document.createElement('button');
         btnAddTask.setAttribute('id', 'addTask');
         btnAddTask.textContent = 'Add task';
-        btnAddTask.addEventListener('click', addTaskFromModal.addTask);
+        btnAddTask.addEventListener('click', function() {addTaskFromModal.addTask(listName)});
         form.appendChild(inputTitle);
-        if(this.getAttribute('id') === 'menuAddTask'){
+        if(button.getAttribute('id') === 'menuAddTask'){
             form.appendChild(selectList);
         }
         form.appendChild(inputDescription);
@@ -133,7 +133,6 @@ const taskModalDOM = (() => {
         modalBg.appendChild(modal);
         
         container.appendChild(modalBg);
-        //modal.style.transform = `translateX(-${this.offsetLeft-modal.offsetWidth/2}px) translateY(-${this.offsetTop}px) scale(0.1)`;
 
 
     };
