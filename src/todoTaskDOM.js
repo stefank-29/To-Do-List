@@ -178,6 +178,7 @@ const todoTaskDOM = (() => {
 
         new Sortable(listTasks, {
             animation: 150,
+            filter: '.finished',
             onUpdate: function (/**Event*/evt) {
                 _saveTasksOrder(listTasks, listName);
             },
@@ -198,7 +199,7 @@ const todoTaskDOM = (() => {
         items.forEach(item => { // prolazim kroz niz i ubacujem u list taskove
             list.items.push(item);
         });
-        console.table(list.getItems(), items);
+        
         localStorage.setItem('lists', JSON.stringify(todo.lists));
 
     }
