@@ -5,6 +5,7 @@ import {taskInfoDOM} from './taskInfoDOM';
 import {editTask} from './editTask';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { shortcuts } from './shortcuts';
+import Sortable, { MultiDrag, Swap } from 'sortablejs';
 
 
 const todoTaskDOM = (() => {
@@ -171,6 +172,14 @@ const todoTaskDOM = (() => {
         list.appendChild(quickTask);    
         lists.appendChild(list);
         currentList = todo.getList(listName);
+
+
+        let sortable = Sortable.create(listTasks);  
+        // new Sortable(listTasks, {
+        //     animation: 150,
+        //     ghostClass: 'blue-background-class'
+        // });
+
     }
 
     const getCurrentList = () => currentList;

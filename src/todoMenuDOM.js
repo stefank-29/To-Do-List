@@ -6,6 +6,8 @@ import {listModalDOM} from './listModalDOM';
 import {editList} from './editList';
 import { editListModalDOM } from './editListModalDOM';
 import {shortcuts} from './shortcuts';
+import Sortable, { MultiDrag, Swap } from 'sortablejs';
+
 
 const todoMenuDOM = (() => {
 
@@ -152,6 +154,12 @@ const todoMenuDOM = (() => {
                 }
             });
         }
+
+        //let sortable = Sortable.create(list);  
+        new Sortable(list, {
+            handle: '.dragIcon', // handle's class
+            animation: 200
+        });
     }
 
 
