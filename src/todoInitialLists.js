@@ -63,12 +63,15 @@ const todo = (() => {
     }
     const getLists = () => {
         let retrivedData = localStorage.getItem("lists");
-        let listsFromStorage = JSON.parse(retrivedData); //lista samo sa podacima
-        lists.length = 0;
-        listsFromStorage.forEach(l => {
-            lists.push(List(l.name, l.items)); // svaki pu pravim novu listu
-        })
+        if(retrivedData !== undefined && retrivedData !== null){
+            let listsFromStorage = JSON.parse(retrivedData); //lista samo sa podacima
+            lists.length = 0;
+            listsFromStorage.forEach(l => {
+                lists.push(List(l.name, l.items)); // svaki put pravim novu listu
+            })
+        }
         return lists;
+    
     };
     
     const addList = (list) => {

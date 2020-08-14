@@ -1,7 +1,7 @@
 //? logika  
 //todo ako je prazan ls napuniti ga na pocetku 
 //todo ucitati na pocetku allTasks ili prvu listu
-//TODO printanje liste 
+//TODO printanje liste i (task infa mozda)
 
 //pozadina 
 //todo promena pozadine
