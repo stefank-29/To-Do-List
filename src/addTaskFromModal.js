@@ -7,9 +7,9 @@ import {shortcuts} from './shortcuts';
 
 const addTaskFromModal = (() => {
 
-    function addTask(listName) {
+    function addTask(listName, type) {
         event.preventDefault();
-        
+        console.log(type);
         const title = document.querySelector('#title');
         const selectList = document.querySelector('#listSelect')
         const description = document.querySelector('#description');
@@ -37,7 +37,11 @@ const addTaskFromModal = (() => {
             todoMenuDOM.renderShortcuts();
             taskModalDOM.exitModalOnButton(); // iskljuciti prozor
              //render liste
-            if(shortcuts.getAllTasks() === false){
+            if(type === 'today'){
+                shortcuts.showAllTasks(type);
+            }else if(type === '7days'){
+                shortcuts.showAllTasks(type);
+            }else if(shortcuts.getAllTasks() === false){
                todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
             }else{
                shortcuts.showAllTasks();
@@ -53,10 +57,14 @@ const addTaskFromModal = (() => {
                 todoMenuDOM.renderShortcuts();
                 taskModalDOM.exitModalOnButton(); // iskljuciti prozor
                 //render liste
-                if(shortcuts.getAllTasks() === false){
-                    todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
+                if(type === 'today'){
+                    shortcuts.showAllTasks(type);
+                }else if(type === '7days'){
+                    shortcuts.showAllTasks(type);
+                }else if(shortcuts.getAllTasks() === false){
+                   todoTaskDOM.renderListTasks(undefined, currList.getName()); //render liste
                 }else{
-                    shortcuts.showAllTasks();
+                   shortcuts.showAllTasks();
                 }
         
             }else{

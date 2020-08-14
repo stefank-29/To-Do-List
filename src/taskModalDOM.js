@@ -27,8 +27,9 @@ const taskModalDOM = (() => {
         }
     }
 
-    function showModal(button, listName){
+    function showModal(button, listName, type){
         //console.log(this.getAttribute('id') == 'menuAddTask');
+        console.log(type);
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
         //task modal
@@ -117,7 +118,7 @@ const taskModalDOM = (() => {
         const btnAddTask = document.createElement('button');
         btnAddTask.setAttribute('id', 'addTask');
         btnAddTask.textContent = 'Add task';
-        btnAddTask.addEventListener('click', function() {addTaskFromModal.addTask(listName)});
+        btnAddTask.addEventListener('click', function() {addTaskFromModal.addTask(listName, type)});
         form.appendChild(inputTitle);
         if(button.getAttribute('id') === 'menuAddTask'){
             form.appendChild(selectList);
