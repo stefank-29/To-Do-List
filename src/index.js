@@ -1,6 +1,4 @@
 //? logika  
-//todo kad se cekira greska (kao za task info)
-//todo za sutra da pise tomorrow
 //todo ako je prazan ls napuniti ga na pocetku 
 //todo ucitati na pocetku allTasks ili prvu listu
 //TODO printanje liste 

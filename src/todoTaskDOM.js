@@ -115,7 +115,7 @@ const todoTaskDOM = (() => {
                 checkbox.setAttribute('id', task.title);
                 checkbox.setAttribute('value', task.title);
                 checkbox.classList.add('checkbox');
-                checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName)});
+                checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName, type)});
                 
                 const p = document.createElement('p');
                 p.textContent = task.title;
@@ -181,7 +181,7 @@ const todoTaskDOM = (() => {
                 checkbox.setAttribute('id', task.title);
                 checkbox.setAttribute('value', task.title);
                 checkbox.classList.add('checkbox');
-                checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName)});
+                checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName, type)});
                 
                 const p = document.createElement('p');
                 p.textContent = task.title;
@@ -241,7 +241,7 @@ const todoTaskDOM = (() => {
                 checkbox.setAttribute('id', task.title);
                 checkbox.setAttribute('value', task.title);
                 checkbox.classList.add('checkbox');
-                checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName)});
+                checkbox.addEventListener('click', function() {editTask.toggleFinishedFlag(this, listName, type)});
                 
                 const p = document.createElement('p');
                 p.textContent = task.title;

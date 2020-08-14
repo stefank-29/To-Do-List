@@ -66,44 +66,57 @@ const editTask = (() => {
 
     }
 
-    function _moveTaskToBottom(taskDiv, list) {
-        const index = taskDiv.dataset.index;
+    function _moveTaskToBottom(index, list, type) {
+        //const index = taskDiv.dataset.index;
         const task = list.getItems()[index];
-        
+       
         list.getItems().splice(index, 1);
         list.getItems().push(task);  
         localStorage.setItem('lists', JSON.stringify(todo.lists));
-        if(shortcuts.getAllTasks() === false){
-            todoTaskDOM.renderListTasks(undefined, list.name);
+       
+        if(type === 'today'){
+            shortcuts.showAllTasks(type);
+        }else if(type === '7days'){
+            shortcuts.showAllTasks(type);
+        }else if(shortcuts.getAllTasks() === false){
+            todoTaskDOM.renderListTasks(undefined, list.name);//render liste
         }else{
-            shortcuts.showAllTasks();
+           shortcuts.showAllTasks();
         }
         
     }
-    function _moveTaskToTop(taskDiv, list){
-        const index = taskDiv.dataset.index;
+    function _moveTaskToTop(index, list, type){
+        //const index = taskDiv.dataset.index;
         const task = list.getItems()[index];
 
         list.getItems().splice(index, 1);
         list.getItems().unshift(task);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
-        if(shortcuts.getAllTasks() === false){
-            todoTaskDOM.renderListTasks(undefined, list.name);
+
+        if(type === 'today'){
+            shortcuts.showAllTasks(type);
+        }else if(type === '7days'){
+            shortcuts.showAllTasks(type);
+        }else if(shortcuts.getAllTasks() === false){
+            todoTaskDOM.renderListTasks(undefined, list.name);//render liste
         }else{
-            shortcuts.showAllTasks();
+           shortcuts.showAllTasks();
         }
     }
 
-    function toggleFinishedFlag(checkbox, listName) {
+    function toggleFinishedFlag(checkbox, listName, type) {
         const currList = todo.getList(listName);
-        const taskIndex = checkbox.parentNode.dataset.index;
+        //const taskIndex = checkbox.parentNode.dataset.index;//! kao za task info 
+        const taskName = checkbox.parentNode.querySelector('p').textContent;
+        const taskIndex = currList.getItemIndex(taskName);
+
         currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
 
         if(currList.items[taskIndex].finished == true){
-            _moveTaskToBottom(checkbox.parentNode, currList);
+            _moveTaskToBottom(taskIndex, currList, type);
         }else{
-            _moveTaskToTop(checkbox.parentNode, currList);
+            _moveTaskToTop(taskIndex, currList, type);
         }
     }
 
