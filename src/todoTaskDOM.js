@@ -9,6 +9,7 @@ import Sortable, { MultiDrag, Swap } from 'sortablejs';
 import isToday from 'date-fns/isToday';
 import addWeeks from 'date-fns/addWeeks';
 import isWithinInterval from 'date-fns/isWithinInterval';
+import addDays from 'date-fns/addDays';
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -162,7 +163,7 @@ const todoTaskDOM = (() => {
         }else if(type === '7days'){
             tasks.filter(task => {
                 return isWithinInterval(new Date(task.dueDate), {
-                    start: new Date(),
+                    start: addDays(new Date(), -1),
                     end: addWeeks(new Date(), 1)
                   }) || task.dueDate === '';
             })
@@ -300,7 +301,7 @@ const todoTaskDOM = (() => {
         arrowUp.classList.add('fa-arrow-circle-up');
         span2.appendChild(arrowUp);
         span2.classList.add('up');
-        span2.addEventListener('click', function(){addQuickTask.addTask(this)});
+        span2.addEventListener('click', function(){addQuickTask.addTask(this, type)});
         quickTask.appendChild(input);
         quickTask.appendChild(span2);
         list.appendChild(quickTask);    
@@ -308,39 +309,42 @@ const todoTaskDOM = (() => {
         currentList = todo.getList(listName);
 
 
-
-        new Sortable(listTasks, {
-            animation: 200,
-            filter: '.finished',
-            onUpdate: function (/**Event*/evt) {
-                _saveTasksOrder(listTasks, listName);
-            },
-        });
+        if(type !== 'today' && type !== '7days'){
+            new Sortable(listTasks, {
+                animation: 200,
+                filter: '.finished',
+                onUpdate: function (/**Event*/evt) {
+                    _saveTasksOrder(listTasks, listName, type);
+                },
+            });
+        }
     }
 
     /***********************/
-    function _saveTasksOrder(listTasks, listName) {
+    function _saveTasksOrder(listTasks, listName, type) {
         //console.log(listName);
-        const list = todo.getList(listName);
-        const tasks = listTasks.querySelectorAll('.taskDiv');
-        let items = [];
-        
-        tasks.forEach(task => { // prolazim kroz taskove i ubacujem u niz
-            items.push(list.getItems()[task.dataset.index]); 
-        });
+        if(type == undefined){
+            const list = todo.getList(listName);
+            const tasks = listTasks.querySelectorAll('.taskDiv');
+            let items = [];
+            
+            tasks.forEach(task => { // prolazim kroz taskove i ubacujem u niz
+                items.push(list.getItems()[task.dataset.index]); 
+            });
 
-        list.getItems().length = 0;
-        items.forEach(item => { // prolazim kroz niz i ubacujem u list taskove
-            list.items.push(item);
-        });
-        
-        localStorage.setItem('lists', JSON.stringify(todo.lists));
+            list.getItems().length = 0;
+            items.forEach(item => { // prolazim kroz niz i ubacujem u list taskove
+                list.items.push(item);
+            });
+            
+            localStorage.setItem('lists', JSON.stringify(todo.lists));
 
-        if(shortcuts.getAllTasks() === false){
-            todoTaskDOM.renderListTasks(undefined, listName); // renderujem istu listu
-        }else{
-            shortcuts.showAllTasks();
-        }
+            if(shortcuts.getAllTasks() === false){
+                todoTaskDOM.renderListTasks(undefined, listName); // renderujem istu listu
+            }else{
+                shortcuts.showAllTasks();
+            }
+    }
     }
 
     const getCurrentList = () => currentList;

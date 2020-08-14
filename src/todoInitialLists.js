@@ -5,16 +5,30 @@ import {List} from './todoList';
 let data = {
     title : 'Task',
     description : 'opis',   
-    dueDate : '2020-09-17',
+    dueDate : '2020-08-17',
     priority: 'medium',
     note: 'nesto',
 }
 let data2 = {
          title : 'Zadatak',
          description : 'Nesto',
-         dueDate : '2020-10-21',
+         dueDate : '2020-08-15',
          priority: 'high',
          note: 'daaaa',
+}
+let data3 = {
+    title : 'Zadatak novi',
+    description : 'Nesto',
+    dueDate : '2020-08-14',
+    priority: 'high',
+    note: 'daaaa',
+}
+let data4 = {
+    title : 'Kupiti nesto',
+    description : 'Nesto',
+    dueDate : '2020-08-14',
+    priority: 'urgent',
+    note: 'daaaa',
 }
 
 
@@ -24,13 +38,20 @@ const todo = (() => {
     let groceryStore = List('Grocery store');
     let item1 = ToDoItem(data);
     let item2 = ToDoItem(data2);
-    let item3 = ToDoItem(data);
+    let item3 = ToDoItem(data3);
+    let item4 = ToDoItem(data4);
     personal.addItem(item1);
     personal.addItem(item2);
+    personal.addItem(item4);
     work.addItem(item3);
     work.addItem(item2);
+    work.addItem(item1);
+    groceryStore.addItem(item3);
     groceryStore.addItem(item2);
     groceryStore.addItem(item1);
+    groceryStore.addItem(item4);
+
+    
 
     let lists = [personal, work, groceryStore];
 

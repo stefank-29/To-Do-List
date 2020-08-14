@@ -1,5 +1,5 @@
 //? logika  
-//TODO today (za danasnje taskove da ne pise nista ili nesto drugo)
+//todo greska za task info uzima po indexu kad su svi tu
 //todo kad se cekira greska i za dodavanje  
 //TODO next 7 days (difference in weeks)
 //todo ako je prazan ls napuniti ga na pocetku 

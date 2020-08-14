@@ -5,7 +5,7 @@ import { todo } from './todoInitialLists';
 import {shortcuts} from './shortcuts';
 const addQuickTask = (() => {
     
-    function addTask(span){
+    function addTask(span, type){
         
         const input = span.parentNode.querySelector('.quickTaskInput');
         const currListName = span.parentNode.getAttribute('id');
@@ -24,7 +24,11 @@ const addQuickTask = (() => {
             localStorage.setItem('lists', JSON.stringify(todo.lists));
             todoMenuDOM.renderLists();
             todoMenuDOM.renderShortcuts();
-            if(shortcuts.getAllTasks() === false){
+            if(type === 'today'){
+                shortcuts.showAllTasks(type);
+            }else if(type === '7days'){
+                shortcuts.showAllTasks(type);
+            }else if(shortcuts.getAllTasks() === false){
               todoTaskDOM.renderListTasks(undefined, list.getName());
             }else{
                 shortcuts.showAllTasks();

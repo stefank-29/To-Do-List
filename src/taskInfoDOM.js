@@ -37,7 +37,7 @@ const taskInfoDOM = (() => {
         const taskDiv = this;
         const listName = taskDiv.dataset.list;
        // const task = todoTaskDOM.getCurrentList().items[index];
-       const task = todo.getList(listName).items[index];
+        const task = todo.getList(listName).items[index];
 
         
 
