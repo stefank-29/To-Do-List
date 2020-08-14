@@ -101,7 +101,7 @@ const todoTaskDOM = (() => {
         let i = 0;
         if(type === 'today'){
             tasks.filter(task => {
-                return isToday(new Date(task.dueDate));
+                return isToday(new Date(task.dueDate))   || task.dueDate === '';
             }).forEach(task => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('taskDiv');
@@ -133,7 +133,11 @@ const todoTaskDOM = (() => {
                 if(task.dueDate !== '' && task.finished === false){
                     const timeRemaining = document.createElement('div');
                     timeRemaining.classList.add('timeRemaining');
-                    timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                    if(!isToday(new Date(task.dueDate))){
+                        timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                    }else{
+                        timeRemaining.textContent = 'Today';
+                    }
                     taskDiv.appendChild(timeRemaining);
                 }
 
@@ -160,7 +164,7 @@ const todoTaskDOM = (() => {
                 return isWithinInterval(new Date(task.dueDate), {
                     start: new Date(),
                     end: addWeeks(new Date(), 1)
-                  });
+                  }) || task.dueDate === '';
             })
             .forEach(task => {
                 const taskDiv = document.createElement('div');
@@ -193,7 +197,11 @@ const todoTaskDOM = (() => {
                 if(task.dueDate !== '' && task.finished === false){
                     const timeRemaining = document.createElement('div');
                     timeRemaining.classList.add('timeRemaining');
-                    timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                    if(!isToday(new Date(task.dueDate))){
+                        timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                    }else{
+                        timeRemaining.textContent = 'Today';
+                    }
                     taskDiv.appendChild(timeRemaining);
                 }
 
@@ -247,7 +255,11 @@ const todoTaskDOM = (() => {
                 if(task.dueDate !== '' && task.finished === false){
                     const timeRemaining = document.createElement('div');
                     timeRemaining.classList.add('timeRemaining');
-                    timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                    if(!isToday(new Date(task.dueDate))){
+                        timeRemaining.textContent = formatDistanceToNow(new Date(task.dueDate), { addSuffix: true });
+                    }else{
+                        timeRemaining.textContent = 'Today';
+                    }
                     taskDiv.appendChild(timeRemaining);
                 }
 
