@@ -1,6 +1,7 @@
 //? logika  
-//TODO today (array.filter metoda)
-//TODO next 7 days
+//TODO today (za danasnje taskove da ne pise nista ili nesto drugo)
+//todo kad se cekira greska i za dodavanje  
+//TODO next 7 days (difference in weeks)
 //todo ako je prazan ls napuniti ga na pocetku 
 //todo ucitati na pocetku allTasks  
 //TODO printanje liste 
@@ -22,6 +23,5 @@ function callRenderFunctions(){
     todoMenuDOM.renderShortcuts();
     shortcuts.showAllTasks(); // ucitam na pocetku sve taskove
 }
-
 
 window.onload = callRenderFunctions();

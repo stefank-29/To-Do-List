@@ -6,7 +6,9 @@ import {editTask} from './editTask';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { shortcuts } from './shortcuts';
 import Sortable, { MultiDrag, Swap } from 'sortablejs';
-import isToday from 'date-fns/isToday'
+import isToday from 'date-fns/isToday';
+import addWeeks from 'date-fns/addWeeks';
+import isWithinInterval from 'date-fns/isWithinInterval';
 
 const todoTaskDOM = (() => {
     const lists = document.querySelector('#tasks');
@@ -154,7 +156,13 @@ const todoTaskDOM = (() => {
             });
             list.appendChild(listTasks);
         }else if(type === '7days'){
-            tasks.forEach(task => {
+            tasks.filter(task => {
+                return isWithinInterval(new Date(task.dueDate), {
+                    start: new Date(),
+                    end: addWeeks(new Date(), 1)
+                  });
+            })
+            .forEach(task => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('taskDiv');
                 taskDiv.addEventListener('click', taskInfoDOM.showInfo);
