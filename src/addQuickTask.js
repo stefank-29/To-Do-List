@@ -29,14 +29,14 @@ const addQuickTask = (() => {
             }else if(type === '7days'){
                 shortcuts.showAllTasks(type);
             }else if(shortcuts.getAllTasks() === false){
-              todoTaskDOM.renderListTasks(undefined, list.getName());
+                todoTaskDOM.renderListTasks(undefined, list.getName());
             }else{
                 shortcuts.showAllTasks();
             }
         }
     }
 
-    function addTaskOnEnter(inp) {
+    function addTaskOnEnter(inp, type) {
         const input = inp;
         const currListName = inp.parentNode.getAttribute('id');
         const data = {
@@ -53,7 +53,11 @@ const addQuickTask = (() => {
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         todoMenuDOM.renderLists();
         todoMenuDOM.renderShortcuts();
-        if(shortcuts.getAllTasks() === false){
+        if(type === 'today'){
+            shortcuts.showAllTasks(type);
+        }else if(type === '7days'){
+            shortcuts.showAllTasks(type);
+        }else if(shortcuts.getAllTasks() === false){
             todoTaskDOM.renderListTasks(undefined, list.getName());
         }else{
             shortcuts.showAllTasks();

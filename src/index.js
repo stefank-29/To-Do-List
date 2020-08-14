@@ -1,8 +1,7 @@
 //? logika  
-//todo kad se cekira greska i za dodavanje  
-//TODO next 7 days (difference in weeks)
+//todo kad se cekira greska i za dodavanje iz modala  
 //todo ako je prazan ls napuniti ga na pocetku 
-//todo ucitati na pocetku allTasks  
+//todo ucitati na pocetku allTasks ili prvu listu
 //TODO printanje liste 
 
 //pozadina 

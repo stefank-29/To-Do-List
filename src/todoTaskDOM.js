@@ -23,14 +23,14 @@ const todoTaskDOM = (() => {
         }
     }
 
-    function _upButtonStyle(e) {
-        const input = this;
-        const button = this.parentNode.querySelector('.up');   
+    function _upButtonStyle(inpt, type) {
+        const input = inpt;
+        const button = inpt.parentNode.querySelector('.up');   
         if(input.value !== ''){
             button.classList.add('enabled');
             input.classList.add('enabled'); 
-            if(e.key === 'Enter'){
-                addQuickTask.addTaskOnEnter(input);
+            if(event.key === 'Enter'){
+                addQuickTask.addTaskOnEnter(input, type);
             }
         }else{
             button.classList.remove('enabled');
@@ -292,9 +292,9 @@ const todoTaskDOM = (() => {
         input.setAttribute('type', 'text');
         input.setAttribute('maxlength', '50');
         input.setAttribute('placeholder', 'Click to quickly add task');
-        input.addEventListener('change', _upButtonStyle);
-        input.addEventListener('keydown', _upButtonStyle);
-        input.addEventListener('keyup', _upButtonStyle);
+        input.addEventListener('change', function(){_upButtonStyle(this, type)});
+        input.addEventListener('keydown', function(){_upButtonStyle(this, type)});
+        input.addEventListener('keyup', function(){_upButtonStyle(this, type)});
         const span2 = document.createElement('span');
         const arrowUp = document.createElement('i');
         arrowUp.classList.add('fas');
