@@ -33,11 +33,13 @@ const taskInfoDOM = (() => {
             return;
         }
         const taskTitle = this.querySelector('p').textContent;
-        const index = this.dataset.index;
+        //const index = this.dataset.index;//?ovo nekako promeniti
+        
         const taskDiv = this;
-        const listName = taskDiv.dataset.list;
-       // const task = todoTaskDOM.getCurrentList().items[index];
+        const listName = taskDiv.dataset.list; 
+        const index = todo.getList(listName).getItemIndex(taskTitle); //? ovako je top
         const task = todo.getList(listName).items[index];
+        
 
         
 

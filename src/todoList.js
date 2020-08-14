@@ -18,9 +18,16 @@ const List = (listName, listItems) => {
     function editName(newName) { name = newName};
     const getItems = () => items;
     const getItemsNumber = () => items.length;
+    const getItemIndex = (itemName) => {
+        const index = items.findIndex(item => {
+            return item.title === itemName; 
+        })
+        return index;
+    }
+
     const addItem = (item) => {
         items.unshift(item);
-        // loaclstg
+        // local stg
         // localStorage.setItem('lists', JSON.stringify(lists));
 
     };
@@ -36,7 +43,7 @@ const List = (listName, listItems) => {
     }
     return {
         getName ,editName, getItems, getItemsNumber, 
-        addItem, removeItem, removeItemByIndex, name, items
+        addItem, removeItem, removeItemByIndex, name, items, getItemIndex,
         
     }
 }
