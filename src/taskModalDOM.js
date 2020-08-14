@@ -29,7 +29,6 @@ const taskModalDOM = (() => {
 
     function showModal(button, listName, type){
         //console.log(this.getAttribute('id') == 'menuAddTask');
-        console.log(type);
         modalBg = document.createElement('div');
         modalBg.classList.add('modalBg');
         //task modal

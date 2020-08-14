@@ -9,7 +9,6 @@ const addTaskFromModal = (() => {
 
     function addTask(listName, type) {
         event.preventDefault();
-        console.log(type);
         const title = document.querySelector('#title');
         const selectList = document.querySelector('#listSelect')
         const description = document.querySelector('#description');
@@ -48,6 +47,7 @@ const addTaskFromModal = (() => {
             }
         }else if(btnAddTask.classList.contains('enabled') && selectList !== null){
             if(selectList.value !== ''){
+                type = document.querySelector('#menuAddTask').dataset.type;
                 const task = ToDoItem(data);
                 const currList = todo.getList(selectList.value);
                 currList.addItem(task);
