@@ -27,15 +27,15 @@ const taskInfoDOM = (() => {
         }
     }
 
-    function showInfo(e) {
-
-        if(e.target.tagName === 'INPUT' || e.target.tagName === 'I'){ // ako kliknem na checkbox
+    function showInfo(thiss, type) {
+        
+        if(event.target.tagName === 'INPUT' || event.target.tagName === 'I'){ // ako kliknem na checkbox
             return;
         }
-        const taskTitle = this.querySelector('p').textContent;
+        const taskTitle = thiss.querySelector('p').textContent;
         //const index = this.dataset.index;//?ovo nekako promeniti
         
-        const taskDiv = this;
+        const taskDiv = thiss;
         const listName = taskDiv.dataset.list; 
         const index = todo.getList(listName).getItemIndex(taskTitle); //? ovako je top
         const task = todo.getList(listName).items[index];
@@ -67,7 +67,7 @@ const taskInfoDOM = (() => {
         if(task.finished === false){
             deleteTask.textContent = 'Delete';
             deleteTask.setAttribute('id', 'deleteTask');
-            deleteTask.addEventListener('click', function() {editTask.deleteTask(index, listName)});
+            deleteTask.addEventListener('click', function() {editTask.deleteTask(index, listName, type)});
             saveTask.textContent = 'Save';
             saveTask.setAttribute('id', 'saveTask');
             saveTask.classList.add('enabled');
@@ -76,7 +76,7 @@ const taskInfoDOM = (() => {
         }else{
             restoreTask.setAttribute('id', 'restoreTask');
             restoreTask.textContent = 'Restore';
-            restoreTask.addEventListener('click', function(){editTask.restoreTask(taskDiv, index, listName);});
+            restoreTask.addEventListener('click', function(){editTask.restoreTask(taskDiv, index, listName, type);});
             saveTask.textContent = 'Save';
             saveTask.setAttribute('id', 'saveTask');
             saveTask.classList.add('enabled');
@@ -177,7 +177,6 @@ const taskInfoDOM = (() => {
 
         modalBg.addEventListener('click', _exitModal);
         modalBg.appendChild(modal);
-
         container.appendChild(modalBg);
 
         saveTask.addEventListener('click', function(){
@@ -188,7 +187,7 @@ const taskInfoDOM = (() => {
                 priority: select.value,
                 note: textarea.value,
             };
-            editTask.saveTask(task, inputData, listName)});
+            editTask.saveTask(task, inputData, listName, type)});
     }
 
     return {

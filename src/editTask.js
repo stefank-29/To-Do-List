@@ -6,7 +6,7 @@ import {shortcuts} from './shortcuts';
 
 const editTask = (() => {
 
-    function deleteTask(taskIndex, listName) {
+    function deleteTask(taskIndex, listName, type) {
         //const currList = todoTaskDOM.getCurrentList(); //!sredi
         const currList = todo.getList(listName);
         currList.removeItemByIndex(taskIndex);
@@ -14,31 +14,39 @@ const editTask = (() => {
 
         todoMenuDOM.renderLists();
         todoMenuDOM.renderShortcuts();
-        if(shortcuts.getAllTasks() === false){
-            todoTaskDOM.renderListTasks(undefined, currList.name); // renderujem istu listu
+        if(type === 'today'){
+            shortcuts.showAllTasks(type);
+        }else if(type === '7days'){
+            shortcuts.showAllTasks(type);
+        }else if(shortcuts.getAllTasks() === false){
+            todoTaskDOM.renderListTasks(undefined, currList.name);//render liste
         }else{
-            shortcuts.showAllTasks();
+           shortcuts.showAllTasks();
         }
         taskInfoDOM.exitModalOnButton();
     }
 
-    function deleteTaskOnCross(taskIndex, listName) {
+    function deleteTaskOnCross(taskIndex, listName, type) {
         //const currList = todoTaskDOM.getCurrentList();
         const currList = todo.getList(listName);
         currList.removeItemByIndex(taskIndex);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
-
+        console.log(type);
         todoMenuDOM.renderLists();
         todoMenuDOM.renderShortcuts();
 
-        if(shortcuts.getAllTasks() === false){
-            todoTaskDOM.renderListTasks(undefined, currList.name); // renderujem istu listu
+        if(type === 'today'){
+            shortcuts.showAllTasks(type);
+        }else if(type === '7days'){
+            shortcuts.showAllTasks(type);
+        }else if(shortcuts.getAllTasks() === false){
+            todoTaskDOM.renderListTasks(undefined, currList.name);//render liste
         }else{
-            shortcuts.showAllTasks();
+           shortcuts.showAllTasks();
         }
     }
 
-    function saveTask(task, data, listName) {
+    function saveTask(task, data, listName, type) {
         const inputTitle = document.querySelector('#title');
         const button = document.querySelector('#saveTask')
         //const currList = todoTaskDOM.getCurrentList(); //!sredi
@@ -53,10 +61,14 @@ const editTask = (() => {
             task.note = data.note;
 
             localStorage.setItem('lists', JSON.stringify(todo.lists));
-            if(shortcuts.getAllTasks() === false){
-                todoTaskDOM.renderListTasks(undefined, currList.name); // renderujem istu listu
+            if(type === 'today'){
+                shortcuts.showAllTasks(type);
+            }else if(type === '7days'){
+                shortcuts.showAllTasks(type);
+            }else if(shortcuts.getAllTasks() === false){
+                todoTaskDOM.renderListTasks(undefined, currList.name);//render liste
             }else{
-                shortcuts.showAllTasks();
+               shortcuts.showAllTasks();
             }
 
             taskInfoDOM.exitModalOnButton();
@@ -120,15 +132,18 @@ const editTask = (() => {
         }
     }
 
-    function restoreTask(task, taskIndex, listName) {
+    function restoreTask(task, taskInx, listName, type) {
         //const currList = todoTaskDOM.getCurrentList();//! getList()
         const currList = todo.getList(listName);
+        const taskIndex = currList.getItemIndex(task.textContent);
+        
+
         currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         if(currList.items[taskIndex].finished == true){
-            _moveTaskToBottom(task, currList);
+            _moveTaskToBottom(taskIndex, currList, type);
         }else{
-            _moveTaskToTop(task, currList);
+            _moveTaskToTop(taskIndex, currList, type);
         }
         taskInfoDOM.exitModalOnButton();
 

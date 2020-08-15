@@ -120,7 +120,7 @@ const todoTaskDOM = (() => {
             }).forEach(task => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('taskDiv');
-                taskDiv.addEventListener('click', taskInfoDOM.showInfo);
+                taskDiv.addEventListener('click', function(){taskInfoDOM.showInfo(this, type)});
                 taskDiv.setAttribute('data-index', i++);
                 taskDiv.setAttribute('data-list', listName);
                 const checkbox = document.createElement('input');
@@ -165,7 +165,7 @@ const todoTaskDOM = (() => {
                     span.classList.add('crossIcon');
                     const cross = document.createElement('i');
                     cross.classList.add('fas', 'fa-times-circle');
-                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName);});
+                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName, type);});
                     span.appendChild(cross);
                     taskDiv.appendChild(span);
                     p.style.border = 'none';
@@ -186,7 +186,7 @@ const todoTaskDOM = (() => {
             .forEach(task => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('taskDiv');
-                taskDiv.addEventListener('click', taskInfoDOM.showInfo);
+                taskDiv.addEventListener('click', function(){taskInfoDOM.showInfo(this, type)});
                 taskDiv.setAttribute('data-index', i++);
                 taskDiv.setAttribute('data-list', listName);
                 const checkbox = document.createElement('input');
@@ -231,7 +231,7 @@ const todoTaskDOM = (() => {
                     span.classList.add('crossIcon');
                     const cross = document.createElement('i');
                     cross.classList.add('fas', 'fa-times-circle');
-                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName);});
+                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName, type);});
                     span.appendChild(cross);
                     taskDiv.appendChild(span);
                     p.style.border = 'none';
@@ -246,7 +246,7 @@ const todoTaskDOM = (() => {
             tasks.forEach(task => {
                 const taskDiv = document.createElement('div');
                 taskDiv.classList.add('taskDiv');
-                taskDiv.addEventListener('click', taskInfoDOM.showInfo);
+                taskDiv.addEventListener('click', function(){taskInfoDOM.showInfo(this, type)});
                 taskDiv.setAttribute('data-index', i++);
                 taskDiv.setAttribute('data-list', listName);
                 const checkbox = document.createElement('input');
@@ -291,7 +291,7 @@ const todoTaskDOM = (() => {
                     span.classList.add('crossIcon');
                     const cross = document.createElement('i');
                     cross.classList.add('fas', 'fa-times-circle');
-                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName);});
+                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName, type);});
                     span.appendChild(cross);
                     taskDiv.appendChild(span);
                     p.style.border = 'none';
