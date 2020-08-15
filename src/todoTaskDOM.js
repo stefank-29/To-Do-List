@@ -54,16 +54,22 @@ const todoTaskDOM = (() => {
         })
     }
 
-    function renderListTasks(event, listTitle, flag, type) {
+    function renderListTasks(event, listTitle, flag, type, li) {
         
         if(flag !== true){
             _deleteListView();
             shortcuts.setAllTasks(false);
         }
         let listName;    
+        //! ovo treba drugacije jer za shortcuts je drugacije
         if(this.tagName === "LI"){ //ako sam kliknuo na meni
+            _deactiveAllLists(document.querySelector('#shortcutsList'));
             _deactiveAllLists(this.parentNode);
             this.classList.add('active');
+        }else if(li !== undefined && li.tagName === "LI"){
+            _deactiveAllLists(document.querySelector('#listsList'));
+            _deactiveAllLists(li.parentNode);
+            li.classList.add('active');
         }
 
         if(event !== undefined){ // ako sam kliknuo u meniju

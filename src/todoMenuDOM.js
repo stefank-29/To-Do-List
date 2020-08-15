@@ -189,15 +189,15 @@ const todoMenuDOM = (() => {
         const li1 = document.createElement('li');
         li1.textContent = 'Today';
         li1.setAttribute('id', 'today');
-        li1.addEventListener('click', shortcuts.todayTasks);
+        li1.addEventListener('click', function(){shortcuts.todayTasks(this)});
         const li2 = document.createElement('li');
         li2.textContent = 'Next 7 days';
         li2.setAttribute('id', 'sevenDays');
-        li2.addEventListener('click', shortcuts.next7DaysTasks);
+        li2.addEventListener('click', function(){shortcuts.next7DaysTasks(this)});
         const li3 = document.createElement('li');
         li3.textContent = 'All tasks';
         li3.setAttribute('id', 'allTasks');
-        li3.addEventListener('click', shortcuts.showAllTasks);
+        li3.addEventListener('click', function(){shortcuts.showAllTasks(undefined, this)});
         const ul = document.querySelector('#shortcutsList');
         _deleteMenu(ul);
         ul.appendChild(li1);

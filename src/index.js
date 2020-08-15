@@ -1,12 +1,14 @@
 //? logika  
-//todo ako je prazan ls napuniti ga na pocetku 
-//todo ucitati na pocetku allTasks ili prvu listu
-//TODO printanje liste i (task infa mozda)
+//TODO printanje liste i (task infa mozda)  
 
 //pozadina 
+//todo srediti default liste i taskove
 //todo promena pozadine
 //todo README.md
 //todo okacitit na TOP
+
+//TODO mozda prioriteti
+
 
 import {ToDoItem} from './todoItem';
 import {List} from './todoList';
