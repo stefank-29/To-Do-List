@@ -1,6 +1,3 @@
-//pozadina 
-//todo README.md
-//todo okacitit na TOP
 import {ToDoItem} from './todoItem';
 import {List} from './todoList';
 import {todo} from './todoInitialLists';
