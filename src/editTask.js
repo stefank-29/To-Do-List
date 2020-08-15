@@ -7,7 +7,6 @@ import {shortcuts} from './shortcuts';
 const editTask = (() => {
 
     function deleteTask(taskIndex, listName, type) {
-        //const currList = todoTaskDOM.getCurrentList(); //!sredi
         const currList = todo.getList(listName);
         currList.removeItemByIndex(taskIndex);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
@@ -50,7 +49,6 @@ const editTask = (() => {
     function saveTask(task, data, listName, type) {
         const inputTitle = document.querySelector('#title');
         const button = document.querySelector('#saveTask')
-        //const currList = todoTaskDOM.getCurrentList(); //!sredi
         const currList = todo.getList(listName); 
 
 
@@ -119,7 +117,6 @@ const editTask = (() => {
 
     function toggleFinishedFlag(checkbox, listName, type) {
         const currList = todo.getList(listName);
-        //const taskIndex = checkbox.parentNode.dataset.index;//! kao za task info 
         const taskName = checkbox.parentNode.querySelector('p').textContent;
         const taskIndex = currList.getItemIndex(taskName);
 
@@ -134,7 +131,6 @@ const editTask = (() => {
     }
 
     function restoreTask(task, taskInx, listName, type) {
-        //const currList = todoTaskDOM.getCurrentList();//! getList()
         const currList = todo.getList(listName);
         const taskIndex = currList.getItemIndex(task.textContent);
         
