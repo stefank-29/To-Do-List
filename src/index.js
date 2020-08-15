@@ -1,5 +1,4 @@
 //pozadina 
-//todo promena pozadine
 //todo README.md
 //todo okacitit na TOP
 import {ToDoItem} from './todoItem';

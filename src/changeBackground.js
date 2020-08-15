@@ -10,7 +10,7 @@ const changeBackground = (() => {
             if(i === 10){
                 i = 1;
             }
-        }, 3000);
+        }, 20000);
 
     }
     return {
