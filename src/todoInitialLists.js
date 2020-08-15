@@ -3,32 +3,60 @@ import {List} from './todoList';
 //let JSONfn = require('json-fn');
 //za testiranje
 let data = {
-    title : 'Task',
-    description : 'opis',   
-    dueDate : '2020-08-17',
+    title : 'Workout',
+    description : 'Pushups and cardio',   
+    dueDate : '2020-08-15',
     priority: 'medium',
-    note: 'nesto',
+    note: 'Cardio - bike or running for 30 minutes',
 }
 let data2 = {
-         title : 'Zadatak',
-         description : 'Nesto',
-         dueDate : '2020-08-15',
-         priority: 'high',
-         note: 'daaaa',
+         title : 'Shopping',
+         description : 'Buy t-shirt and jeans',
+         dueDate : '2020-08-16',
+         priority: 'low',
+         note: '',
 }
 let data3 = {
-    title : 'Zadatak novi',
-    description : 'Nesto',
-    dueDate : '2020-08-14',
-    priority: 'high',
-    note: 'daaaa',
+    title : 'Milk',
+    description : '',
+    dueDate : '2020-08-16',
+    priority: 'medium',
+    note: '',
 }
 let data4 = {
-    title : 'Kupiti nesto',
-    description : 'Nesto',
-    dueDate : '2020-08-14',
+    title : 'Ice cream',
+    description : 'With chocolate and vanilla',
+    dueDate : '2020-08-15',
+    priority: 'high',
+    note: '',
+}
+let data5 = {
+    title : 'Orange juice',
+    description : '100% juice',
+    dueDate : '2020-08-15',
+    priority: 'low',
+    note: 'Without sugar',
+}
+let data6 = {
+    title : 'Send emails to IT companies',
+    description : 'Ask for internship',
+    dueDate : '2020-08-15',
     priority: 'urgent',
-    note: 'daaaa',
+    note: '',
+}
+let data7 = {
+    title : 'Finish JS project',
+    description : 'Push to github',
+    dueDate : '2020-08-15',
+    priority: 'high',
+    note: 'Add README.md',
+}
+let data8 = {
+    title : 'Write CV',
+    description : 'Add project from github to portfolio',
+    dueDate : '2020-08-17',
+    priority: 'high',
+    note: '',
 }
 
 
@@ -40,17 +68,21 @@ const todo = (() => {
     let item2 = ToDoItem(data2);
     let item3 = ToDoItem(data3);
     let item4 = ToDoItem(data4);
+    let item5 = ToDoItem(data5);
+    let item6 = ToDoItem(data6);
+    let item7 = ToDoItem(data7);
+    let item8 = ToDoItem(data8);
+
+
     personal.addItem(item1);
     personal.addItem(item2);
-    personal.addItem(item4);
-    work.addItem(item3);
-    work.addItem(item2);
-    work.addItem(item1);
-    groceryStore.addItem(item3);
-    groceryStore.addItem(item2);
-    groceryStore.addItem(item1);
-    groceryStore.addItem(item4);
 
+    work.addItem(item7);
+    work.addItem(item6);
+    work.addItem(item8);
+    groceryStore.addItem(item3);
+    groceryStore.addItem(item4);
+    groceryStore.addItem(item5);
     
 
     let lists = [personal, work, groceryStore];
