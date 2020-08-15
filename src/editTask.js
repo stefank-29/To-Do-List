@@ -26,12 +26,13 @@ const editTask = (() => {
         taskInfoDOM.exitModalOnButton();
     }
 
-    function deleteTaskOnCross(taskIndex, listName, type) {
+    function deleteTaskOnCross(taskName, listName, type) {
         //const currList = todoTaskDOM.getCurrentList();
         const currList = todo.getList(listName);
+        const taskIndex = currList.getItemIndex(taskName);
+
         currList.removeItemByIndex(taskIndex);
         localStorage.setItem('lists', JSON.stringify(todo.lists));
-        console.log(type);
         todoMenuDOM.renderLists();
         todoMenuDOM.renderShortcuts();
 
@@ -137,7 +138,6 @@ const editTask = (() => {
         const currList = todo.getList(listName);
         const taskIndex = currList.getItemIndex(task.textContent);
         
-
         currList.items[taskIndex].finished = !currList.items[taskIndex].finished;
         localStorage.setItem('lists', JSON.stringify(todo.lists));
         if(currList.items[taskIndex].finished == true){

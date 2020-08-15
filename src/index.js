@@ -1,5 +1,4 @@
 //pozadina 
-//todo delete on x, i restore
 //todo promena pozadine
 //todo README.md
 //todo okacitit na TOP

@@ -165,7 +165,7 @@ const todoTaskDOM = (() => {
                     span.classList.add('crossIcon');
                     const cross = document.createElement('i');
                     cross.classList.add('fas', 'fa-times-circle');
-                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName, type);});
+                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.textContent, listName, type);});
                     span.appendChild(cross);
                     taskDiv.appendChild(span);
                     p.style.border = 'none';
@@ -231,7 +231,7 @@ const todoTaskDOM = (() => {
                     span.classList.add('crossIcon');
                     const cross = document.createElement('i');
                     cross.classList.add('fas', 'fa-times-circle');
-                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName, type);});
+                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.textContent, listName, type);});
                     span.appendChild(cross);
                     taskDiv.appendChild(span);
                     p.style.border = 'none';
@@ -291,7 +291,7 @@ const todoTaskDOM = (() => {
                     span.classList.add('crossIcon');
                     const cross = document.createElement('i');
                     cross.classList.add('fas', 'fa-times-circle');
-                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.dataset.index, listName, type);});
+                    span.addEventListener('click', function(){editTask.deleteTaskOnCross(this.parentNode.textContent, listName, type);});
                     span.appendChild(cross);
                     taskDiv.appendChild(span);
                     p.style.border = 'none';
