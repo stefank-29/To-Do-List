@@ -74,7 +74,12 @@
     cursor: pointer;   
     font-size: 2.2rem;
 }
-.add:hover{
+
+.add.list{
+    display: flex;
+    align-items: center;
+}
+.add.list *:hover{
     transform: scale(1.1);
 }
 
