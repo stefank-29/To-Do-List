@@ -3,6 +3,7 @@ import {taskModalDOM} from './taskModalDOM';
 import {addQuickTask} from './addQuickTask';
 import {taskInfoDOM} from './taskInfoDOM';
 import {editTask} from './editTask';
+import {printListTasks} from './printListTasks';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import { shortcuts } from './shortcuts';
 import Sortable, { MultiDrag, Swap } from 'sortablejs';
@@ -61,7 +62,6 @@ const todoTaskDOM = (() => {
             shortcuts.setAllTasks(false);
         }
         let listName;    
-        //! ovo treba drugacije jer za shortcuts je drugacije
         if(this.tagName === "LI"){ //ako sam kliknuo na meni
             _deactiveAllLists(document.querySelector('#shortcutsList'));
             _deactiveAllLists(this.parentNode);
@@ -85,6 +85,7 @@ const todoTaskDOM = (() => {
         // header
         const list = document.createElement('div');
         list.classList.add('listItem');
+        //list.classList.add('section-to-print');
         list.setAttribute('id', listName);
         const listHeader = document.createElement('div');
         listHeader.classList.add('listHeader');
@@ -92,11 +93,17 @@ const todoTaskDOM = (() => {
         h2.textContent = listName;
         listHeader.appendChild(h2);
         const span = document.createElement('span');
-        span.classList.add('add');
-        span.addEventListener('click', function() {taskModalDOM.showModal(this, listName, type)});
+        span.classList.add('add', 'list');
+        //span.addEventListener('click', function() {taskModalDOM.showModal(this, listName, type)});
         const plus = document.createElement('i');
         plus.classList.add('fas');
         plus.classList.add('fa-plus-circle');
+        plus.addEventListener('click', function() {taskModalDOM.showModal(this, listName, type)});
+        const printIcon = document.createElement('img');
+        printIcon.setAttribute('src', './images/printIcon.png');
+        printIcon.classList.add('printIcon');
+        printIcon.addEventListener('click', function(){printListTasks.print(this.parentNode.parentNode.parentNode)});
+        span.appendChild(printIcon);
         span.appendChild(plus);
         listHeader.appendChild(span);
         list.appendChild(listHeader);
@@ -300,6 +307,7 @@ const todoTaskDOM = (() => {
         const quickTask = document.createElement('div');
         quickTask.classList.add('quickTask');
         quickTask.setAttribute('id', listName);
+
         const input = document.createElement('input');
         input.classList.add('quickTaskInput');
         input.setAttribute('type', 'text');

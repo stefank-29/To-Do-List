@@ -1,8 +1,7 @@
 //? logika  
-//TODO printanje liste i (task infa mozda)  
+//TODO printanje liste
 
 //pozadina 
-//todo srediti default liste i taskove
 //todo promena pozadine
 //todo README.md
 //todo okacitit na TOP
