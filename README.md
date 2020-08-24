@@ -22,3 +22,7 @@ To Do list app built for assignment as part of the curriculum for the JavaScript
 * HTML5
 * Webpack
 * Git
+
+### Libraries used:
+* SortableJS
+* date-fns
